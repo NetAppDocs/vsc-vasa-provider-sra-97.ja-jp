@@ -1,0 +1,42 @@
+---
+permalink: manage/task-pair-protected-and-recovery-sites.html 
+sidebar: sidebar 
+keywords: pairing, protected, recovery, sites, 
+summary: Storage Replication Adapter （ SRA ）でストレージシステムを検出できるようにするには、作成された保護対象サイトとリカバリサイトを vSphere Client を使用してペアリングする必要があります。 
+---
+= 保護対象サイトとリカバリサイトをペアリング
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Storage Replication Adapter （ SRA ）でストレージシステムを検出できるようにするには、作成された保護対象サイトとリカバリサイトを vSphere Client を使用してペアリングする必要があります。
+
+.作業を開始する前に
+* 保護対象サイトとリカバリサイトに Site Recovery Manager （ SRM ）がインストールされている必要があります。
+* 保護対象サイトとリカバリサイトに SRA がインストールされている必要があります。
+
+
+SnapMirror のファンアウト構成は、ソースボリュームが 2 つの異なるデスティネーションにレプリケートされる構成です。これらの構成では、 SRM が仮想マシンをデスティネーションからリカバリする必要がある場合、リカバリ中に問題が発生します。
+
+[NOTE]
+====
+Storage Replication Adapter （ SRA ）では、ファンアウト SnapMirror 構成がサポートされません。
+
+====
+.手順
+. vSphere Client のホームページで [ サイトのリカバリ ] をダブルクリックし、 [ サイト ] をクリックします。
+. [メニュー]、[アクション]、[サイトのペアリング]の順にクリックします。
+. [ペアサイトリカバリマネージャサーバー*]ダイアログボックスで、保護サイトのプラットフォームサービスコントローラーのアドレスを入力し、[次へ*]をクリックします。
+. 「* vCenter Serverの選択*」セクションで、次の操作を行います。
++
+.. 保護対象サイトの vCenter Server が対応するペア候補として表示されていることを確認します。
+.. SSO 管理クレデンシャルを入力し、 [* 終了 * ] をクリックします。
+
+
+. プロンプトが表示されたら、 [ はい ] をクリックしてセキュリティ証明書を受け入れます。
+
+
+保護対象サイトとリカバリサイトの両方が [ オブジェクト ] ダイアログボックスに表示されます。

@@ -1,0 +1,62 @@
+---
+permalink: manage/task-edit-esxi-host-settings.html 
+sidebar: sidebar 
+keywords: editing, esxi, host, settings, for, vsc, vasa, provider, and, sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのダッシュボードを使用して、ESXiホストの設定を編集できます。 
+---
+= VSC、VASA Provider、SRAのESXiホスト設定を編集する
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのダッシュボードを使用して、ESXiホストの設定を編集できます。
+
+vCenter Server インスタンス用の ESXi ホストシステムを設定しておく必要があります。
+
+ESXi ホストが設定されている問題がある場合は、ダッシュボードの ESXi ホストシステムのポートレットに問題が表示されます。問題をクリックすると、問題を搭載した ESXi ホストのホスト名または IP アドレスを確認できます。
+
+.手順
+. vSphere Client * Home *ページで、* Virtual Storage Console *をクリックします。
+. ESXi ホストの設定を編集します。
++
+[cols="1a,1a"]
+|===
+| 設定を編集する場所 | 手順 
+
+
+ a| 
+表示されている問題
+ a| 
+.. [ESXi ホストシステム ] ポートレットで問題をクリックします。
+.. 設定を変更する ESXi ホストの名前をクリックします。
+.. ESXiホスト名を右クリックし、メニューをクリックします。NetApp VSC [推奨値の設定]。
+.. 必要な設定を変更し、 * OK * をクリックします。
+
+
+
+
+ a| 
+vSphere Client のホームページ
+ a| 
+.. メニュー：[Hosts and Clusters]をクリックします。
+.. 必要なESXiホストを右クリックし、メニューから「NetApp VSC [推奨値を設定]」を選択します。
+.. [OK] をクリックします。
+
+
+
+
+ a| 
+ESXi Host Systems ポートレット
+ a| 
+.. VSC の概要セクションで、従来のダッシュボード * タブをクリックします。
+.. ESXi ホスト設定の編集 * をクリックします。
+.. 設定を変更するホストの設定とステータスタブで ESXi ホスト名を選択し、 * next * （次へ * ）をクリックします。
+.. 推奨されるホスト設定タブで必要な設定を選択し、 * 次へ * をクリックします。
+.. [Summary] タブで選択内容を確認し、 [* 終了 *] をクリックします。
+
+
+|===
+

@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-vcenter-server-role-based-access-control-features-in-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: vcenter, server, role-based, access, control, features, vsc, vmware, vsphere, 
+summary: vCenter Server の RBAC を使用すると、 vSphere オブジェクトへのアクセスを制御できます。Virtual Storage Console for VMware vSphereでは、vCenter Server RBACとONTAP RBACにより、特定のストレージシステムのオブジェクトに対して特定のユーザが実行できるVSCタスクが決まります。 
+---
+= VSC for VMware vSphereでのvCenter Server RBAC機能の使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server の RBAC を使用すると、 vSphere オブジェクトへのアクセスを制御できます。Virtual Storage Console for VMware vSphereでは、vCenter Server RBACとONTAP RBACにより、特定のストレージシステムのオブジェクトに対して特定のユーザが実行できるVSCタスクが決まります。
+
+タスクを完了するには、適切な vCenter Server RBAC アクセス許可が必要です。VSC でのタスクの実行時、まずユーザの vCenter Server アクセス許可が確認され、次にユーザの ONTAP 権限が確認されます。
+
+vCenter Server アクセス許可をルートオブジェクト（ルートフォルダ）に対して設定することができます。その後、アクセス許可が不要な子エンティティのアクセスを禁止することでセキュリティを強化できます。

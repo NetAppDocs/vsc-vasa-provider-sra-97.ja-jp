@@ -1,0 +1,49 @@
+---
+permalink: manage/reference-verify-vvol-dashboard-data-requirements.html 
+sidebar: sidebar 
+keywords: vVol, dashboard, data, requirements, 
+summary: VMware仮想ボリューム（vVol）データストアと仮想マシンの詳細を動的に表示するには、VVolダッシュボードのいくつかの重要な要件を確認する必要があります。 
+---
+= VVolダッシュボードのデータ要件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware仮想ボリューム（vVol）データストアと仮想マシンの詳細を動的に表示するには、VVolダッシュボードのいくつかの重要な要件を確認する必要があります。
+
+次の表は、プロビジョニングされたSAN vVolデータストアと仮想マシンのパフォーマンス指標がvVolダッシュボードに表示されない場合に確認する必要がある項目の概要を示しています。
+
+[cols="1a,1a"]
+|===
+| 考慮事項 | 説明 
+
+
+ a| 
+OnCommand API サービスを初めて導入する場合
+ a| 
+* ONTAP 9.6 以前のクラスタを使用している場合、 OnCommand API サービス 2.1 以降を使用している。
++
+ONTAP 9.7 以降を使用している場合は、 OnCommand API サービスを VASA Provider に登録する必要はありません。
+
+* ネットアップサポートサイトから OnCommand OnCommand サービスをダウンロードしてインストールしたら、 _API サービスインストールおよびセットアップガイドに記載されているインストール手順に従ってください。
+* 各 VASA Provider インスタンスに専用の OnCommand API サービスインスタンスが用意されている。
++
+複数の VASA Provider インスタンスまたは vCenter Server で OnCommand API サービスを共有しないでください。
+
+* OnCommand API サービスが実行されており、アクセス可能である。
+
+
+
+
+ a| 
+ストレージシステム
+ a| 
+* ONTAP 9.3 以降を使用している。
+* ストレージシステムの適切なクレデンシャルを使用している。
+* ストレージシステムがアクティブであり、アクセス可能である。
+* 選択した仮想マシンで少なくとも 1 つの vVol データストアを使用しており、仮想マシンのディスク上で I/O 処理を実行している。
+
+
+|===

@@ -1,0 +1,42 @@
+---
+permalink: manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html 
+sidebar: sidebar 
+keywords: thick, provisioning, of, VVols, fails, for, ONTAP, 9.4, storage, systems, 
+summary: ONTAP 9.4ストレージシステムでは、Virtual Volume（VVol）データストアにシックプロビジョニングされたFlexVol がない場合、VVolのシックプロビジョニングが失敗します。 
+---
+= ONTAP 9.4ストレージシステムでVVolのシックプロビジョニングが失敗する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.4ストレージシステムでは、Virtual Volume（VVol）データストアにシックプロビジョニングされたFlexVol がない場合、VVolのシックプロビジョニングが失敗します。
+
+
+
+== 問題
+
+VVolのプロビジョニング中に、次のようなエラーメッセージが表示されることがあります。
+
+[listing]
+----
+com.netapp.vasa.vvol.exceptions.OutOfResourceException: Unable to find a location
+for a vvol of size 4,096 in storage container vvol_nfs_new - Checked 1 places.
+Specific reasons were vvol_nfs_new | Final Score: 0 | 100 -> 0 : FlexVol of
+vvol_nfs_new does not support required storage profile, details [FlexVolume with
+name vvol_nfs_new is not thick provisioned]
+----
+
+
+== 原因
+
+このエラーは、VVolにシックプロビジョニングされたFlexVol がない場合に発生します。
+
+
+
+== 解決策
+
+. シックプロビジョニングが有効なストレージ機能を適用した新しいFlexVol をVVolに追加します。
+. FlexVol ボリュームを使用して新しい仮想マシンを作成します。
+

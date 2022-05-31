@@ -1,0 +1,26 @@
+---
+permalink: manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html 
+sidebar: sidebar 
+keywords: error, while, accessing, the, vsc, summary, page, of, virtual, appliance, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入したあとにVSCの概要ページにアクセスしようとすると、エラーメッセージ/opt/netapp/vscserver/etc/vsc/performance.json（指定したファイルまたはディレクトリは存在しません）が表示される場合があります。 
+---
+= 仮想アプライアンスのVSCの概要ページにアクセス中にエラーが発生しました
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスの導入後にVSCの概要ページにアクセスしようとすると、「/opt/netapp/vscserver/etc/vsc/performance.json（No such file or directory）」というエラーメッセージが表示される場合があります。
+
+
+
+== 説明
+
+VSC、VASA Provider、SRA仮想アプライアンスの導入後にVSCダッシュボードにアクセスしようとすると、スケジューラの初期化プロセスが完了していないためにエラーが発生することがあります。
+
+
+
+== 回避策
+
+仮想アプライアンスの導入後、パフォーマンススケジューラの初期化プロセスが完了するまで数秒待ってから、をクリックします image:../media/dashboard-refresh-icon.gif[""] ボタンをクリックして、最新のデータを取得します。

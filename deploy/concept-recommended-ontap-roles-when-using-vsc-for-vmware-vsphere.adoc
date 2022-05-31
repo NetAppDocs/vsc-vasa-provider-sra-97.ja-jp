@@ -1,0 +1,52 @@
+---
+permalink: deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: recommended, ontap, roles, when, using, vsc, vmware, vsphere, 
+summary: 推奨されるONTAP ロールを設定して、Virtual Storage Console for VMware vSphereおよびRole-Based Access Control（RBAC；ロールベースアクセス制御）を使用できます。これらのロールには、（VSC）タスクで実行するストレージ処理に必要なONTAP 権限が含まれています。 
+---
+= VSC for VMware vSphere使用時に推奨されるONTAP ロール
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+推奨されるONTAP ロールを設定して、Virtual Storage Console for VMware vSphereおよびRole-Based Access Control（RBAC；ロールベースアクセス制御）を使用できます。これらのロールには、（VSC）タスクで実行するストレージ処理に必要なONTAP 権限が含まれています。
+
+新しいユーザロールを作成するには、 ONTAP を実行しているストレージシステムに管理者としてログインする必要があります。次のいずれかを使用して ONTAP ロールを作成できます。
+
+* 9.7以降
++
+link:task-configure-user-role-and-privileges.html["ユーザロールと権限を設定"]
+
+* RBAC User Creator for ONTAP ツール（ ONTAP 9.6 以前を使用している場合）
++
+https://community.netapp.com/t5/Virtualization-Articles-and-Resources/RBAC-User-Creator-tool-for-VSC-VASA-Provider-and-Storage-Replication-Adapter-7-0/ta-p/133203["VSC 、 VASA Provider 、 Storage Replication Adapter 7.0 for VMware vSphere 用の RBAC User Creator ツール"^]
+
+
+
+各 ONTAP ロールには、ロールのクレデンシャルを構成するユーザ名とパスワードのペアが関連付けられています。このクレデンシャルを使用してログインしないと、ロールに関連付けられたストレージ処理にアクセスできません。
+
+セキュリティ対策として、 VSC 固有の ONTAP ロールは階層構造になっています。最初のロールは最も制限のあるロールで、 VSC の最も基本的なストレージ処理に関連する権限だけを含みます。次のロールには、そのロール独自の権限と、前のロールに関連付けられているすべての権限が含まれます。以降、上位のロールほど制限が少なく、より多くのストレージ処理をサポートします。
+
+VSC を使用する際に推奨される ONTAP RBAC ロールのいくつかを次に示します。ロールを作成したら、仮想マシンのプロビジョニングなど、ストレージに関するタスクを実行する必要があるユーザにそのロールを割り当てることができます。
+
+. 検出
++
+ストレージシステムを追加できます。
+
+. ストレージを作成します
++
+ストレージを作成できます。また、 Discovery ロールに関連付けられているすべての権限が含まれます。
+
+. ストレージを変更します
++
+ストレージを変更できます。また、 Discovery ロールと Create Storage ロールに関連付けられているすべての権限が含まれます。
+
+. ストレージを破棄します
++
+ストレージを破棄できます。また、 Discovery ロール、 Create Storage ロール、 Modify Storage ロールに関連付けられているすべての権限が含まれます。
+
+
+
+VASA Provider for ONTAP を使用する場合は、 Policy-Based Management （ PBM ；ポリシーベース管理）ロールも設定します。ストレージポリシーを使用してストレージを管理できます。このロールを使用するには、「検出」ロールも設定する必要があります。

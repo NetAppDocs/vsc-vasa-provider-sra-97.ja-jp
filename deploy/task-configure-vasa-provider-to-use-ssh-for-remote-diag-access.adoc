@@ -1,0 +1,39 @@
+---
+permalink: deploy/task-configure-vasa-provider-to-use-ssh-for-remote-diag-access.html 
+sidebar: sidebar 
+keywords: configuring, virtual, appliance, vsc, vasa, provider, sra, use, ssh, for, remote, diag, access, 
+summary: diagユーザのSSHアクセスを有効にするようにVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを設定することができます。 
+---
+= リモートdiagアクセスにSSHを使用するようにVSC、VASA Provider、SRA仮想アプライアンスを設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+diagユーザのSSHアクセスを有効にするようにVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを設定することができます。
+
+vCenter Server インスタンスの VASA Provider 拡張機能を有効にする必要があります。
+
+SSHを使用してdiagユーザにアクセスする際は次の制限があります。
+
+* SSHをアクティブ化した場合、ログインは1回だけ許可されます。
+* diagユーザへのSSHアクセスは、次のいずれかの状況になると無効になります。
++
+** タイムアウトした場合。
++
+ログインセッションの有効期限は翌日の午前 0 時までです。
+
+** SSH を使用して diag ユーザとして再度ログインした場合。
+
+
+
+
+.手順
+. vCenter Server で、 VASA Provider へのコンソールを開きます。
+. maintユーザとしてログインします。
+. 「4」と入力して、「* Support and Diagnostics（サポートおよび診断）」*を選択します。
+. 「3」と入力して、「*リモート診断アクセスを有効にする*」を選択します。
+. [*Confirmation*]ダイアログボックスに「y」と入力して、リモート診断アクセスを有効にします。
+. リモート診断アクセス用のパスワードを入力します。
+

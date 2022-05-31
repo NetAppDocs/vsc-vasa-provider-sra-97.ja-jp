@@ -1,0 +1,16 @@
+---
+permalink: deploy/concept-installation-workflow-for-new-users.html 
+sidebar: sidebar 
+keywords: deployment, workflow, new, users, vsc, vasa, provider, sra, virtual, appliance, 
+summary: VMwareを初めて導入し、ネットアップのVSC製品を使用したことがない場合は、VSC、VASA Provider、SRA仮想アプライアンスを導入して設定する前に、vCenter Serverを設定してESXiホストをセットアップする必要があります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMwareを初めて導入し、ネットアップのVSC製品を使用したことがない場合は、VSC、VASA Provider、SRA仮想アプライアンスを導入して設定する前に、vCenter Serverを設定してESXiホストをセットアップする必要があります。
+
+image::../media/new-user-deployment-workflow-vsc-vp-and-sra-7-0.gif[新規ユーザ導入ワークフロー： VSC VP および SRA 7 0]

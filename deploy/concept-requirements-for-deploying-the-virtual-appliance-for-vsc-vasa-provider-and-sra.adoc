@@ -1,0 +1,14 @@
+---
+permalink: deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入する前に、導入要件を確認し、実行するタスクを決めておく必要があります。タスクに基づいて、VSC、VASA Provider、SRA仮想アプライアンスの導入モデルを選択できます。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスを導入するための要件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入する前に、導入要件を確認し、実行するタスクを決めておく必要があります。タスクに基づいて、VSC、VASA Provider、SRA仮想アプライアンスの導入モデルを選択できます。

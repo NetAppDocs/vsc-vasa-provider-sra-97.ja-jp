@@ -1,0 +1,54 @@
+---
+permalink: deploy/reference-set-ipv4-or-ipv6.html 
+sidebar: sidebar 
+keywords: setting, ipv4, ipv6, 
+summary: プリファレンスファイルkaminoprefs.xmlに新しいオプションが追加されました。このオプションを使用して、VSCに追加されるすべてのストレージシステムに対してIPv4またはIPv6のサポートを有効にすることができます。 
+---
+= IPv4またはIPv6を設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プリファレンスファイル「kaminoprefs.xml」に新しいオプションが追加されました。このオプションを設定すると、VSCに追加されるすべてのストレージシステムでIPv4またはIPv6のサポートを有効にすることができます。
+
+* 「 efault.override.option.provision.mount.datastore.address.family` 」パラメータが「 kaminoprefs.xml 」プリファレンスファイルに追加され、データストアプロビジョニング用の優先データ LIF プロトコルが設定されました。
++
+このプリファレンスは、 VSC に追加されるすべてのストレージシステムに適用されます。
+
+* 新しいオプションの値は 'ipv4'ipv6' および 'none' です
+* デフォルトでは、値は「 NONE 」に設定されています。
+
+
+[cols="1a,1a"]
+|===
+| 価値 | 説明 
+
+
+ a| 
+なし
+ a| 
+* プロビジョニングの際、クラスタのタイプまたは管理LIFと同じIPv6またはIPv4アドレスタイプのデータLIFを使用してストレージが追加されます。
+* データLIFのIPv6またはIPv4アドレスタイプがで使用されていない場合は、他のタイプのデータLIFがある場合はそのデータLIFを使用してプロビジョニングが行われます。
+
+
+
+
+ a| 
+IPv4
+ a| 
+* 選択したのIPv4データLIFを使用してプロビジョニングが実行されます。
+* にIPv4データLIFがない場合、で使用可能なIPv6データLIFがあれば、そのデータLIFを使用してプロビジョニングが行われます。
+
+
+
+
+ a| 
+IPv6
+ a| 
+* 選択したのIPv6データLIFを使用してプロビジョニングが実行されます。
+* にIPv6データLIFがない場合、で使用可能なIPv4のデータLIFがあれば、プロビジョニングはIPv4のデータLIFを介して行われます。
+
+
+|===

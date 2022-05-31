@@ -1,0 +1,73 @@
+---
+permalink: deploy/task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, storage, console, storage, replication, adapter, upgrading, to, the, 9.7.1, virtual, appliance, for, vsc, vasa, provider, sra, 
+summary: ここに記載されている手順に従って、VSC、VASA Provider、SRA仮想アプライアンス9.7.1への直接アップグレードを既存の9.7から実行できます。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンス9.7.1にアップグレードする
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ここに記載されている手順に従って、VSC、VASA Provider、SRA仮想アプライアンス9.7.1への直接アップグレードを既存の9.7から実行できます。
+
+.作業を開始する前に
+* VSC、VASA Provider、SRA仮想アプライアンス9.7.1の「.iso」ファイルをダウンロードしておく必要があります。
+* VSC、VASA Provider、SRA仮想アプライアンスがアップグレード後に最適に機能するためには、12GB以上のRAMを確保する必要があります。
+* vSphere Client のブラウザキャッシュをクリーンアップする必要があります。
++
+xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします]
+
+
+
+VASA Provider のステータスは、アップグレード後も既存の導入環境と同じになります。アップグレード後に要件に基づいて VASA Provider を手動で有効または無効にする必要があります。ただし、従来のデータストアのプロビジョニングやストレージアラームのストレージ機能プロファイルが有効になるため、 VASA Provider は VMware 仮想ボリューム（ vVol ）を使用していない場合でも有効にすることを推奨します。
+
+[NOTE]
+====
+9.7より前のリリースから9.7P2以降への直接アップグレードは、VSC、VASA Provider、SRA仮想アプライアンスではサポートされていません。最初に既存の環境をVSC、VASA Provider、SRA仮想アプライアンス9.7にアップグレードしてから、新しいリリースにアップグレードする必要があります。VSC、VASA Provider、SRA仮想アプライアンス9.7.1にアップグレードし、VVOLレプリケーションを使用する場合は、Site Recovery Manager（SRM）がインストールされた仮想アプライアンスでvCenter Serverをもう1つセットアップする必要があります。
+
+====
+.手順
+. ダウンロードした「.iso」ファイルを仮想アプライアンスにマウントします。
++
+.. メニュー：設定の編集[DVD/CD-ROMドライブ]をクリックします。
+.. ドロップダウンリストから * Datastore ISO * file を選択します。
+.. ダウンロードした「.iso」ファイルを参照して選択し、「パワーオン時に*接続」チェックボックスを選択します。
+
+
+. 導入した仮想アプライアンスの* Summary *タブにアクセスします。
+. * をクリックしますimage:../media/launch-maintenance-console.gif[""]* メンテナンスコンソールを起動します。
+. 「ドメインメニュー」プロンプトで、「システム構成」に「 2 」オプションを入力し、「アップグレード」に「 8 」オプションを入力します。
++
+アップグレードが終了すると、仮想アプライアンスが再起動します。VSC、VASA Provider、SRA仮想アプライアンスは、アップグレード前と同じIPアドレスを使用してvCenter Serverに登録されます。
+
+. VSC、VASA Provider、SRA仮想アプライアンスをIPv6アドレスでvCenter Serverに登録するには、次の手順を実行する必要があります。
++
+.. VSC、VASA Provider、SRA仮想アプライアンスの登録を解除する
+.. 登録*ページを使用して、VSC、VASA Provider、SRA仮想アプライアンスのIPv6アドレスをvCenter Serverに登録します。
+.. 登録後、 VSC と VASA Provider の証明書を再生成します。
+
+
++
+[NOTE]
+====
+IPv6 は vCenter Server 6.7 以降でのみサポートされます。
+
+====
+. vSphere Clientからログアウトして再度ログインすると、VSC、VASA Provider、SRA仮想アプライアンスが導入されていることが表示されます。
++
+.. 既存の vSphere Web Client または vSphere Client からログアウトし、ウィンドウを閉じます。
+.. vSphere Client にログインします。
++
+vSphere Client でプラグインが更新されるまでに数分かかる場合があります。
+
+
+
+
+
+* 関連情報 *
+
+xref:task-enable-vasa-provider-for-configuring-virtual-datastores.adoc[仮想データストアを設定するための VASA Provider の有効化]

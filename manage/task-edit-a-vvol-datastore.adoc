@@ -1,0 +1,41 @@
+---
+permalink: manage/task-edit-a-vvol-datastore.html 
+sidebar: sidebar 
+keywords: editing, a, vvols, datastore, 
+summary: 既存の VMware 仮想ボリューム（ vVol ）データストアを編集してデフォルトのストレージ機能プロファイルを変更することができます。デフォルトのストレージ機能プロファイルは、主にスワップ vVol に使用されます。 
+---
+= vVol データストアを編集する
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+既存の VMware 仮想ボリューム（ vVol ）データストアを編集してデフォルトのストレージ機能プロファイルを変更することができます。デフォルトのストレージ機能プロファイルは、主にスワップ vVol に使用されます。
+
+.手順
+. vSphere Client ページで、 * Hosts and Clusters * をクリックします。
+. データストアを右クリックして、メニューを選択します。NetApp VSC [Edit Properties of VVol Datastore]
++
+VVolデータストアのプロパティの編集ダイアログボックスが表示されます。
+
+. 必要な変更を行います。
++
+vVolデータストアのデフォルトのストレージ機能プロファイルを変更するには、vVolデータストアの編集ダイアログボックスのドロップダウンリストで新しいプロファイルを選択します。vVol データストアの名前や概要を変更することもできます。
+
++
+[NOTE]
+====
+VVOL データストアの配置先の vCenter Server を変更することはできません。
+
+====
+. 変更が完了したら、「 * OK * 」をクリックします。
++
+vVol データストアを更新するかどうかを確認するメッセージボックスが表示されます。
+
+. [OK] をクリックして変更を適用します。
++
+vVol データストアが更新されたことを示すメッセージが表示されます。
+
+

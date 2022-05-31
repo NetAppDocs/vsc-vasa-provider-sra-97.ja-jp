@@ -1,0 +1,64 @@
+---
+permalink: manage/concept-what-vasa-provider-reports-do.html 
+sidebar: sidebar 
+keywords: VSC, VASA Provider, and SRA 
+summary: vVol レポートには、 VMware Virtual Volumes （ vVol ）データストアと、それらのデータストアに作成された仮想マシンに関する詳細情報が表示されます。VVolダッシュボードを使用すると、vCenter Server内のVVolデータストアおよび仮想マシンの潜在的な問題を確認して特定できます。 
+---
+= vVol レポート
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vVol レポートには、 VMware Virtual Volumes （ vVol ）データストアと、それらのデータストアに作成された仮想マシンに関する詳細情報が表示されます。VVolダッシュボードを使用すると、vCenter Server内のVVolデータストアおよび仮想マシンの潜在的な問題を確認して特定できます。
+
+レポートを表示、整理、エクスポートできます。vVol データストアおよび仮想マシンのレポートデータは、 OnCommand API サービスと一緒に ONTAP から提供されます。
+
+vVol には、次の組み込みのレポートが用意されています。
+
+* VVolデータストアレポート
+* VVol VMレポート
+
+
+
+
+== VVolデータストアレポート
+
+VVol Datastore Report *メニューには、データストアに関する次のパラメータに関する情報が表示されます。
+
+* vVol データストア名
+* 空きスペース
+* 使用済みスペース
+* 合計スペース
+* 使用済みスペースの割合
+* 使用可能なスペースの割合
+* IOPS
+* レイテンシ
+
+
+レポートが生成された時刻を確認することもできます。VVol Datastore Report *メニューでは、要件に応じてレポートを整理し、CSVにエクスポート*ボタンを使用して整理されたレポートをエクスポートすることができます。レポート内の各SAN vVolデータストア名は、選択したSAN vVolデータストアの* Monitor *タブに移動するためのリンクで、パフォーマンス指標を表示できます。
+
+
+
+== vVol 仮想マシンレポート
+
+VVol Virtual Machine Summary Report *メニューには、選択したvCenter Serverに対してVASA Provider for ONTAP でプロビジョニングされたSAN VVOLデータストアを使用するすべての仮想マシンについて、次のパフォーマンス指標が表示されます。
+
+* 仮想マシンの名前
+* コミット済み容量
+* アップタイム
+* スループット
++
+仮想マシンの電源がオンになっているかオフになっているかが表示されます。
+
+* 論理スペース
+* ホスト
+* 電源状態
+* レイテンシ
++
+仮想マシンに関連付けられているすべての VVol データストアでの仮想マシンのレイテンシが表示されます。
+
+
+
+レポート内の各仮想マシン名は、選択した仮想マシンの*Monitor*タブへのリンクです。仮想マシンレポートを要件に応じて整理し、レポートを「 .csv 」形式でエクスポートして、ローカルシステムに保存できます。保存したレポートには、タイムスタンプが追加されます。

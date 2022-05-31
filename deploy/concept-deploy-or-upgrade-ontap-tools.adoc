@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-deploy-or-upgrade-ontap-tools.html 
+sidebar: sidebar 
+keywords: deploying, virtual, appliance, deploying, upgrading, vsc, vasa, provider, sra, 
+summary: VSC、VASA Provider、SRA仮想アプライアンスをダウンロードしてVMware vSphere環境に導入し、その後、VSC、VASA Provider、SRAを使用して実行するタスクに基づいて必要なアプリケーションを設定する必要があります。 
+---
+= VSC、VASA Provider、SRAを導入またはアップグレードする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想アプライアンスをダウンロードしてVMware vSphere環境に導入し、その後、VSC、VASA Provider、SRAを使用して実行するタスクに基づいて必要なアプリケーションを設定する必要があります。
+
+* 関連情報 *
+
+xref:task-enable-vasa-provider-for-configuring-virtual-datastores.adoc[仮想データストアを設定するための VASA Provider の有効化]

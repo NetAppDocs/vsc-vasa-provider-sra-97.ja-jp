@@ -1,0 +1,41 @@
+---
+permalink: deploy/task-configure-user-role-and-privileges.html 
+sidebar: sidebar 
+keywords: user, roles, configuring, user, roles, and, privileges, 
+summary: VSC、VASA Provider、SRA仮想アプライアンスに付属のJSONファイルとONTAP System Managerを使用して、ストレージシステムの管理に使用する新しいユーザロールを設定できます。 
+---
+= ユーザロールと権限を設定
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想アプライアンスに付属のJSONファイルとONTAP System Managerを使用して、ストレージシステムの管理に使用する新しいユーザロールを設定できます。
+
+.作業を開始する前に
+* VSC、VASA Provider、SRA仮想アプライアンスから、「+ https://{virtual_appliance_IP}:9083/vsc/config/VSC_ONTAP_User_Privileges.zip+`」を使用してONTAP Privilegesファイルをダウンロードしておく必要があります。
+* ONTAP 9.7 System Managerを設定しておく必要があります。
+* ストレージシステムの管理者権限でログインしている必要があります。
+
+
+.手順
+. ダウンロードした「+ https://{virtual_appliance_IP}:9083/vsc/config/VSC_ONTAP_User_Privileges.zip+`」ファイルを解凍します。
+. ONTAP システムマネージャにアクセスします。
+. メニューをクリックします。cluster [設定]、[ユーザとロール]の順に選択します。
+. [ ユーザーの追加 ] をクリックします。
+. [ユーザーの追加*]ダイアログボックスで、[仮想化製品*]を選択します。
+. [* Browse] をクリックして、 ONTAP 権限 JSON ファイルを選択し、アップロードします。
++
+プロダクトフィールドには、自動的に値が入力されます。
+
+. 必要な機能を*Product Capability *(製品機能*)ドロップダウンメニューから選択します。
++
+[ * 役割 * （ * role * ） ] フィールドは、選択したプロダクト機能に基づいて自動的に入力されます。
+
+. 必要なユーザ名とパスワードを入力します。
+. ユーザに必要な権限（ Discovery 、 Create Storage 、 Modify Storage 、 Destroy Storage ）を選択し、 * Add * をクリックします。
+
+
+新しいロールとユーザが追加され、設定したロールの詳細な権限が表示されます。

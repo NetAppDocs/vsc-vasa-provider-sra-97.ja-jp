@@ -1,0 +1,29 @@
+---
+permalink: deploy/task-configure-sra-on-srm-appliance.html 
+sidebar: sidebar 
+keywords: configuring, sra, srm, appliance, 
+summary: SRM アプライアンスを導入したら、 SRM アプライアンスに SRA を設定する必要があります。SRA を正しく設定すると、ディザスタリカバリ管理のために SRM アプライアンスが SRA と通信できるようになります。SRMアプライアンスとSRAの間の通信を有効にするためには、VSC、VASA Provider、SRA仮想アプライアンスのクレデンシャル（IPアドレスと管理者パスワード）をSRMアプライアンスに保存する必要があります。 
+---
+= SRM アプライアンスで SRA を設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SRM アプライアンスを導入したら、 SRM アプライアンスに SRA を設定する必要があります。SRA を正しく設定すると、ディザスタリカバリ管理のために SRM アプライアンスが SRA と通信できるようになります。SRMアプライアンスとSRAの間の通信を有効にするためには、VSC、VASA Provider、SRA仮想アプライアンスのクレデンシャル（IPアドレスと管理者パスワード）をSRMアプライアンスに保存する必要があります。
+
+tar .gzファイルをSRMアプライアンスにアップロードする必要があります。
+
+SRM アプライアンスで SRA を設定すると、 SRA クレデンシャルが SRM アプライアンスに保存されます。
+
+.手順
+. putty を使用して、管理者アカウントで SRM アプライアンスにログインします。
+. root ユーザに切り替えます。 root ユーザには「 root 」コマンドを使用します
+. ログの場所で、次のコマンドを入力して、SRAの「Docker PS-l'」で使用されるDocker IDを取得します
+. コンテナIDにログインするには、コマンド「docker exec-it-u SRM <container id>sh`」を入力します
+. 次のコマンドを使用して、SRMにVSC、VASA Provider、SRA仮想アプライアンスのIPアドレスとパスワードを設定します。「perl command.pl -i <va-IP> administrator <va-password>」
++
+ストレージクレデンシャルが保存されたことを示す成功メッセージが表示されます。SRA は、指定された IP アドレス、ポート、およびクレデンシャルを使用して SRA サーバと通信できます。
+
+

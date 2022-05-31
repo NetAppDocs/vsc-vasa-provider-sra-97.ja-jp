@@ -1,0 +1,38 @@
+---
+permalink: deploy/reference-unable-to-install-sra-plug-in-due-to-winhttp-proxy-settings.html 
+sidebar: sidebar 
+keywords: unable, to, install, the, sra, plug-in, 
+summary: SRAプラグインをインストールできません 
+---
+= SRAプラグインをインストールできません
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+Storage Replication Adapter（SRA）プラグインのインストール中に、サーバのIPアドレスとパスワードの画面でシステムが停止し、「The credentials you entered are not valid.有効なホスト名とパスワードを入力してください。
+
+
+
+== 原因
+
+このエラーは、次のいずれかの原因で発生することがあります。
+
+* 入力した管理者のクレデンシャルが正しくない
+* WinHTTPプロキシの設定が正しくない。
+
+
+
+
+== 対処方法
+
+* 管理者クレデンシャルを確認します。
+* WinHTTPプロキシの設定に関する問題の解決方法の詳細については、技術情報アーティクルを参照してください。
++
+https://kb.netapp.com/app/answers/answer_view/a_id/1005074["ネットアップナレッジベースの回答 1005074：「Installing of SRA 4.0P1 client plugin（netapp_sra_4.0P1_ontap_64bit-upgrade .msi）hangs at the server IP and password screen"^]
+
+

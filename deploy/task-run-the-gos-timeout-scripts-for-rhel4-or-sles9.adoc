@@ -1,0 +1,86 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, linux, guest, operating, systems, 
+summary: Red Hat Enterprise Linux バージョン 4 、 5 、 6 、 7 および SUSE Linux Enterprise Server バージョン 9 、 10 、 11 の SCSI I/O タイムアウト設定は、ゲストオペレーティングシステム（ OS ）のタイムアウトスクリプトで設定されます。タイムアウトは 60 秒または 190 秒のどちらかを指定できます。Linux を新しいバージョンにアップグレードしたときは、必ずこのスクリプトを実行する必要があります。 
+---
+= Linux ゲストオペレーティングシステムのタイムアウト値を設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Red Hat Enterprise Linux バージョン 4 、 5 、 6 、 7 および SUSE Linux Enterprise Server バージョン 9 、 10 、 11 の SCSI I/O タイムアウト設定は、ゲストオペレーティングシステム（ OS ）のタイムアウトスクリプトで設定されます。タイムアウトは 60 秒または 190 秒のどちらかを指定できます。Linux を新しいバージョンにアップグレードしたときは、必ずこのスクリプトを実行する必要があります。
+
+Linux スクリプトを含む ISO イメージをマウントしておく必要があります。
+
+.手順
+. Linux 仮想マシンのコンソールにアクセスし、 root 権限を持つアカウントでログインします。
+. 「 linux_gos_timeout-install.sh 」スクリプトを実行します。
++
+Red Hat Enterprise Linux 4 または SUSE Linux Enterprise Server 9 の場合は、次のようなメッセージが表示されます。
+
++
+[listing]
+----
+Restarting udev... this may take a few seconds.
+----
++
+[listing]
+----
+Setting I/O Timeout (60s) for /dev/sda - SUCCESS!
+----
++
+Red Hat Enterprise Linux 5 、 Red Hat Enterprise Linux 6 、および Red Hat Enterprise Linux 7 の場合は、次のようなメッセージが表示されます。
+
++
+[listing]
+----
+patching file /etc/udev/rules.d/50-udev.rules
+----
++
+[listing]
+----
+Hunk #1 succeeded at 333 (offset 13 lines).
+----
++
+[listing]
+----
+Restarting udev... this may take a few seconds.
+----
++
+[listing]
+----
+Starting udev: [ OK ]
+----
++
+[listing]
+----
+Setting I/O Timeout (60s) for /dev/sda - SUCCESS!
+----
++
+SUSE Linux Enterprise Server 10 または SUSE Linux Enterprise Server 11 の場合は、次のようなメッセージが表示されます。
+
++
+[listing]
+----
+patching file /etc/udev/rules.d/50-udev-default.rules
+----
++
+[listing]
+----
+Hunk #1 succeeded at 114 (offset 1 line).
+----
++
+[listing]
+----
+Restarting udev ...this may take a few seconds.
+----
++
+[listing]
+----
+Updating all available device nodes in /dev:   done
+----
+. ISO イメージをアンマウントします。
+

@@ -1,0 +1,111 @@
+---
+permalink: deploy/task-access-virtual-appliance-maiintenance-console-options.html 
+sidebar: sidebar 
+keywords: accessing, maintenance, console, options, virtual, appliance, vsc, vasa, provider, sra, 
+summary: アプリケーション、システム、およびネットワークの構成は、Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのメンテナンスコンソールを使用して管理できます。管理者パスワードとメンテナンスパスワードを変更することができます。サポートバンドルの生成、異なるログレベルの設定、 TLS 設定の表示と管理、およびリモート診断の開始を行うこともできます。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスのメンテナンスコンソールのオプションにアクセスする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+アプリケーション、システム、およびネットワークの構成は、Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのメンテナンスコンソールを使用して管理できます。管理者パスワードとメンテナンスパスワードを変更することができます。サポートバンドルの生成、異なるログレベルの設定、 TLS 設定の表示と管理、およびリモート診断の開始を行うこともできます。
+
+VSC、VASA Provider、SRA仮想アプライアンスの導入後にVMwareツールをインストールする必要があります。
+
+.このタスクについて
+* ユーザ名に「maint」を使用し、導入時に設定したパスワードを使用して、VSC、VASA Provider、SRA仮想アプライアンスのメンテナンスコンソールにログインする必要があります。
+* リモート診断をイネーブルにするときは、「 ````ip` 」ユーザのパスワードを設定する必要があります。
+
+
+.手順
+. 導入した仮想アプライアンスの* Summary *タブにアクセスします。
+. をクリックします image:../media/launch-maintenance-console.gif[""] メンテナンスコンソールを起動します。
++
+次のメンテナンスコンソールオプションにアクセスできます。
+
++
+** *アプリケーション構成*
++
+次のオプションを使用できます。
+
++
+*** サーバステータスの概要を表示します
+*** Virtual Storage Console サービスを開始します
+*** Virtual Storage Console サービスを停止します
+*** VASA Provider および SRA サービスを開始する
+*** VASA Provider および SRA サービスを停止する
+*** 「管理者」ユーザのパスワードを変更します
+*** 証明書を再生成します
+*** キーストアと証明書をハードリセットします
+*** データベースをハードリセットしました
+*** Virtual Storage Console サービスのログレベルを変更します
+*** VASA Provider サービスと SRA サービスのログレベルを変更します
+*** TLS 設定を表示する
+*** TLS プロトコルを有効にします
+*** TLS プロトコルを無効にします
+
+
+** *システム構成*
++
+次のオプションを使用できます。
+
++
+*** 仮想マシンをリブートします
+*** 仮想マシンをシャットダウンします
+*** 「 maint 」ユーザのパスワードを変更します
+*** タイムゾーンを変更します
+*** NTPサーバを変更します
++
+NTP サーバの IPv6 アドレスを指定できます。
+
+*** SSHアクセスを有効/無効にします
+*** jail ディスクサイズ（ /jail ）の拡張
+*** アップグレード
+*** VMware Tools をインストールします
+
+
+** *ネットワーク構成*
++
+次のオプションを使用できます。
+
++
+*** IP アドレス設定を表示します
+*** IP アドレスの設定を変更します
++
+このオプションを使用すると、導入後に IP アドレスを IPv6 に変更できます。
+
+*** ドメイン名検索設定を表示します
+*** ドメイン名検索設定を変更します
+*** 静的ルートを表示します
+*** 静的ルートを変更します
++
+このオプションを使用すると、 IPv6 ルートを追加できます。
+
+*** 変更をコミットします
+*** ホストに ping を実行します
++
+このオプションを使用すると、 IPv6 ホストに ping を送信できます。
+
+*** デフォルト設定に戻します
+
+
+** *サポートと診断*
++
+次のオプションを使用できます。
+
++
+*** サポートバンドルの生成
+*** 診断シェルにアクセスします
+*** リモート診断アクセスを有効にします
+
+
+
+
+
+
+* 関連情報 *
+
+xref:concept-virtual-storage-console-and-vasa-provider-log-files.adoc[VSC および VASA Provider のログファイル]

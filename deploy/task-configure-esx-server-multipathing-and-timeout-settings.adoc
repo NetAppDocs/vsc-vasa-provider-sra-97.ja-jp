@@ -1,0 +1,30 @@
+---
+permalink: deploy/task-configure-esx-server-multipathing-and-timeout-settings.html 
+sidebar: sidebar 
+keywords: configuring, esxi, server, multipathing, timeout, settings, 
+summary: Virtual Storage Console for VMware vSphereは、ESXiホストのマルチパス設定とHBAタイムアウト設定をチェックし、ストレージシステムに最も適した設定を行います。 
+---
+= ESXi サーバのマルチパスとタイムアウトを設定
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console for VMware vSphereは、ESXiホストのマルチパス設定とHBAタイムアウト設定をチェックし、ストレージシステムに最も適した設定を行います。
+
+構成やシステムの負荷によっては、この処理に長時間かかることがあります。タスクの進行状況が*最近のタスク*パネルに表示されます。タスクが完了すると、ホストのステータスアラートアイコンが Normal アイコンまたは Pending Reboot アイコンに変わります。
+
+.手順
+. VMware vSphere Web Client * Home *ページで、メニュー：vCenter [Hosts]をクリックします。
+. ホストを右クリックして、メニューを選択します。アクションNetApp VSC >推奨値の設定
+. NetApp Recommended Settings *ダイアログボックスで、ご使用のシステムに最も適した値を選択します。
++
+標準の推奨値がデフォルトで設定されます。
+
++
+image::../media/vsc-recommended-hosts-settings.gif[VSC で推奨されるホスト設定]
+
+. [OK] をクリックします。
+

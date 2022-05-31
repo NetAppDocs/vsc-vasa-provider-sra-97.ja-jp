@@ -1,0 +1,44 @@
+---
+permalink: deploy/task-install-the-nfs-vaai-plug-in.html 
+sidebar: sidebar 
+keywords: installing, the, nfs, vaai, plug-in, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのGUIを使用して、NFS Plug-in for VMware vStorage APIs for Array Integration（VAAI）をインストールできます。 
+---
+= NFS VAAI プラグインをインストールします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのGUIを使用して、NFS Plug-in for VMware vStorage APIs for Array Integration（VAAI）をインストールできます。
+
+.作業を開始する前に
+* NFS Plug-in for VAAI (`.vib')のインストールパッケージをからダウンロードしておく必要があります。
++
+https://mysupport.netapp.com/site/["ネットアップサポート"^]
+
+* ESXiホスト6.5以降とONTAP 9.1以降をインストールしておく必要があります。
+* ESXiホストの電源をオンにし、NFSデータストアをマウントしておく必要があります。
+* 「DataMover.HardwareAcceleratedMove」、「DataMover.HardwareAcceleratedInit」、および「VMFS3.HardwareAcceleratedLocking」のホスト設定の値を「1`」に設定しておく必要があります。
++
+これらの値は、* Recommended Settings *ダイアログボックスが更新されると、ESXiホストで自動的に設定されます。
+
+* vserver nfs modify -vserver vserver_name -vStorage enabled`コマンドを使用して、でvstorageオプションを有効にしておく必要があります。
+
+
+.手順
+. からダウンロードした「.vib`」ファイルの名前を、VSCで使用される事前定義された名前に変更してください。
+. VSCのホームページで「* Settings」をクリックします。
+. NFS VAAI ツール * タブをクリックします。
+. [ 既存のバージョン * （ Existing version * ） ] セクションで [ * 変更 * （ Change * ） ] をクリックする
+. 名前を変更した「.vib`」ファイルを参照して選択し、「*アップロード」をクリックして仮想アプライアンスにファイルをアップロードします。
+. ESXiホストにインストールする*セクションで、NFS VAAIプラグインをインストールするESXiホストを選択し、*インストール*をクリックします。
++
+画面に表示される手順に従ってインストールを完了する必要があります。インストールの進行状況は、 vSphere Web Client のタスクセクションで監視できます。
+
+. インストールが終了したら、 ESXi ホストをリブートします。
++
+ESXi ホストをリブートすると、 NFS VAAI プラグインが VSC で自動的に検出されます。プラグインを有効にするための追加の手順は必要ありません。
+
+

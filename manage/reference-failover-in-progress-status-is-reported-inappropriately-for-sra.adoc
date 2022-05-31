@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html 
+sidebar: sidebar 
+keywords: incorrect, status, failover, in, Progress, is, reported, for, SRA, in, SRM, 
+summary: SRMでSRAのステータスが「Failover in Progress」と誤って報告されます 
+---
+= SRMでSRAのステータスが「Failover in Progress」と誤って報告されます
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+新しいSnapMirrorデバイスについて、VMware Site Recovery Manager（SRM）でデバイスのステータスが「実行中」と表示されます。
+
+
+
+== 原因
+
+この問題 は、「/opt/NetApp/vpserver/conf/devices.txt」ファイルに新しく作成したデバイスと同じデバイス名のエントリがあることが原因で発生します。
+
+
+
+== 対処方法
+
+新しく作成したデバイスに一致するエントリを、両方のサイト（サイトAとサイトB）の/opt/NetApp/vpserver/conf/devices.txtから手動で削除し、デバイスの検出を再実行する必要があります。検出が完了すると、デバイスに正しいステータスが表示されます。

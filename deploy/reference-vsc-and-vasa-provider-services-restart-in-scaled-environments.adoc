@@ -1,0 +1,25 @@
+---
+permalink: deploy/reference-vsc-and-vasa-provider-services-restart-in-scaled-environments.html 
+sidebar: sidebar 
+keywords: vsc, and vasa, provider, services, restart, highly, scaled, environments, 
+summary: 大規模な環境では、VSCサービスとVASA Providerサービスが再起動します 
+---
+= 大規模な環境では、VSCサービスとVASA Providerサービスが再起動します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+大規模な環境でVSC、VASA Provider、SRA仮想アプライアンスのパフォーマンスが最適にならず、VSCおよびVASA Providerサービスが頻繁に再起動するなどの問題が発生することがあります。
+
+
+
+== 対処方法
+
+VSC、VASA Provider、SRA仮想アプライアンスのRAMおよびヒープメモリの要件を変更する
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/tune_memory_settings_of_VM_VSC%2C_VASA_Provider%2C_and_SRA_for_scale_and_performance[]

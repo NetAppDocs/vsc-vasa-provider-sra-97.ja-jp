@@ -1,0 +1,22 @@
+---
+permalink: manage/concept-configure-protected-and-recovery-site-resources.html 
+sidebar: sidebar 
+keywords: configuring, protected, and, recovery, site, resources, 
+summary: 保護対象サイトの各リソースがリカバリサイトの適切なリソースにマッピングされるように、両方のサイトで VM ネットワーク、 ESXi ホスト、フォルダなどのリソースマッピングを設定する必要があります。 
+---
+= 保護対象サイトとリカバリサイトのリソースを設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+保護対象サイトの各リソースがリカバリサイトの適切なリソースにマッピングされるように、両方のサイトで VM ネットワーク、 ESXi ホスト、フォルダなどのリソースマッピングを設定する必要があります。
+
+次のリソースの設定を行う必要があります。
+
+* ネットワークマッピング
+* フォルダマッピング
+* リソースマッピング
+* プレースホルダデータストア
+

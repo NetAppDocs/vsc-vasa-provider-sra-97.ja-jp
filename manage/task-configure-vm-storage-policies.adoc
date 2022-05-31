@@ -1,0 +1,36 @@
+---
+permalink: manage/task-configure-vm-storage-policies.html 
+sidebar: sidebar 
+keywords: configuring, vm, storage, policies, 
+summary: VVOL データストアで設定されている仮想マシンを管理し、仮想ディスクのレプリケーションなどのサービスを有効にするには、 VM ストレージポリシーを設定する必要があります。従来のデータストアの場合、これらの VM ストレージポリシーの使用は任意です。 
+---
+= 仮想マシンストレージポリシーを設定
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VVOL データストアで設定されている仮想マシンを管理し、仮想ディスクのレプリケーションなどのサービスを有効にするには、 VM ストレージポリシーを設定する必要があります。従来のデータストアの場合、これらの VM ストレージポリシーの使用は任意です。
+
+vSphere Web Client には、デフォルトのストレージポリシーが用意されています。ただし、ポリシーを作成して仮想マシンに割り当てることは可能です。
+
+.手順
+. vSphere Clientページで、[menu:[Policies and Profiles]の順にクリックします。
+. [MENU]：[VMストレージポリシーの作成]をクリックします。
+. Create VM Storage Policy ページで、次の詳細を指定します。
++
+.. VM ストレージポリシーの名前と概要を入力します。
+.. 「 NetApp clustered Data ONTAP.VP.Vvol 」ストレージ * に対してルールを有効にするを選択します。
+.. 配置（Placement）*タブで、必要なストレージ機能プロファイルを選択します。
+.. レプリケーションを有効にするには、 * Custom * オプションを選択します。
+.. [Add rule*]をクリックして[* Asynchronous * replication and Required * SnapMirror Schedule]を選択し、[* next]をクリックします。
+.. 表示された互換性のあるデータストアを確認し、[*ストレージ互換性*]タブで[*次へ*]をクリックします。
++
+データ保護 FlexVol ボリュームを含む vVol データストアの場合、互換性のあるデータストアのチェックは実行されません。
+
+
+
+. [Review and Finish] * タブで選択した VM ストレージポリシーを確認し、 [Finish （完了） ] をクリックします。
+

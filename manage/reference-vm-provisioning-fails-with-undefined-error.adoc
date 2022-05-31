@@ -1,0 +1,42 @@
+---
+permalink: manage/reference-vm-provision-fails-with-undefined-error.html 
+sidebar: sidebar 
+keywords: virtual, machine, provisioning, fails, with, an, undefined, error, 
+summary: 作成、クローン、電源オン、電源オフ、サスペンドなどの仮想マシンのプロビジョニング操作 VVOLデータストアのVMストレージプロファイルの移行および更新が、問題 がVASA Providerに対応しているかVMwareに対応していないタスクマネージャで一般的なエラーメッセージが表示されて失敗する場合があります。 
+---
+= 仮想マシンのプロビジョニングが不明なエラーで失敗する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+作成、クローン、電源オン、電源オフ、サスペンドなどの仮想マシンのプロビジョニング操作 VVOLデータストアのVMストレージプロファイルの移行および更新が、問題 がVASA Providerに対応しているかVMwareに対応していないタスクマネージャで一般的なエラーメッセージが表示されて失敗する場合があります。
+
+
+
+== 問題
+
+タスク・マネージャには'指定された要件に対応するボリューム候補の中に'適切なボリュームが見つかりませんでした'などのエラーメッセージが表示されます
+
+
+
+== 原因
+
+VMware、VASA Provider、またはONTAP ストレージの問題が原因でエラーが発生することがあります。エラーメッセージには失敗の具体的な理由が表示されない場合があります。また、多数のStorage Virtual Machine（SVM）、ボリューム、LUNを含む大規模なストレージシステムが原因の場合もあります。問題このようなストレージシステムではバックグラウンドでの定期的な検出処理に時間がかかり、仮想マシンのプロビジョニング処理が同時に実行された場合に原因 によるプロビジョニング処理のタイムアウトになる可能性があります。
+
+
+
+== 対処方法
+
+. /opt/NetApp/vpserver/logs/error.log、「vvolvp.log」、および「zapi_error.log」のログファイルを調べて、問題 がVASA ProviderまたはONTAP ストレージに格納されているかどうかを確認します。
++
+** 「NaException com.netapp.offtap3.ontap.ApiFailedException:」などのエラーが発生した場合、指定された要件のボリューム候補の中に適切なボリュームが見つかりませんでした。詳細：vVolの配置：タイプ：候補ボリュームを配置：vvol_nfs_pb2、vvol_nfs_pb1パフォーマンス：最大IOPSサイズ：4GBスペースギャランティ：False Volumes with insufficient un約束IOPS：vvol_nfs_pb1、vvol_nfs_pb2 result：success（errno=13001）'などの対処方法が報告されます。ストレージ管理者のサポートに必要なストレージIOPSを追加します。
+** プロビジョニング処理は、バックグラウンドで検出処理が実行されていないときにのみ実行する必要があります。VASA Providerのログファイルに報告されているエラーが具体的でない場合は、テクニカルサポートに連絡して問題 を解決する必要があります。
+
+
+. VASA Providerのログファイルに具体的なエラーが報告されていない場合は、「SPS .log」ログファイルを調べて、問題 がVMwareに対応しているかどうかを確認し、報告されたエラーに基づいて適切な修正措置を取ります。
++
+SPSログ・ファイルに報告されているエラーが固有でない場合は'VMware管理者に連絡して問題 を解決する必要があります
+
+

@@ -1,0 +1,67 @@
+---
+permalink: manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, vvols, datastores, virtual, machines, using, the, vVol, dashboard, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのvVolダッシュボードを使用すると、パフォーマンスを監視し、選択したパラメータに基づいてvCenter Serverの上位5つのSAN VMware Virtual Volume（VVOL）データストアを表示できます。 
+---
+= VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのvVolダッシュボードを使用すると、パフォーマンスを監視し、選択したパラメータに基づいてvCenter Serverの上位5つのSAN VMware Virtual Volume（VVOL）データストアを表示できます。
+
+.作業を開始する前に
+* ONTAP 9.6 以前を使用している場合は、 OnCommand API サービス 2.1 以降を有効にしておく必要があります。
++
+ONTAP 9.7の場合は、SAN vVolデータストアまたはSAN vVol VMデータストアレポートの詳細を取得するためにOnCommand APIサービスをVASA Providerに登録する必要はありません。
+
++
+https://mysupport.netapp.com/site/["ネットアップサポート"^]
+
+* ONTAP 9.3 以降をストレージシステムとして使用している必要があります。
+
+
+link:reference-verify-vvol-dashboard-data-requirements.html["VVolダッシュボードのデータ要件"]
+
+ONTAP から取得されたIOPSデータは四捨五入されて、vVolダッシュボードに表示されます。ONTAP から取得される実際のIOPS値とvVolダッシュボードに表示されるIOPS値は異なる可能性があります。
+
+[NOTE]
+====
+* OnCommand APIサービスを初めて登録した場合、vVolダッシュボードにSAN vVolデータストアのすべてのパフォーマンス指標データが表示されるまでに15~30分かかります。
+* VVolダッシュボードのデータは10分間隔で定期的に更新されます。
+* vCenter Server インスタンスからストレージシステムを追加、変更、または削除した場合は、 vVol ダッシュボードにデータの変更がしばらくの間通知されない可能性があります。
++
+これは、 ONTAP API サービスが更新された指標を OnCommand から取得するまでに時間がかかるためです。
+
+* VVolダッシュボードの「* Overview *」ポートレットに表示される合計IOPSの値は、読み取りIOPS値と書き込みIOPS値の累積値ではありません。
++
+読み取り IOPS 、書き込み IOPS 、合計 IOPS は、 OnCommand API サービスから取得される個別の指標です。OnCommand APIサービスから取得される合計IOPSの値とIOPSの累積値（読み取りIOPS値+書き込みIOPS値）が異なる場合は、vVolダッシュボードでも同様にそれらのIOPSの値が異なります。
+
+
+
+====
+.手順
+. vSphere Clientのホームページで、* Virtual Storage Console *をクリックします。
+. vCenter Server * ドロップダウン・メニューを使用して、必要な vCenter Server を選択し、データストアを表示します。
+. VVolダッシュボード*をクリックします。
++
+「* Datastores *」ポートレットには、次の詳細が表示されます。
+
++
+** vCenter Server インスタンスの VASA Provider で管理されている vVol データストアの数
+** リソースの使用状況とパフォーマンスのパラメータに基づく上位 5 つの vVol データストアは、使用スペース、 IOPS 、またはレイテンシに基づいて、必要な順序でデータストアのリストを変更できます。
+
+
+. 「*仮想マシン*」ポートレットを使用して、仮想マシンの詳細を表示します。
++
+仮想マシン*ポートレットには、以下の詳細情報が表示されます。
+
++
+** vCenter Server で ONTAP データストアを使用している仮想マシンの数
+** IOPS、レイテンシ、スループット、コミット済み容量、アップタイム、 論理スペースを使用すると、上位5つの仮想マシンをvVolダッシュボードに表示する方法をカスタマイズできます。
+
+
+

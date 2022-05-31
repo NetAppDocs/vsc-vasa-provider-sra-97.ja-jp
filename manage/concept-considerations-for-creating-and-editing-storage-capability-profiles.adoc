@@ -1,0 +1,32 @@
+---
+permalink: manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html 
+sidebar: sidebar 
+keywords: considerations, for, creating, and, editing, storage, capability, profiles, 
+summary: ストレージ機能プロファイルの作成と編集に関する考慮事項を確認しておく必要があります。 
+---
+= ストレージ機能プロファイルの作成と編集に関する考慮事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージ機能プロファイルの作成と編集に関する考慮事項を確認しておく必要があります。
+
+* 最小 IOPS は AFF システムでのみ設定できます。
+* QoS 指標は仮想ボリューム（ VVol ）データストアレベルで設定できます。
++
+この機能により、仮想データストア上にプロビジョニングされた同じ仮想マシンの異なる VMDK に対して、さまざまな QoS 指標をより柔軟に割り当てることが可能です。
+
+* ストレージ機能プロファイルは、 FAS データストアと AFF データストアの両方に対して設定できます。
++
+FAS システムでは、スペースリザベーションをシックまたはシンに設定できますが、 AFF システムではシンにのみ設定できます。
+
+* ストレージ機能プロファイルを使用してデータストアの暗号化を行うことができます。
+* 以前のバージョンのVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを最新バージョンのVSC、VASA Provider、SRA仮想アプライアンスにアップグレードしたあとで、既存のストレージ機能プロファイルを変更することはできません。
++
+以前のストレージ機能プロファイルは、下位互換性を確保するために保持されます。デフォルトテンプレートが使用されない場合は、VSC、VASA Provider、SRA仮想アプライアンスの最新バージョンへのアップグレード時に、ストレージ機能プロファイルのパフォーマンスに関連する新しいQoS指標を反映して既存のテンプレートが上書きされます。
+
+* 以前のストレージ機能プロファイルを変更または使用して、新しい仮想データストアや VM ストレージポリシーをプロビジョニングすることはできません。
+* 新しいデータストアには必ず新しいストレージ機能プロファイルを使用する必要があります。
+

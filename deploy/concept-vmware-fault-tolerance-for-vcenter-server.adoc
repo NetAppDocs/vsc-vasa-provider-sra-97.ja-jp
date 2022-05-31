@@ -1,0 +1,26 @@
+---
+permalink: deploy/concept-vmware-fault-tolerance-for-vcenter-server.html 
+sidebar: sidebar 
+keywords: vsc, vmware, vsphere, fault, tolerance, 
+summary: VMware vSphereのフォールトトレランス（FT）機能を使用すると（HA）のレベルが高くなり、データや接続が失われないよう仮想マシンを保護することができます。VSC、VASA Provider、SRA仮想アプライアンスのvSphere FT機能をvCenter Serverから有効または無効にする必要があります。 
+---
+= VMware vSphere フォールトトレランス
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware vSphereのフォールトトレランス（FT）機能を使用すると（HA）のレベルが高くなり、データや接続が失われないよう仮想マシンを保護することができます。VSC、VASA Provider、SRA仮想アプライアンスのvSphere FT機能をvCenter Serverから有効または無効にする必要があります。
+
+環境内の仮想アプライアンスに必要な数のvCPU（少なくとも2個、大規模環境の場合は4個）とFTがvSphereライセンスでサポートされていることを確認してください。
+
+vSphere FT を使用すると、サーバの障害時にも仮想マシンを継続的に稼働できます。仮想マシンで vSphere FT が有効になっている場合は、 Distributed Resource Scheduler （ DRS ）で選択された別のホスト（セカンダリ仮想マシン）にプライマリ仮想マシンのコピーが自動的に作成されます。DRS が有効になっていない場合は、使用可能なホストの中からターゲットホストが選択されます。vSphere FT では、プライマリ仮想マシンとセカンダリ仮想マシンをロックステップモードで運用し、それぞれの仮想マシンの実行状態をセカンダリ仮想マシンにミラーリングします。
+
+ハードウェアに障害が発生してプライマリ仮想マシンに障害が発生すると、セカンダリ仮想マシンはプライマリ仮想マシンが停止した場所をすぐに検出します。ネットワーク接続、トランザクション、データが失われることなく、セカンダリ仮想マシンの実行が継続されます。
+
+vCenter Server インスタンスで vSphere FT を設定するには、システムが CPU 要件、仮想マシンの制限要件、およびライセンス要件を満たしている必要があります。
+
+HA を設定する手順は、 vCenter Server のバージョンによって異なります。HA の設定手順を確認するには、次の参照先で必要な vCenter Server のバージョンを選択してください。
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-57929CF0-DA9B-407A-BF2E-E7B72708D825.html["VMware vSphere のドキュメント：「 Fault Tolerance の要件、制限、およびライセンス"^]

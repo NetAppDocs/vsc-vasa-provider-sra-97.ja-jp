@@ -1,0 +1,37 @@
+---
+permalink: manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html 
+sidebar: sidebar 
+keywords: verifying, datastore, compliance, with, the, mapped, storage, capability, profile, 
+summary: データストアにマッピングされたストレージ機能プロファイルにデータストアが準拠しているかどうかを簡単に確認することができます。 
+---
+= マッピングしたストレージ機能プロファイルにデータストアが準拠しているかどうかを確認する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+データストアにマッピングされたストレージ機能プロファイルにデータストアが準拠しているかどうかを簡単に確認することができます。
+
+.作業を開始する前に
+* VASA ProviderインスタンスをVirtual Storage Console for VMware vSphere（VSC）に登録しておく必要があります。
+* ストレージが VSC で検出されている必要があります。
+
+
+.手順
+. VSC * Home *ページで、* Storage Mapping *をクリックします。
+. コンプライアンスステータス*列の情報を確認し、準拠していないデータストアを特定し、準拠していない理由についてアラートを確認します。
++
+[NOTE]
+====
+コンプライアンスチェック * ボタンをクリックすると、すべてのストレージを対象とした再検出処理が実行されます。この処理には数分かかる場合があります。
+
+====
++
+データストアがプロファイルに準拠しない状態になると、「* Compliance Status *」列に準拠しない理由を示すアラートが表示されます。たとえば、プロファイルで圧縮が必須になっている場合などです。ストレージで圧縮を使用しないように設定が変更された場合、データストアは準拠しない状態になります。
+
+
+
+プロファイルに準拠していないデータストアが見つかった場合は、データストアの作成元のボリュームで準拠するように設定を変更するか、データストアに新しいプロファイルを割り当てます。
+
+設定は、*ストレージ機能プロファイル*ページで変更できます。

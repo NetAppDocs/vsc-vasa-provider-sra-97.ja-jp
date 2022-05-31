@@ -1,0 +1,51 @@
+---
+permalink: deploy/task-upgrade-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords: sra, upgrade, upgrading, storage, replication, adapter, 
+summary: VSC、VASA Provider、SRA仮想アプライアンスをアップグレードするか最新バージョンの仮想アプライアンスを導入したら、Storage Replication Adapter（SRA）をアップグレードする必要があります。 
+---
+= Storage Replication Adapter をアップグレードする
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想アプライアンスをアップグレードするか最新バージョンの仮想アプライアンスを導入したら、Storage Replication Adapter（SRA）をアップグレードする必要があります。
+
+.手順
+. アダプタに応じて、次のいずれかの手順で最新のアダプタにアップグレードする必要があります。
++
+[cols="1a,1a"]
+|===
+| * は ...* のため | 実行する手順 
+
+
+ a| 
+* Windows *
+ a| 
+.. SRM Windows Server にログインします。
+.. 既存の SRA _.msi インストーラを SRM サーバからアンインストールします。
+.. システム・パスを C:\Program Files\VMware\VMware vCenter Site Recovery Manager\external\perl\c\bin' に変更します
+.. ネットアップサポートサイトからダウンロードした .msi インストーラをダブルクリックして、画面に表示される手順に従います。
+.. 導入したVSC、VASA Provider、SRA仮想アプライアンスのIPアドレスとパスワードを入力します。
+
+
+
+
+ a| 
+*アプライアンスベースのアダプタ*
+ a| 
+.. SRMアプライアンス管理ページにログインします。
+.. Storage Replication Adapter * をクリックし、 * Delete * をクリックして既存の SRA を削除します。
+.. [メニュー]、[新しいアダプタ]、[参照]の順にクリックします。
+.. ネットアップサポートサイトからダウンロードした最新の SRA tar ファイルをクリックして選択し、 * Install * をクリックします。
+.. SRM アプライアンスで SRA を設定する
++
+xref:task-configure-sra-on-srm-appliance.adoc[SRM アプライアンスで SRA を設定する]
+
+
+
+|===
+

@@ -1,0 +1,24 @@
+---
+permalink: deploy/task-configure-vasa-provider-to-work-with-ssh.html 
+sidebar: sidebar 
+keywords: configuring, vasa, provider, work, with, ssh, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを設定することで、セキュアなアクセスにSSHを使用するようにVASA Providerを設定できます。 
+---
+= SSH を使用するように VASA Provider を設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを設定することで、セキュアなアクセスにSSHを使用するようにVASA Providerを設定できます。
+
+SSH の設定を行うときは、 maintenance ユーザとしてログインする必要があります。VASA Provider へのルートアクセスは無効になっているためです。他のログインクレデンシャルを使用すると、 SSH を使用して VASA Provider にアクセスできません。
+
+.手順
+. vCenter Serverで、VSC、VASA Provider、SRA仮想アプライアンスへのコンソールを開きます。
+. maintenance ユーザとしてログインします。
+. 「 3 」を入力して、「 * システム構成 * 」を選択します。
+. 「 6 」と入力して、「 SSH アクセスを有効にする」を選択します。
+. 確認ダイアログボックスに「 y 」と入力します。
+

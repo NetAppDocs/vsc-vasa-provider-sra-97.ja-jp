@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-manage-datastore.html 
+sidebar: sidebar 
+keywords: managing, traditional, and, vvols, datastores, 
+summary: VSCインターフェイスを使用して、従来のデータストアとVMware仮想ボリューム（vVol）データストアの両方を管理し、データストアのマウント、サイズ変更、編集、削除の各処理を実行できます。 
+---
+= 従来のデータストアとvVolデータストアを管理します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSCインターフェイスを使用して、従来のデータストアとVMware仮想ボリューム（vVol）データストアの両方を管理し、データストアのマウント、サイズ変更、編集、削除の各処理を実行できます。

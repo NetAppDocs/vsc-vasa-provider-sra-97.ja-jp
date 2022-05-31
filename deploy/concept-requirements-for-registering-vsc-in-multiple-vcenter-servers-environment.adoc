@@ -1,0 +1,47 @@
+---
+permalink: deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html 
+sidebar: sidebar 
+keywords: requirements, registering, vsc, multiple, vcenter, servers, environment, 
+summary: 単一のVMware vSphere HTML5クライアントで複数の vCenter Server インスタンスを管理している環境で VSC と vCenter Server を 1 ： 1 のペアにするため、各 vCenter Server に VSC のインスタンスを 1 つ登録する必要があります。そうすることで、 vCenter 6.0 以降を実行するすべてのサーバを、単一の vSphere HTML5 クライアントからリンクモードと非リンクモードの両方で管理することができます。 
+---
+= 複数の vCenter Server 環境で VSC を登録するための要件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+単一のVMware vSphere HTML5クライアントで複数の vCenter Server インスタンスを管理している環境で VSC と vCenter Server を 1 ： 1 のペアにするため、各 vCenter Server に VSC のインスタンスを 1 つ登録する必要があります。そうすることで、 vCenter 6.0 以降を実行するすべてのサーバを、単一の vSphere HTML5 クライアントからリンクモードと非リンクモードの両方で管理することができます。
+
+[NOTE]
+====
+VSC を vCenter Server で使用する場合は、管理する vCenter Server インスタンスごとに VSC インスタンスを 1 つ設定または登録しておく必要があります。登録する各 VSC インスタンスのバージョンを同じにする必要があります。
+
+====
+リンクモードは、 vCenter Server の導入時に自動的に設定されます。リンクモードでは、 Microsoft Active Directory Application Mode （ ADAM ）を使用して、複数の vCenter Server システムにわたってデータが格納され、同期されます。
+
+vSphere HTML5 クライアントを使用して複数の vCenter Server で VSC タスクを実行するためには、次の条件を満たす必要があります。
+
+* VMware インベントリ内の管理対象の各 vCenter Server に 1 つずつ VSC サーバを登録して一意の 1 ： 1 ペアにする必要があります。
++
+たとえば、 VSC サーバ A を vCenter Server A に登録し、 VSC サーバ B を vCenter Server B に登録し、 VSC サーバ C を vCenter Server C に登録できます。
+
++
+VSC サーバ A を vCenter Server A と vCenter Server B の両方に登録することはできません
+
++
+VMware インベントリに VSC サーバが登録されていない vCenter Server が含まれていて、 VSC に登録されている vCenter Server が 1 つ以上ある場合は、 その後、 VSC が登録された vCenter Server に対する VSC のインスタンスを表示して VSC 処理を実行できます。
+
+* シングルサインオン（ SSO ）に登録された各 vCenter Server に、 VSC 固有の View 権限が必要です。
++
+適切な RBAC アクセス許可も必要です。
+
+
+
+vCenter Server の指定が必要なタスクを実行すると、「 * vCenter Server * 」ドロップダウンボックスに、使用可能な vCenter Server が英数字順に表示されます。デフォルトの vCenter Server が、常にドロップダウンリストの先頭のサーバとなります。
+
+ストレージの場所が認識されている場合（たとえば、* Provisioning *ウィザードを使用し、データストアが特定のvCenter Serverで管理されているホスト上にある場合）、vCenter Serverの一覧が読み取り専用オプションとして表示されます。これは、 vSphere Web Client で右クリックオプションを使用して項目を選択した場合にのみ該当します。
+
+VSC で管理していないオブジェクトを選択しようとすると警告が表示されます。
+
+VSC の概要ページで、特定の vCenter Server に基づいてストレージシステムをフィルタリングできます。概要ページは、 vCenter Server に登録されているすべての VSC インスタンスで表示されます。特定の VSC インスタンスと vCenter Server に関連付けられているストレージシステムを管理できますが、複数の VSC インスタンスを実行する場合は、ストレージシステムごとに登録情報を分けておく必要があります。

@@ -1,0 +1,258 @@
+---
+sidebar: sidebar 
+permalink: qsg.html 
+keywords: qsg, ontap tools for vmware vsphere, quick start guide, installing 
+summary: Virtual Storage Console、VASA Provider、Storage Replication Adapter for VMware vSphere仮想アプライアンスの導入要件の概要と詳しい導入手順を示します。 
+---
+= クイックスタート
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:experimental: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Virtual Storage Console（VSC）for VMware vSphereはvCenter Serverプラグインで、VASA ProviderおよびStorage Replication Adapter（SRA）の拡張機能にバンドルされています。VSC は、ベストプラクティスに基づいて ESXi ホストの設定と ONTAP ストレージのプロビジョニングを実施するため、すべての ONTAP vSphere 環境に推奨されます。VASA Provider は仮想ボリューム（ vVol ）のサポートに必要であり、 SRA は VMware Site Recovery Manager と連携します。
+
+
+
+== 設置を準備しています
+
+このプラグインを仮想アプライアンスとして導入することで、各製品を別々にインストールして vCenter Server に登録する手間を減らすことができます。
+
+
+
+=== 導入の要件
+
+VSC、VASA Provider、SRA仮想アプライアンスは、Windows vCenter ServerまたはVMware vCenter Server Virtual Appliance（vCSA）で使用できます。VSC、VASA Provider、SRA仮想アプライアンスは、サポート対象のESXiおよびvSphereシステムに導入する必要があります。
+
+
+
+=== スペースとホストのサイジング要件
+
+[cols="2*"]
+|===
+| システム | 最小要件 
+
+
+ a| 
+スペース
+ a| 
+* シンプロビジョニングの場合は 2.1GB
+* シックプロビジョニングの場合は 54.0GB
+
+
+
+
+ a| 
+ホストのサイジング
+ a| 
+* 推奨メモリ：12GB
+* 推奨 CPU 数： 2
+
+
+|===
+
+
+=== ライセンス要件
+
+[cols="2*"]
+|===
+| 使用許諾 | 説明 
+
+
+ a| 
+SnapMirror
+ a| 
+（オプション）SRAのフェイルオーバー処理を実行する場合に必要です。
+
+
+
+| FlexClone  a| 
+（オプション） SRA のテストフェイルオーバー処理と VASA Provider の vVol 処理を実行する場合に必要です。
+
+|===
+
+
+=== その他の要件
+
+[cols="2*"]
+|===
+| その他の要件 | 概要 列 
+
+
+ a| 
+9083 年
+ a| 
+有効にすると、 VASA Provider と SRA はこのポートを使用して vCenter Server と通信します。このポートは TCP/IP 設定を取得するためにも必要です。
+
+
+
+ a| 
+443
+ a| 
+クレデンシャルの設定方法によっては、 VMware vCenter Server とストレージシステムがこのポートでセキュアな通信をリスンします。
+
+
+
+ a| 
+8143
+ a| 
+VSC は、このポートでセキュアな通信をリスンします。
+
+
+
+ a| 
+7.
+ a| 
+エコー要求が ONTAP に送信されて到達可能性が検証されます。この要求はストレージシステムの追加時にのみ必要であり、あとで無効にすることができます。
+
+|===
+[cols="2*"]
+|===
+| ストレージ、ホスト、およびアプリケーション | バージョン要件 
+
+
+ a| 
+ONTAP
+ a| 
+ONTAP 9.1、9.3、9.5、9.6、9.7
+
+
+
+ a| 
+VMware vSphere、vCenter Server、ESXiホスト、Site Recovery Manager（SRM）、プラグインアプリケーション、データベース
+ a| 
+Interoperability Matrix Toolを参照してください
+
+* https://imt.netapp.com/matrix/imt.jsp?components=97563;&solution=56&isHWU&src=IMT["Interoperability Matrix Tool：VSC 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97564;&solution=376&isHWU&src=IMT["Interoperability Matrix Tool：VASA Provider 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97565;&solution=576&isHWU&src=IMT["Interoperability Matrix Tool：SRA 9.7.1"^]
+
+
+|===
+
+
+=== VSC、VASA Provider、SRA仮想アプライアンスの要件
+
+次の情報が必要です。
+
+* vCenter Server環境を設定およびセットアップします。
+* 「.ova」ファイルをダウンロードした。
+* vCenter Server インスタンスのログインクレデンシャルを用意します。
+* vSphere Web Clientのすべてのブラウザセッションからログアウトして、ブラウザを閉じます。また、VSC、VASA Provider、SRA仮想アプライアンスの導入時にブラウザキャッシュ問題 がなくなるのを回避するために、ブラウザキャッシュを削除します。
+* 仮想アプライアンスがICMP pingに応答するためのデフォルトゲートウェイを設定します。
+* 仮想アプライアンスの有効な DNS ホスト名。
+* ONTAP 9.6以前でvVolダッシュボードを使用する場合は、OnCommand APIサービスをダウンロードしてインストールします。ONTAP 9.7を使用している場合は、OnCommand APIサービスをVASA Providerに登録する必要はありません。
+
+
+
+
+=== SRA に関するオプションの要件
+
+VMware Site Recovery Managerで使用する仮想アプライアンスを導入する場合は、次の作業を完了しておく必要があります。
+
+* Site Recovery Manager（SRM）ディザスタリカバリ解決策 を設定する場合にのみ、SRAプラグインの.msiファイルをダウンロードします。
+* SRMアプライアンスを使用している場合は、SRAの.tar.gzファイルをダウンロードします。
+
+
+
+
+== VSC、VASA Provider、SRA仮想アプライアンスを導入する
+
+. から「 .ova 」ファイルをダウンロードします https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["ネットアップサポートサイト"^] から vSphere Client システムにアップロードして、 ONTAP ツールを導入できます。
++
+SRA を導入する場合は ' ソース・サイトとデスティネーション・サイトの両方に '.ova ファイルを導入する必要があります
+
+. vSphere Web Clientにログインし、「ホーム[ホストおよびクラスタ]」を選択します。
+. 目的のデータセンターを右クリックし、 [* OVF テンプレートの展開 * ] をクリックします。
+. 「.ova」ファイルのURLを入力するか、「.ova」ファイルが保存されているフォルダを参照して、「*次へ」をクリックします。
+. 必要な詳細を入力して導入を完了します。
++
+導入の進捗状況は、 [* タスク * ] タブで確認でき、導入が完了するまで待つことができます。
+
+. 導入の完了後に、VSC、VASA Provider、SRAの各サービスが実行されていることを確認
+
+
+
+
+=== SRMにSRAを導入する
+
+SRA は Windows SRM サーバまたは 8.2 SRM アプライアンスに導入できます。
+
+
+
+==== Windows SRMサーバにSRAをインストールします
+
+. ネットアップサポートサイトから SRA プラグインの .msi インストーラをダウンロードします。
+. ダウンロードした SRA プラグインの .msi インストーラをダブルクリックして、画面に表示される手順に従います。
+. 導入した仮想アプライアンスの IP アドレスとパスワードを入力して、 SRM サーバへの SRA プラグインのインストールを完了します。
+
+
+
+
+==== SRMアプライアンスにSRAをアップロードして設定する
+
+. から .tar.gz ファイルをダウンロードします https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["ネットアップサポートサイト"^]。
+. SRMアプライアンス画面で、メニュー：Storage Replication Adapter [New Adapter]をクリックします。
+. .tar.gz ファイルを SRM にアップロードします。
+. アダプタを再スキャンして、 [SRM Storage Replication Adapters] ページで詳細が更新されていることを確認します。
+. putty を使用して、管理者アカウントで SRM アプライアンスにログインします。
+. root ユーザ「 root 」に切り替えます
+. ログの場所で、次のコマンドを入力して、 SRA Docker で使用される Docker ID を取得します。 `d Occker PS-l`
+. コンテナ ID 「 dOccker exec-it-u SRM <container ID> sh 」にログインします
+. ONTAP ツールの IP アドレスとパスワードを使用して SRM を設定します。「 perl command.pl -i <va-IP> administrator <va-password> 」「 storage credentials are stored 」というメッセージが表示されます。
+
+
+
+
+==== SRA クレデンシャルを更新する
+
+. 次のコマンドを使用して、 /SRM / SRA / conf ディレクトリの内容を削除します。
++
+.. 「 cd /SRM/SRA/conf 」を参照してください
+.. 「 rm -rf * 」と入力します
+
+
+. perl コマンドを実行して、 SRA に新しいクレデンシャルを設定します。
++
+.. 「 cd /SRM/SRA/ 」
+.. 「 perl command.pl -i <va-IP> administrator <va-password>` 」と入力します
+
+
+
+
+
+
+==== VASA ProviderとSRAを有効にする
+
+. 導入時に指定した IP アドレスを使用して、 vSphere Web Client にログインします。
+. 仮想ストレージコンソール*アイコンをクリックし、導入時に指定したユーザー名とパスワードを入力して、*サインイン*をクリックします。
+. OTVの左側のペインで、[Settings（管理設定）]>[Manage Capabilities（機能の管理）]メニューを選択し、必要な機能をイネーブルにします。
++
+
+NOTE: VASA Provider は、デフォルトでは有効になっています。VVOL データストアのレプリケーション機能を使用する場合は、「 * VVol レプリケーションを有効にする * 」切り替えボタンを使用します。
+
+. VSC、VASA Provider、SRA仮想アプライアンスのIPアドレスと管理者パスワードを入力し、* Apply *をクリックします。
++
+追加の設定、ストレージシステムの追加、およびvSphereオブジェクトのロールベースアクセス制御の設定の詳細については、『Virtual Storage Console、VASA Provider、Storage Replication Adapter for VMware vSphere導入およびセットアップガイド』を参照してください。
+
+
+
+
+
+== 追加情報の参照先
+
+* https://www.netapp.com/support-and-training/documentation/ontap-tools-for-vmware-vsphere-documentation/?&access=a["Virtual Storage Console、VASA Provider、Storage Replication Adapter for VMware vSphereのリソースページ"^]
+* https://docs.netapp.com/vapp-97/index.jsp["Virtual Storage Console、VASA Provider、Storage Replication Adapter for VMware vSphereのドキュメント"^]
+* https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["VMware Site Recovery Manager 8.2"^]
+* https://docs.netapp.com/us-en/ontap/["ONTAP 9 のドキュメント"^]
+

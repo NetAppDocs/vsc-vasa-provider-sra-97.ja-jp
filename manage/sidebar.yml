@@ -1,0 +1,136 @@
+---
+section: manage
+title: 管理
+entries:
+- title: VSC、VASA Provider、SRA仮想アプライアンスを設定するためのワークフロー
+  url: "/manage/concept-workflow-for-configuring-the-unified-appliance.html"
+- title: VSC、VASA Provider、SRAのストレージシステムを設定する
+  url: "/manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html"
+  entries:
+  - title: ストレージシステムを VSC に追加
+    url: "/manage/task-add-storage-systems.html"
+  - title: ストレージシステムのデフォルトクレデンシャルを設定
+    url: "/manage/task-set-default-credentials-for-storage-systems.html"
+  - title: アラームしきい値を設定する
+    url: "/manage/task-configure-alarm-thresholds.html"
+- title: ストレージ機能プロファイルを作成する
+  url: "/manage/concept-configure-storage-capability-profiles.html"
+  entries:
+  - title: ストレージ機能について説明します
+    url: "/manage/concept-what-storage-capabilities-are.html"
+  - title: ストレージ機能プロファイルの作成と編集に関する考慮事項
+    url: "/manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html"
+  - title: ストレージ機能プロファイルを設定する
+    url: "/manage/task-create-storage-capability-profiles.html"
+- title: 従来のデータストアと仮想マシンを設定
+  url: "/manage/concept-configure-traditional-datastores.html"
+  entries:
+  - title: データストアをプロビジョニング
+    url: "/manage/task-provision-datastores.html"
+  - title: データストアとストレージ機能プロファイルのマッピング
+    url: "/manage/task-map-storage-to-storage-capability-profiles.html"
+  - title: ストレージ機能プロファイルを自動的に生成する
+    url: "/manage/task-automatically-generate-scps.html"
+  - title: マッピングしたストレージ機能プロファイルにデータストアが準拠しているかどうかを確認する
+    url: "/manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html"
+  - title: 従来のダッシュボードを使用してデータストアと仮想マシンを監視する
+    url: "/manage/task-monitor-datastores-using-the-traditional-dashboard.html"
+  - title: VSC、VASA Provider、SRAのESXiホスト設定を編集する
+    url: "/manage/task-edit-esxi-host-settings.html"
+- title: vVolデータストアを設定する
+  url: "/manage/concept-configure-vvols-datastores.html"
+  entries:
+  - title: VVOLデータストアのレプリケーションを設定します
+    url: "/manage/concept-configure-replication-for-vvols-datastore.html"
+  - title: vVol データストアをプロビジョニングする
+    url: "/manage/task-provision-vvol-datastores.html"
+  - title: VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する
+    url: "/manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html"
+    entries:
+    - title: VVolダッシュボードのデータ要件
+      url: "/manage/reference-verify-vvol-dashboard-data-requirements.html"
+- title: Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します
+  url: "/manage/concept-manage-disaster-recovery-setup-using-srm.html"
+  entries:
+  - title: 仮想マシンストレージポリシーを設定
+    url: "/manage/task-configure-vm-storage-policies.html"
+  - title: 保護グループを設定します
+    url: "/manage/task-configure-protection-groups.html"
+  - title: 保護対象サイトとリカバリサイトをペアリング
+    url: "/manage/task-pair-protected-and-recovery-sites.html"
+  - title: 保護対象サイトとリカバリサイトのリソースを設定
+    url: "/manage/concept-configure-protected-and-recovery-site-resources.html"
+    entries:
+    - title: ネットワークマッピングを設定します
+      url: "/manage/task-configure-network-mappings.html"
+    - title: フォルダマッピングを設定します
+      url: "/manage/task-configure-folder-mappings.html"
+    - title: リソースマッピングを設定する
+      url: "/manage/task-configure-resource-mappings.html"
+    - title: ストレージポリシーをマッピングする
+      url: "/manage/task-map-storage-policies.html"
+    - title: プレースホルダデータストアを設定します
+      url: "/manage/task-configure-placeholder-datastores.html"
+    - title: アレイマネージャを使用してSRAを設定する
+      url: "/manage/task-configure-array-manager.html"
+  - title: レプリケートされたストレージシステムを検証する
+    url: "/manage/task-verify-the-replicated-storage-environment.html"
+  - title: 保護されていない仮想マシンを保護
+    url: "/manage/task-protect-non-protected-virtual-machines.html"
+- title: 従来のデータストアとvVolデータストアを管理します
+  url: "/manage/concept-manage-datastore.html"
+  entries:
+  - title: データストアを追加のホストにマウントする
+    url: "/manage/task-mount-datastores-on-host.html"
+  - title: データストアのサイズを変更
+    url: "/manage/task-resize-datastores.html"
+  - title: vVol データストアを編集する
+    url: "/manage/task-edit-a-vvol-datastore.html"
+  - title: VVOLデータストアへのADストレージの追加
+    url: "/manage/task-add-storage-to-a-vvol-datastore.html"
+  - title: VVOLデータストアからストレージを削除します
+    url: "/manage/task-remove-storage-from-a-vvols-datastore.html"
+  - title: VVOL データストアをマウントする
+    url: "/manage/task-mount-a-vvol-datastore.html"
+  - title: 仮想マシンの移行またはクローニングに関する考慮事項
+    url: "/manage/reference-considerations-for-migrating-virtual-machines.html"
+  - title: 従来の仮想マシンを VVOL データストアに移行する
+    url: "/manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html"
+  - title: 以前のストレージ機能プロファイルを使用して仮想マシンを移行する
+    url: "/manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html"
+- title: Virtual Storage Consoleのレポートを確認
+  url: "/manage/concept-virtual-storage-console-reports.html"
+  entries:
+  - title: レポートの機能
+    url: "/manage/concept-what-reports-do.html"
+  - title: データストアレポート
+    url: "/manage/concept-datastore-reports.html"
+  - title: vVol レポート
+    url: "/manage/concept-what-vasa-provider-reports-do.html"
+- title: VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング
+  url: "/manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html"
+  entries:
+  - title: ログファイルを収集します
+    url: "/manage/task-collect-the-log-files.html"
+  - title: ボリューム数が多いとVVolデータストアのプロビジョニングが失敗する
+    url: "/manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html"
+  - title: アップグレード後に仮想マシンストレージポリシーを編集するときに問題 を使用する
+    url: "/manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html"
+  - title: vCenter Server GUIでVASA Providerのステータスが「オフライン」と表示される
+    url: "/manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html"
+  - title: 仮想アプライアンスのVSCの概要ページにアクセス中にエラーが発生しました
+    url: "/manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html"
+  - title: ネットワーク設定の変更後にデータストアの削除でエラーが発生しました
+    url: "/manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html"
+  - title: 仮想マシンのプロビジョニングが不明なエラーで失敗する
+    url: "/manage/reference-vm-provision-fails-with-undefined-error.html"
+  - title: ONTAP 9.4ストレージシステムでVVolのシックプロビジョニングが失敗する
+    url: "/manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html"
+  - title: ボリュームステータスがオフラインになるとデータストアにアクセスできなくなります
+    url: "/manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html"
+  - title: IPv4を使用してストレージシステムを追加すると、ストレージシステムグリッドにIPv6と表示されて認証エラーが発生します
+    url: "/manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html"
+  - title: VVolデータストアに仮想マシンをプロビジョニング中にファイル作成エラーが発生しました
+    url: "/manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html"
+  - title: SRMでSRAのステータスが「Failover in Progress」と誤って報告されます
+    url: "/manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html"

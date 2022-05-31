@@ -1,0 +1,43 @@
+---
+permalink: deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html 
+sidebar: sidebar 
+keywords: configuration, storage, replication, adapter, highly, scaled, environment, 
+summary: 大規模な環境で最適なパフォーマンスを実現するには、 Storage Replication Adapter （ SRA ）の推奨設定に従ってストレージのタイムアウト間隔を設定する必要があります。 
+---
+= 大規模な環境向けのStorage Replication Adapterの設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+大規模な環境で最適なパフォーマンスを実現するには、 Storage Replication Adapter （ SRA ）の推奨設定に従ってストレージのタイムアウト間隔を設定する必要があります。
+
+
+
+== ストレージプロバイダの設定
+
+* StorageProvider.resignatureTimeout設定の値を900秒から12000秒に増やす必要があります。
+* StorageProvider.autoResignatureMode`オプションを有効にする必要があります
+
+
+ストレージプロバイダの設定を変更する方法の詳細については、 VMware のドキュメントを参照してください。
+
+https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.admin.doc/GUID-E4060824-E3C2-4869-BC39-76E88E2FF9A0.html["VMware vSphere のドキュメント：「ストレージプロバイダ設定の変更"^]
+
+
+
+== ストレージ設定
+
+大規模な環境では'storage.commandTimeout`タイムアウト間隔の値を12,000秒に設定する必要があります
+
+[NOTE]
+====
+指定したタイムアウト間隔が最大値です。最大タイムアウトに達することはありません。ほとんどのコマンドは、設定された最大タイムアウト間隔内に終了します。
+
+====
+https://kb.netapp.com/app/answers/answer_view/a_id/1001111["ネットアップナレッジベースの回答 1001111 ：「 NetApp Storage Replication Adapter 4.0/7.X for ONTAP Sizing Guide"^]
+
+詳細については、 SAN プロバイダの設定の変更に関する VMware のドキュメントを参照してください。
+
+https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.admin.doc/GUID-711FD223-50DB-414C-A2A7-3BEB8FAFDBD9.html["VMware Site Recovery Managerのドキュメント：「ストレージ設定の変更"^]

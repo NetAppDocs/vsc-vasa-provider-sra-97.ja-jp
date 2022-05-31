@@ -1,0 +1,109 @@
+---
+permalink: deploy/reference-components-that-make-up-vcenter-server-permissions.html 
+sidebar: sidebar 
+keywords: components, vcenter, server, permissions, 
+summary: vCenter Server で認識されるのはアクセス許可で、権限ではありません。vCenter Server アクセス許可は 3 つの要素で構成されます。 
+---
+= vCenter Server アクセス許可の要素
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server で認識されるのはアクセス許可で、権限ではありません。vCenter Server アクセス許可は 3 つの要素で構成されます。
+
+vCenter Server には次のコンポーネントがあります。
+
+* 1 つ以上の権限（ロール）
++
+ユーザが実行できるタスクを定義します。
+
+* vSphere オブジェクト
++
+タスクの対象となるオブジェクトです。
+
+* ユーザまたはグループ
++
+タスクを実行できるユーザまたはグループを定義します。
+
+
+
+次の図に示すように、 3 つの要素がすべて揃っていないとアクセスは許可されません。
+
+[NOTE]
+====
+グレーのボックスは vCenter Server 側の要素、白のボックスは vCenter Server を実行しているオペレーティングシステム側の要素を表しています。
+
+====
+image::../media/permission-updated-graphic.png[アクセス権のグラフィックを更新しました]
+
+
+
+== 権限
+
+Virtual Storage Console for VMware vSphereには次の2種類の権限が関連付けられています。
+
+* vCenter Server 標準の権限
++
+vCenter Server に付属している権限です。
+
+* VSC 固有の権限
++
+特定の VSC タスク用に定義された、VSC 固有の権限です。
+
+
+
+VSC のタスクを実行するには、 VSC 固有の権限と vCenter Server 標準の権限の両方が必要です。これらの権限は ' ユーザーのロールを構成しますアクセス許可には複数の権限を含めることができます。これらの権限は、 vCenter Server にログインしているユーザを対象としています。
+
+[NOTE]
+====
+vCenter Server RBAC の使用を簡単にするため、 VSC には、 VSC タスクの実行に必要な VSC 固有の権限と標準の権限をすべて含む標準ロールがいくつか用意されています。
+
+====
+アクセス許可に含まれる権限が変更された場合、そのアクセス許可が関連付けられたユーザは、更新されたアクセス許可を有効にするためにログアウトしてログインし直す必要があります。
+
+[cols="1a,1a,1a"]
+|===
+| 権限 | ロール | タスク 
+
+
+ a| 
+メニュー：NetApp Virtual Storage Console [表示]
+ a| 
+* VSC 管理者
+* VSC によるプロビジョニング
+* VSC 読み取り専用
+
+ a| 
+VSC および VASA Provider 固有のタスクにはすべて View 権限が必要です。
+
+
+
+ a| 
+メニュー：NetApp Virtual Storage Console [ポリシーベースの管理>管理]またはメニュー：privilege.nvpfVSC.VASAGroup.com.netapp.nvpf.label[Management]
+ a| 
+VSC 管理者
+ a| 
+ストレージ機能プロファイルおよびしきい値設定に関連する VSC および VASA Provider のタスク。
+
+|===
+
+
+== vSphere オブジェクト
+
+アクセス許可は vSphere オブジェクトに関連付けられます。 vCenter Server 、 ESXi ホスト、仮想マシン、データストア、データセンター、 とフォルダ。任意の vSphere オブジェクトに権限を割り当てることができます。vSphere オブジェクトに割り当てられたアクセス許可に基づいて、そのオブジェクトに対してどのユーザがどのタスクを実行できるかが決まります。VSC 固有のタスクについては、アクセス許可の割り当てと検証はルートフォルダレベル（ vCenter Server ）でのみ行われ、それ以外のエンティティでは行われません。ただし VAAI プラグインの処理は例外で、関連する ESXi に対して権限が検証されます。
+
+
+
+== ユーザとグループ
+
+ユーザとグループは、 Active Directory （またはローカルの vCenter Server マシン）を使用して設定できます。その後、設定したユーザまたはグループに vCenter Server アクセス許可を付与することで、特定の VSC タスクの実行を許可することができます。
+
+[NOTE]
+====
+これらの vCenter Server アクセス許可は、 VSC 管理者以外の VSC vCenter ユーザに適用されます。VSC 管理者には、デフォルトでフルアクセスが許可されるため、アクセス許可を割り当てる必要はありません。
+
+====
+ユーザとグループにはロールは割り当てられません。vCenter Server アクセス許可を割り当てることで、間接的にロールが適用されます。

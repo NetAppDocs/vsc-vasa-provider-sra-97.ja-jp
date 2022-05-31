@@ -1,0 +1,69 @@
+---
+permalink: deploy/task-enable-storage-replication-adapter.html 
+sidebar: sidebar 
+keywords: enabling, storage, replication, adapter, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスには、ディザスタリカバリを設定するためにVSCでSRA機能を使用できるようにするオプションがあります。 
+---
+= Storage Replication Adapter を有効にする
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスには、ディザスタリカバリを設定するためにVSCでSRA機能を使用できるようにするオプションがあります。
+
+.作業を開始する前に
+* vCenter Server インスタンスをセットアップし、 ESXi を設定しておく必要があります。
+* VSC、VASA Provider、SRA仮想アプライアンスを導入しておく必要があります。
+* Site Recovery Manager （ SRM ）ディザスタリカバリ解決策を設定する場合のみ、 SRA プラグインの .msi ファイル、または SRM アプライアンスの .tar.gz ファイルをダウンロードしておく必要があります。
++
+https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["Site Recovery Manager Installation and Configuration Site Recovery Manager 8.2 』を参照してください"^] に詳細を示します。
+
+
+
+VASA Provider と SRA の機能を柔軟に有効化できるため、必要なワークフローだけを実行できます。
+
+.手順
+. VMware vSphere の Web ユーザインターフェイスにログインします。
+. vSphere Clientで、メニューをクリックします。メニュー[Virtual Storage Console]。
+. [* 設定 * ] をクリックします。
+. [ 管理設定 *] タブの [ 機能の管理 *] をクリックします。
+. Manage Capabilities * ダイアログボックスで、有効にする SRA 拡張機能を選択します。
+. VSC、VASA Provider、SRA仮想アプライアンスのIPアドレスと管理者パスワードを入力し、* Apply *をクリックします。
+. SRA を導入するには、次のいずれかの方法を使用します。
++
+[cols="1a,1a"]
+|===
+| オプション | 説明 
+
+
+ a| 
+Windows SRMの場合
+ a| 
+.. ダウンロードした SRA プラグインの .msi インストーラをダブルクリックします。
+.. 画面に表示される指示に従います。
+.. 導入した仮想アプライアンスのIPアドレスとパスワードを入力します。
+
+
+
+
+ a| 
+SRMアプライアンスの場合
+ a| 
+.. SRMアプライアンスのページにアクセスし、SRMアプライアンスの* Storage Replication Adapters *ページに移動します。
+.. [ 新しいアダプタ ] をクリックします。
+.. SRAプラグインの.tar.gzインストーラをSRMにアップロードします。
+.. アダプタを再スキャンして、SRM * Storage Replication Adapters *ページで詳細が更新されていることを確認します。
+
+
+|===
++
+選択した拡張機能が設定可能になったかどうかを確認するには、 vSphere Client からログアウトして、再度ログインする必要があります。
+
+
+
+* 関連情報 *
+
+xref:concept-configure-storage-replication-adapter-for-disaster-recovery.adoc[ディザスタリカバリ用の Storage Replication Adapter を設定する]

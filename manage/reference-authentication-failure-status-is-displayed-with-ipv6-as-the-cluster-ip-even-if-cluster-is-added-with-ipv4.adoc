@@ -1,0 +1,38 @@
+---
+permalink: manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html 
+sidebar: sidebar 
+keywords: authentication, failure, for,, storage system, troubleshooting, error, 
+summary: IPv4を使用してストレージシステムを追加すると、ストレージシステムグリッドにIPv6と表示されて認証エラーが発生します 
+---
+= IPv4を使用してストレージシステムを追加すると、ストレージシステムグリッドにIPv6と表示されて認証エラーが発生します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+IPv4アドレスを使用して追加したストレージシステムに対して、ストレージシステムグリッドにIPv6アドレスと認証エラーが表示されます。
+
+
+
+== 原因
+
+IPv4 LIFとIPv6 LIFを備えたデュアルスタックストレージシステムをIPv4 LIFを使用して追加した場合、VSCの定期的な検出プロセスでIPv6 LIFも検出されます。IPv6 LIFは明示的に追加されていないため、このIPv6の検出は認証エラーで失敗します。このエラーは、ストレージシステムに対して実行される処理には影響しません。
+
+
+
+== 対処方法
+
+次の手順を実行する必要があります。
+
+. VSCのホームページで、* Storage Systems *をクリックします。
+. IPv6アドレスでステータスが不明なストレージシステムをクリックします。
+. 設定されているデフォルトクレデンシャルを使用して、IPアドレスをIPv4に変更します。
+. [リストに戻る*]をクリックし、[すべて再検出*]をクリックします。
++
+ストレージシステムのリストから古いIPv6エントリが削除され、ストレージシステムが認証エラーなしで検出されます。
+
+

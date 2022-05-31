@@ -1,0 +1,29 @@
+---
+permalink: manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html 
+sidebar: sidebar 
+keywords: migrating, virtual, machines, with, older, storage, capability, profiles, 
+summary: 最新バージョンのVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを使用している場合は、 次に、「最大スループットMBPS」または「最大スループットIOPS」QoS指標を使用してプロビジョニングされた仮想マシンを、最新バージョンのVSC、VASA Provider、SRA仮想アプライアンスの「最大IOPS」QoS指標を使用してプロビジョニングされた新しいVVolデータストアに移行する必要があります。 
+---
+= 以前のストレージ機能プロファイルを使用して仮想マシンを移行する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+最新バージョンのVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを使用している場合は、 次に、「最大スループットMBPS」または「最大スループットIOPS」を使用してプロビジョニングされた仮想マシンを、最新バージョンのVSC、VASA Provider、SRA仮想アプライアンスの「最大IOPS」QoS指標を使用してプロビジョニングされた新しいVVOLデータストアに移行する必要があります。
+
+VSC、VASA Provider、SRA仮想アプライアンスの最新バージョンでは、仮想マシンまたは仮想マシンディスク（VMDK）ごとにQoS指標を設定できます。これまで QoS 指標は ONTAP FlexVol ボリュームレベルで適用され、その FlexVol でプロビジョニングされたすべての仮想マシンまたは VMDK で共有されていました。
+
+VSC、VASA Provider、SRA仮想アプライアンス7.2以降では、一方の仮想マシンのQoS指標が他の仮想マシンと共有されません。
+
+[NOTE]
+====
+既存の VM ストレージポリシーは変更しないでください。仮想マシンが準拠しなくなる可能性があります。
+
+====
+.手順
+. 必須の値である「最大IOPS」を指定した新しいストレージ機能プロファイルを使用して、VVOLデータストアを作成します。
+. VM ストレージポリシーを作成し、新しい VM ストレージポリシーを新しいストレージ機能プロファイルにマッピングします。
+. 新しい VM ストレージポリシーを使用して、既存の仮想マシンを新しく作成した VVOL データストアに移行します。
+

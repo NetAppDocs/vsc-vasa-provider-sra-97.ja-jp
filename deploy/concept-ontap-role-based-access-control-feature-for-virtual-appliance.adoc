@@ -1,0 +1,46 @@
+---
+permalink: deploy/concept-ontap-role-based-access-control-feature-for-virtual-appliance.html 
+sidebar: sidebar 
+keywords: ontap, role-based, access, control, virtual, appliance, vsc, vasa, provider, sra, 
+summary: ONTAP の RBAC を使用すると、特定のストレージシステムへのアクセスとそれらのストレージシステムで実行できる操作を制御できます。Virtual Storage Console for VMware vSphereでは、ONTAP RBACとvCenter Server RBACにより、特定のストレージシステムのオブジェクトに対して特定のユーザが実行できるVirtual Storage Console（VSC）タスクが決まります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスに対するONTAP のロールベースアクセス制御
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP の RBAC を使用すると、特定のストレージシステムへのアクセスとそれらのストレージシステムで実行できる操作を制御できます。Virtual Storage Console for VMware vSphereでは、ONTAP RBACとvCenter Server RBACにより、特定のストレージシステムのオブジェクトに対して特定のユーザが実行できるVirtual Storage Console（VSC）タスクが決まります。
+
+VSC では、各ストレージシステムの認証とそのストレージシステムで実行できるストレージ操作の判別に、 VSC で設定したクレデンシャル（ユーザ名とパスワード）が使用されます。ストレージシステムごとに 1 組のクレデンシャルが使用され、そのクレデンシャルに基づいて、ストレージシステムで実行できる VSC タスクが決まります。つまり、このクレデンシャルは VSC のクレデンシャルであり、個々の VSC ユーザに対するものではありません。
+
+ONTAP RBAC は、ストレージシステムへのアクセス、および仮想マシンのプロビジョニングなど、ストレージに関連する VSC タスクの実行にのみ適用されます。それぞれのストレージシステムに対する適切な ONTAP RBAC 権限がないと、そのストレージシステムでホストされる vSphere オブジェクトに対してタスクを実行することはできません。ONTAP RBAC と VSC 固有の権限を組み合わせることで、ユーザが実行できる VSC タスクを制御することができます。
+
+* ストレージまたはストレージシステムに格納されている vCenter Server オブジェクトの監視と設定
+* ストレージシステムに格納されている vSphere オブジェクトのプロビジョニング
+
+
+ONTAP RBAC と VSC 固有の権限を使用すると、ストレージ主体のセキュリティレイヤをストレージ管理者が管理できるようになります。これにより、 ONTAP RBAC または vCenter Server RBAC のどちらか一方のアクセス制御だけを使用した場合に比べ、よりきめ細かい制御が可能になります。たとえば、vCenter Server RBACを使用して、vCenterUserBにデータストアのプロビジョニングを許可し、vCenterUserAには許可しないように設定したとします。この場合、特定のストレージシステムのクレデンシャルに対してストレージの作成を禁止すれば、 vCenterUserB と vCenterUserA のどちらもそのストレージシステムでデータストアのプロビジョニングを実行することはできません。
+
+VSC タスクを開始すると、最初にそのタスクに対する正しい vCenter Server アクセス許可がユーザにあるかどうかが検証されます。タスクを実行するための十分な vCenter Server アクセス許可がなければ、最初の vCenter Server のセキュリティチェックをパスできないため、そのストレージシステムの ONTAP 権限は確認されません。そのため、ストレージシステムにアクセスできません。
+
+十分な vCenter Server アクセス許可がある場合は、次にストレージシステムのクレデンシャル（ユーザ名とパスワード）に関連付けられた ONTAP RBAC 権限（ ONTAP ロール）が確認されます。 その VSC タスクで必要なストレージ処理をストレージシステムで実行するための十分な権限があるかどうかを確認すること。適切な ONTAP 権限があれば、ストレージシステムにアクセスして VSC タスクを実行できます。ストレージシステムで実行できる VSC タスクは ONTAP ロールで決まります。
+
+各ストレージシステムには、一連の ONTAP 権限が関連付けられます。
+
+ONTAP RBAC と vCenter Server RBAC の両方を使用すると、次のような利点があります。
+
+* セキュリティ
++
+どのユーザがどのタスクを実行できるかを、 vCenter Server オブジェクトレベルおよびストレージシステムレベルで制御できます。
+
+* 監査情報
++
+多くの場合、 VSC はストレージシステムについての監査証跡を提供します。これにより、ストレージに対して変更を行った vCenter Server ユーザまでさかのぼってイベントを追跡できます。
+
+* 使いやすさ
++
+コントローラのクレデンシャルをすべて集約して一元管理できます。
+
+

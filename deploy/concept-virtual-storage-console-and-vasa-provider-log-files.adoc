@@ -1,0 +1,37 @@
+---
+permalink: deploy/concept-virtual-storage-console-and-vasa-provider-log-files.html 
+sidebar: sidebar 
+keywords: virtual, storage, console, vasa, provider, log, files, 
+summary: エラーが発生した場合は、 /opt/netapp/vscserver/log ディレクトリおよび /opt/netapp/vpserver/log ディレクトリにあるログファイルを確認できます。 
+---
+= Virtual Storage Console と VASA Provider のログファイル
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+エラーが発生した場合は、「 /opt/NetApp/vscserver/log 」ディレクトリと「 /opt/NetApp/smserver/log' 」ディレクトリでログファイルを確認できます。
+
+問題の特定には、次の 3 つのログファイルが役立ちます。
+
+* 「cxf.log」。VASA Providerとの間で送受信されるAPIトラフィックに関する情報が記録されます
+* 「kaminoPrefs.xml」。VSCの設定に関する情報が含まれます
+* vvolvp.log ： VASA Provider に関するすべてのログ情報が含まれます
+
+
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのメンテナンスメニューでは、要件に応じたさまざまなログレベルを設定できます。次のログレベルを使用できます。
+
+* 情報
+* デバッグ
+* エラー
+* トレース
+
+
+ログレベルを設定すると、次のファイルが更新されます。
+
+* VSC サーバ： 'kamino.log' および 'vvolvp.log
+* VASA Provider サーバー： vvolvp.log ' error.log ' および NetApp.log
+
+
+また、 VASA Provider Web コマンドラインインターフェイス（ CLI ）ページで、実行された API 呼び出し、返されたエラー、パフォーマンス関連のいくつかのカウンタを確認できます。Web CLIページは'_https_://<IP_address_or_hostname\>:9083/stats'にあります

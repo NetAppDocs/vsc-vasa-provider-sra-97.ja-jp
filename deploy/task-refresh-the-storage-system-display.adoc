@@ -1,0 +1,48 @@
+---
+permalink: deploy/task-refresh-the-storage-system-display.html 
+sidebar: sidebar 
+keywords: refreshing, the, storage, system, display, 
+summary: Virtual Storage Console for VMware vSphereの更新機能を使用して、ストレージシステムに関する情報を更新し、Virtual Storage Console（VSC）でストレージシステムを検出することができます。 
+---
+= ストレージシステムの表示を更新します
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console for VMware vSphereの更新機能を使用して、ストレージシステムに関する情報を更新し、Virtual Storage Console（VSC）でストレージシステムを検出することができます。
+
+認証エラーの発生後にストレージ・システムのデフォルト・クレデンシャルを変更した場合は、「 `re Fresh 」オプションを使用すると便利です。ストレージ・システムが「 Authentication Failure Status 」を報告したあとでストレージ・システムのクレデンシャルを変更した場合は、必ず更新処理を実行してください。更新処理を実行すると、新しいクレデンシャルを使用してストレージシステムへの接続が試行されます。
+
+システムの設定によっては、この処理が完了するまでに時間がかかることがあります。
+
+.手順
+. VMware vSphere Client * Home *ページで、* Storage Systems *をクリックします。
+. 更新を開始します。
++
+[cols="1a,1a"]
+|===
+| 場所 | をクリックします 
+
+
+ a| 
+Virtual Storage Console の略
+ a| 
+[ すべて再検出（ Rediscover All ） ] アイコン
+
+
+
+ a| 
+データセンター
+ a| 
+データセンターを右クリックし、メニューをクリックします。NetApp VSC [ホストおよびストレージデータの更新]。
+
+|===
+. [ホストおよびストレージデータの更新*]ダイアログボックスで、[OK]をクリックします。
++
+データセンター内のホストとストレージシステムの数によっては、検出に数分かかることがあります。この検出処理はバックグラウンドで実行されます。
+
+. [*成功*（* Success *）]ダイアログボックスで、* OK *をクリックする。
+

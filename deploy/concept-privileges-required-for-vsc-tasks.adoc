@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-privileges-required-for-vsc-tasks.html 
+sidebar: sidebar 
+keywords: privileges, required, vsc, tasks, 
+summary: Virtual Storage Console for VMware vSphereのタスクを実行するために必要な権限の組み合わせは、（VSC）とvCenter Server標準の権限のそれぞれに異なります。 
+---
+= VSC タスクに必要な権限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console for VMware vSphereのタスクを実行するために必要な権限の組み合わせは、（VSC）とvCenter Server標準の権限のそれぞれに異なります。
+
+VSC タスクに必要な権限については、ネットアップの技術情報アーティクル 1032542 を参照してください。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/How_to_configure_RBAC_for_Virtual_Storage_Console["Virtual Storage Console 用の RBAC の設定方法"^]

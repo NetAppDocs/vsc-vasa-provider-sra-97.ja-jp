@@ -1,0 +1,43 @@
+---
+settings:
+  name: VSC, VASA Provider, and SRA 9.7
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: ja-jp,us-en,zh-cn,zh-tw,ko-kr
+sidebar:
+  entries:
+  - title: VSC、VASA Provider、SRAのドキュメント
+    url: "/index.html"
+  - title: リリースノート
+    url: release-notes.html
+  - title: クイックスタート
+    url: qsg.html
+  - section: deploy
+  - section: manage
+  - title: 法的通知
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: はじめに
+    links:
+    - title: リリースノート
+      url: "/release-notes.html"
+    - title: クイックスタート
+      url: "/qsg.html"
+    - title: 導入とアップグレード
+      url: "/deploy/concept-virtual-storage-console-overview.html"
+    - title: 管理
+      url: "/manage/concept-workflow-for-configuring-the-unified-appliance.html"
+  - title: リソースの追加
+    links:
+    - title: 以前のバージョンのVSC、VASA Provider、SRAに関するドキュメント
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30048
+    - title: ネットアップのナレッジベース- VSC、VASA Provider、SRA
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: NetApp Import Utility - ビデオ
+      url: https://www.youtube.com/watch?v=CEQmIEzNVfA
+    - title: ネットアップコミュニティ- VSC、VASA Provider、SRA
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions

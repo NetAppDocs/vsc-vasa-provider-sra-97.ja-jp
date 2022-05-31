@@ -1,0 +1,75 @@
+---
+permalink: manage/task-configure-array-manager.html 
+sidebar: sidebar 
+keywords: configuring, sra, using, array, manager, 
+summary: Site Recovery Manager （ SRM ）の Array Manager ウィザードを使用して Storage Replication Adapter （ SRA ）を設定し、 SRM と Storage Virtual Machine （ SVM ）が連携できるようにすることができます。 
+---
+= アレイマネージャを使用して SRA を設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Site Recovery Manager（SRM）の* Array Manager *ウィザードを使用してStorage Replication Adapter（SRA）を設定し、SRMとStorage Virtual Machine（SVM）が連携できるようにすることができます。
+
+.作業を開始する前に
+* SRM で保護対象サイトとリカバリサイトをペアリングしておく必要があります。
+* アレイマネージャを設定する前に、ストレージを設定しておく必要があります。
+* 保護対象サイトとリカバリサイト間の SnapMirror 関係を設定およびレプリケートしておく必要があります。
+* マルチテナンシーを有効にするには、 SVM 管理 LIF を有効にしておく必要があります。
+
+
+SRA では、クラスタレベルの管理と SVM レベルの管理がサポートされます。クラスタレベルでストレージを追加する場合は、クラスタ内のすべての SVM を検出し、それらに対して処理を実行できます。SVM レベルでストレージを追加する場合は、特定の SVM だけを管理できます。
+
+[NOTE]
+====
+VMware では、 SRM に対して NFS4.1 プロトコルがサポートされません。
+
+====
+.手順
+. SRM で、 [* Array Managers* ] をクリックし、 [* Add Array Manager* ] をクリックします。
+. 次の情報を入力して、 SRM でアレイを指定します。
++
+.. [*Display Name*] フィールドに、アレイマネージャを識別する名前を入力します。
+.. 「 * SRA Type * 」フィールドで、「 * ONTAP 向け NetApp Storage Replication Adapter 」を選択します。
+.. クラスタまたは SVM への接続情報を入力します。
++
+*** クラスタに接続する場合は、クラスタ管理 LIF を入力する必要があります。
+*** SVM に直接接続する場合は、 SVM 管理 LIF の IP アドレスを入力する必要があります。
++
+[NOTE]
+====
+アレイマネージャを設定するときは、Virtual Storage Consoleの* Storage Systems *メニューでストレージシステムの追加に使用したストレージシステムと同じ接続とクレデンシャルを使用する必要があります。たとえば、アレイマネージャの設定対象が SVM である場合、 VSC 下のストレージは SVM レベルで追加する必要があります。
+
+====
+
+
+.. クラスタに接続する場合は、 SVM の名前を * SVM 名 * フィールドに入力します。
++
+このフィールドは空白のままにすることもできます。
+
+.. *オプション：* Volume include list *フィールドに、検出するボリュームを入力します。
++
+保護対象サイトではソースボリュームを、リカバリサイトではレプリケートされたデスティネーションボリュームを入力できます。ボリューム名は完全な名前でもその一部でも構いません。
+
++
+たとえば、volume_dst_vol1とSnapMirror関係にあるvolume_src_vol1_を 検出する場合は、保護対象サイトのフィールドでsrc_src_src_vol1_inを指定し、リカバリサイトのフィールドで_dst_vol1_inを指定する必要があります。
+
+.. *オプション：* Volume exclude list *フィールドに、検出対象から除外するボリュームを入力します。
++
+保護対象サイトではソースボリュームを、リカバリサイトではレプリケートされたデスティネーションボリュームを入力できます。ボリューム名は完全な名前でもその一部でも構いません。
+
++
+たとえば、 volume_dst_vol1 と SnapMirror 関係にある volume_src_vol1_を 除外する場合は、保護対象サイトのフィールドで src_src_src_vol1_in を指定し、リカバリサイトのフィールドで _dst_vol1_in を指定する必要があります。
+
+.. クラスタレベルのアカウントまたはSVMレベルのアカウントのユーザ名を「* Username *」フィールドに入力します。
+.. ユーザー・アカウントのパスワードを [*Password*] フィールドに入力します
+
+
+. 「 * 次へ * 」をクリックします。
+. アレイが検出され、* Add Array Manager*ウィンドウの下部に表示されていることを確認します。
+. [ 完了 ] をクリックします。
+
+
+適切な SVM 管理 IP アドレスとクレデンシャルを使用して、リカバリサイトでも同じ手順を実行します。Add Array Manager*ウィザードの*アレイペアの有効化*画面で、正しいアレイペアが選択されていること、および有効にする準備ができたことを確認する必要があります。

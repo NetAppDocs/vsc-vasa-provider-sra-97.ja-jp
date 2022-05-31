@@ -1,0 +1,61 @@
+---
+permalink: deploy/concept-installation-workflow-for-existing-users-of-vsc.html 
+sidebar: sidebar 
+keywords: deployment, workflow, existing, users, vsc, vasa, provider, sra, 
+summary: VSC、VASA Provider、SRA仮想アプライアンス9.7では、最新バージョンへの直接アップグレードがサポートされます。 
+---
+= VSC、VASA Provider、SRAの既存ユーザ向けの導入ワークフロー
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想アプライアンス9.7では、最新バージョンへの直接アップグレードがサポートされます。
+
+VSC、VASA Provider、SRAなど、個々のアプリケーションの以前のリリースでは、使用しているアップグレードプロセスが異なります。VSC 、 VASA Provider 、または SRA がインストールされている環境では、次の処理を実行する必要があります。
+
+. 最新リリースのVSC、VASA Provider、SRA仮想アプライアンスを導入する
+. 既存の設定データを移行します。
++
+構成データにはストレージ・システムのクレデンシャルのほかに 'kaminoprefs.xml ファイルおよび vscPreferences.xml ファイルで使用されるプリファレンスも含まれます
+
+
+
+link:reference-configure-the-vsc-preferences-files.html["VSC プリファレンスファイルを設定する"^]
+
+多くの場合、設定データを移行する必要はありません。ただし、以前にプリファレンスファイルをカスタマイズした場合は、それらのファイルを確認して、新しく導入した仮想アプライアンスに対しても同様の変更を行うことを推奨します。次のいずれかを実行できます。
+
+* 使用 https://mysupport.netapp.com/tools/index.html["SnapCenter およびVirtual Storage Console用のインポートユーティリティ"^] をクリックして、ストレージシステムのクレデンシャルを VSC 6.X および SRA 4.X から新しい導入環境に移行します。
+* 新しく導入した仮想アプライアンスに、クレデンシャルを指定してストレージシステムを追加します。
+
+
+VASA Provider 6.X からアップグレードする場合は、アップグレード前に VASA Provider の登録を解除する必要があります。詳細については、ご使用のリリースのドキュメントを参照してください。
+
+SRA 4.0 以前からのアップグレードも実施する場合は、次の手順を実行します。
+
+* SRA 4.0P1 を使用している場合は、まず SRA 9.6 にアップグレードする必要があります。その後、 SRA 9.6 から最新リリースへのインプレースアップグレードを実行できます。
++
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["VSC、VASA Provider、SRA仮想アプライアンス9.7.1にアップグレードする"^]
+
+* SRA 2.1 または 3.0 を使用している場合は、最初に既存のサイトの設定をメモしておく必要があります。
++
+ONTAP 用 Storage Replication Adapter 4.0 のインストールおよびセットアップガイドの詳細な手順については、「アップグレードの概要」を参照してください。これらのSRAリリースもVASA Providerを使用するため、VASA Providerの登録を解除してから最新バージョンのVSC、VASA Provider、SRA仮想アプライアンスを導入する必要があります。アップグレードが完了したら、以前のリリースのサーバ（「 .ova 」）を削除できます。
+
+
+
+SRA をアップグレードする場合は、 SRA ソフトウェア（ .msi ファイルによってインストールされた、 Site Recovery Manager サーバ上のアダプタ）を Site Recovery Manager サーバから削除する必要があります。Windows システムのコントロールパネルを使用してソフトウェアをアンインストールし、最新の SRA ソフトウェアを .msi ファイルを使用して SRA サーバにインストールできます。
+
+VASA Providerを導入している場合は、既存のセットアップからアップグレードしたあと、「設定の編集」オプションを使用して仮想アプライアンスのメモリサイズを12GBに設定する必要があります。仮想メモリの予約も変更する必要があります。メモリサイズを変更するには、仮想マシンの電源をオフにする必要があります。
+
+9.7より前のリリースから9.7P2以降への直接アップグレードは、VSC、VASA Provider、SRA仮想アプライアンスではサポートされていません。最初に既存の環境をVSC、VASA Provider、SRA仮想アプライアンス9.7にアップグレードしてから、新しいリリースにアップグレードする必要があります。
+
+最新リリースの仮想アプライアンスを導入する場合は、「VSC、VASA Provider、SRA仮想アプライアンスの導入要件」を参照してください。 インプレースアップグレードの実行方法については、「VSC、VASA Provider、SRA仮想アプライアンス9.6へのアップグレード」を参照してください。
+
+* 関連情報 *
+
+https://mysupport.netapp.com/tools/info/ECMLP2840096I.html?productID=62135&pcfContentID=ECMLP2840096["NetApp ToolChest：NetApp Import Utility for SnapCenter and Virtual Storage Console"^]
+
+link:concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html["VSC、VASA Provider、SRA仮想アプライアンスを導入するための要件"^]
+
+link:task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html["VSC、VASA Provider、SRA仮想アプライアンス9.7.1にアップグレードする"^]

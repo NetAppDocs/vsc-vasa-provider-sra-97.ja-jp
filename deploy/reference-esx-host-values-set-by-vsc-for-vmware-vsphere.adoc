@@ -1,0 +1,124 @@
+---
+permalink: deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: esxi, host, values, set, using, virtual, storage, console, vmware, vsphere, 
+summary: フェイルオーバーが最適な状態で確実に実行されるように、Virtual Storage Console for VMware vSphereを使用してESXiホストにタイムアウト値やその他の値を設定することができます。Virtual Storage Console（VSC）で設定される値は、内部テストに基づいています。 
+---
+= Virtual Storage Console for VMware vSphereを使用して設定されるESXiホストの値
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+フェイルオーバーが最適な状態で確実に実行されるように、Virtual Storage Console for VMware vSphereを使用してESXiホストにタイムアウト値やその他の値を設定することができます。Virtual Storage Console（VSC）で設定される値は、内部テストに基づいています。
+
+ESXi ホストでは、次の値を設定できます。
+
+
+
+== ESXi の高度な設定
+
+* * VMFS3.HardwareAcceleratedLocking *
++
+この値を 1 に設定します。
+
+* *VMFS3.EnableBlockDelete *
++
+この値を 0 に設定します。
+
+
+
+
+
+== NFS 設定
+
+* * Net.TcpipHeHeapSize *
++
+vSphere 6.0 以降を使用している場合は、この値を 32 に設定します。
+
+* * Net.TcpipHeapMax *
++
+vSphere 6.0 以降を使用している場合は、この値を 1536 に設定します。
+
+* * NFS.MaxVolumes *
++
+vSphere 6.0 以降を使用している場合は、この値を 256 に設定します。
+
+* * NFS41.MaxVolumes *
++
+vSphere 6.0 以降を使用している場合は、この値を 256 に設定します。
+
+* * NFS.MaxQueueDepth *
++
+vSphere 6.0 以降の ESXi ホストを使用している場合は、キューのボトルネックを回避するためにこの値を 128 以上に設定します。
+
++
+vSphere のバージョンが 6.0 より前の場合は、この値を 64 に設定します。
+
+* * nfs.HeartbeatMaxFailures*
++
+すべての NFS 構成で、この値を 10 に設定します。
+
+* * nfs.HeartbeatFrequency*
++
+すべての NFS 構成でこの値を 12 に設定します。
+
+* * nfs.HeartbeatTimeout *
++
+すべての NFS 構成でこの値を 5 に設定します。
+
+
+
+
+
+== FC / FCoE 設定
+
+* * パス選択ポリシー *
++
+ALUA に対応する FC パスを使用する場合は、この値を「 RR 」（ラウンドロビン）に設定します。
+
++
+他のすべての構成では、この値を「固定」に設定する必要があります。
+
++
+この値を「 RR 」に設定すると、最適化されたすべてのアクティブなパスでロード・バランシングを行うことができます。値「 fixed 」は、 ALUA に対応していない古い構成に使用され、プロキシ I/O の防止に役立ちます
+
+* * Disk.QFullSampleSize *
++
+すべての構成でこの値を 32 に設定します。この値を設定すると、 I/O エラーの防止に役立ちます。
+
+* * Disk.QFullThreshold *
++
+すべての構成でこの値を 8 に設定します。この値を設定すると、 I/O エラーの防止に役立ちます。
+
+* * Emulex FC HBA タイムアウト *
++
+デフォルト値を使用します。
+
+* * QLogic FC HBA タイムアウト *
++
+デフォルト値を使用します。
+
+
+
+
+
+== iSCSI 設定
+
+* * パス選択ポリシー *
++
+すべての iSCSI パスに対してこの値を「 RR 」に設定します。
+
++
+この値を「 RR 」に設定すると、最適化されたすべてのアクティブなパスでロード・バランシングを行うことができます。
+
+* * Disk.QFullSampleSize *
++
+すべての構成でこの値を 32 に設定します。この値を設定すると、 I/O エラーの防止に役立ちます。
+
+* * Disk.QFullThreshold *
++
+すべての構成でこの値を 8 に設定します。この値を設定すると、 I/O エラーの防止に役立ちます。
+
+

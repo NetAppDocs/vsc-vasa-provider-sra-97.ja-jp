@@ -1,0 +1,16 @@
+---
+permalink: manage/concept-manage-disaster-recovery-setup-using-srm.html 
+sidebar: sidebar 
+keywords: managing, disaster, recovery, setup, by, using, site, recovery, manager, 
+summary: Site Recovery Manager（SRM）とVMwareのSite Recovery Manager（SRM）を使用して、vCenter Serverでディザスタリカバリの設定を作成および管理できます。 
+---
+= Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Site Recovery Manager（SRM）とVMwareのSite Recovery Manager（SRM）を使用して、vCenter Serverでディザスタリカバリの設定を作成および管理できます。
+
+このリリースのVASA Providerには、Storage Replaction Adapter（SRA）の機能が組み込まれています。データセンターで VVOL データストアを設定している場合は、 VVOL データストアのリカバリ用に、ディザスタリカバリ用に SRA を別途インストールする必要はありません。Site Recovery Manager（SRM）で、保護対象サイトとリカバリサイトをペアリングする必要があります。サイトをペアリングしたら、 SRM の次の設定作業としてアレイペアを設定します。アレイペアにより、 SRM がストレージシステムと通信してデバイスとデバイスのレプリケーションを検出できるようになります。アレイペアを設定する前に、まず SRM でサイトペアを作成する必要があります。

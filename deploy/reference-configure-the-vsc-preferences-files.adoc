@@ -1,0 +1,22 @@
+---
+permalink: deploy/reference-configure-the-vsc-preferences-files.html 
+sidebar: sidebar 
+keywords: preferences, files, configuring, vsc, preferences, files, 
+summary: プリファレンスファイルには、Virtual Storage Console for VMware vSphereの処理を制御する設定が含まれています。ほとんどの場合、これらのファイルの設定を変更する必要はありません。どのプリファレンスファイル（VSC）が使用されるかを理解しておくと役立ちます。 
+---
+= VSC プリファレンスファイルを設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プリファレンスファイルには、Virtual Storage Console for VMware vSphereの処理を制御する設定が含まれています。ほとんどの場合、これらのファイルの設定を変更する必要はありません。どのプリファレンスファイル（VSC）が使用されるかを理解しておくと役立ちます。
+
+VSC には複数のプリファレンスファイルがあります。これらのファイルには、 VSC によるさまざまな処理の実行方法を決定するエントリキーと値が含まれています。VSC で使用される一部のプリファレンスファイルを次に示します。
+
+/opt/netapp/vscserver/etc/kamino/kaminoprefs.xml が含まれています
+
+「 /opt/NetApp/vscserver /etc/vsc/vscPreferences.xml 」を参照してください
+
+状況によっては、プリファレンスファイルの変更が必要になることがあります。たとえば、 iSCSI または NFS を使用していて、 ESXi ホストとストレージシステムとでサブネットが異なる場合は、のプリファレンスファイルを変更する必要があります。プリファレンスファイルの設定を変更しないと、 VSC でデータストアをマウントできないためにデータストアのプロビジョニングが失敗します。

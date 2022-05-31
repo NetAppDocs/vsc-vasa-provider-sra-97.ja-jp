@@ -1,0 +1,61 @@
+---
+permalink: deploy/task-enable-datastore-mounting-across-different-subnets.html 
+sidebar: sidebar 
+keywords: enabling, datastore, mounting, across, different, subnets, 
+summary: NFSまたはiSCSIを使用していて、ESXiホストとストレージシステムとでサブネットが異なる場合は、Virtual Storage Console for VMware vSphereのプリファレンスファイルを変更する必要があります。プリファレンスファイルを変更しないと、（VSC）でデータストアをマウントできないためにデータストアのプロビジョニングが失敗します。 
+---
+= 異なるサブネット間でのデータストアのマウントを有効にする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSまたはiSCSIを使用していて、ESXiホストとストレージシステムとでサブネットが異なる場合は、Virtual Storage Console for VMware vSphereのプリファレンスファイルを変更する必要があります。プリファレンスファイルを変更しないと、（VSC）でデータストアをマウントできないためにデータストアのプロビジョニングが失敗します。
+
+データストアのプロビジョニングに失敗した場合、以下のエラーメッセージが記録されます。
+
+' 続行できません。コントローラ上のカーネルIPアドレスとアドレスの相互参照時にIPアドレスが見つかりませんでした
+
+これらのホストにNFSマウント・ボリュームと一致するネットワークが見つかりません `
+
+.手順
+. vCenter Server インスタンスにログインします。
+. 統合アプライアンス仮想マシンを使用してメンテナンスコンソールを起動します。
++
+link:task-access-virtual-appliance-maiintenance-console-options.html["VSC、VASA Provider、SRA仮想アプライアンスのメンテナンスコンソールのオプションにアクセスする"]
+
+. *Support and Diagnostics*オプションにアクセスするには'4`を入力します
+. 「2」を入力して、「* Access Diagnostic Shell *」オプションにアクセスします。
+. 「 vi /opt/NetApp/vscserver /etc/kamino/kaminoprefs.xml 」と入力して、「 kaminoprefs.xml 」ファイルを更新します。
+. kaminoprefs.xml ファイルを更新します
++
+[cols="1a,1a"]
+|===
+| を使用する場合 | 手順 
+
+
+ a| 
+iSCSI
+ a| 
+エントリキー「 efault.allow.iscsi.mount.networks` 」の値を「 ALL 」から ESXi ホストのネットワークの値に変更します。
+
+
+
+ a| 
+NFS
+ a| 
+エントリキー「 efault.allow.nfs.mount.networks` 」の値を「 ALL 」から ESXi ホストのネットワークの値に変更します。
+
+|===
++
+プリファレンスファイルには、これらのエントリキーのサンプル値が含まれています。
+
++
+[NOTE]
+====
+値「 all 」はすべてのネットワークを意味するわけではありません。「all」の値を指定すると、ホストとストレージ・システムの間にある一致するすべてのネットワークが、データストアのマウントに使用されます。ホストネットワークを指定すると、指定したサブネット間でのみマウントを有効にできます。
+
+====
+. 'kaminoprefs.xml ファイルを保存して閉じます
+

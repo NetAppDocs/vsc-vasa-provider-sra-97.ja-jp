@@ -1,0 +1,44 @@
+---
+permalink: manage/task-monitor-datastores-using-the-traditional-dashboard.html 
+sidebar: sidebar 
+keywords: monitoring, datastores, virtual, machines, using, the, traditional, dashboard, 
+summary: 従来のデータストアと仮想マシンは、Virtual Storage Console、VASA Provider、Storage Replication Adapter仮想アプライアンスの従来のダッシュボードを使用して監視できます。ダッシュボードのデータを使用して、データストアの使用状況を分析し、仮想マシンでスペースに関する制約が発生しないように対処できます。 
+---
+= 従来のダッシュボードを使用してデータストアと仮想マシンを監視する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+従来のデータストアと仮想マシンは、Virtual Storage Console、VASA Provider、Storage Replication Adapter仮想アプライアンスの従来のダッシュボードを使用して監視できます。ダッシュボードのデータを使用して、データストアの使用状況を分析し、仮想マシンでスペースに関する制約が発生しないように対処できます。
+
+Configure Storage I/O Control （ストレージ I/O 制御の設定）ダイアログボックスで、 Enable Storage I/O Control and statistics collection （ストレージ I/O 制御と統計の収集を有効にする） * または * Disable Storage I/O Control but enable statistics collection * のいずれかのオプションを選択する必要があります。Storage I/O Control は、 VMware の Enterprise Plus ライセンスがある場合にのみ有効にできます。
+
+https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-BB5D9BAB-9E0E-4204-A76A-54634CD8AD51.html["VMware vSphere のドキュメント：「 Storage I/O Control を有効にする"^]
+
+VSCダッシュボードには、vCenter Serverから取得したIOPS、使用スペース、レイテンシ、およびコミット済み容量の指標が表示されます。ONTAP は、ボリュームのスペース削減データをVSCダッシュボードに提供します。これらのパフォーマンスパラメータを使用すると、仮想環境におけるパフォーマンスのボトルネックを特定し、問題を解決するための対処を行うことができます。
+
+VSC、VASA Provider、SRA仮想アプライアンスの従来のダッシュボードを使用すると、NFSデータストアまたはVMFSデータストアを表示できます。データストアをクリックすると、 vCenter Server インスタンスのデータストアの詳細画面に移動して、 vCenter Server 内のデータストアに関する問題を確認および修正できます。
+
+.手順
+. vSphere Clientのホームページで、* Virtual Storage Console *をクリックします。
+. vCenter Server *ドロップダウン・メニューを使用して、必要なvCenter Serverを選択し、データストアを表示します。
+. [* 従来のダッシュボード * ] をクリックします。
++
+「* Datastores *」ポートレットには、次の詳細が表示されます。
+
++
+** vCenter Server インスタンスの VSC で管理されている従来のデータストアの数とパフォーマンス指標
+** リソースの使用状況と変更可能なパフォーマンスパラメータに基づく上位 5 つのデータストア。必要に応じて、使用スペース、 IOPS 、またはレイテンシに基づいて、必要な順序でデータストアのリストを変更できます。
+
+
++
+仮想マシン*ポートレットには、以下の詳細情報が表示されます。
+
++
+** vCenter Server のネットアップのデータストアを使用している仮想マシンの数
+** コミット済み容量、レイテンシ、およびアップタイムに基づく上位5つの仮想マシン
+
+
+

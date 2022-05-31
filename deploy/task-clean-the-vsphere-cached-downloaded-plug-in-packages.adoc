@@ -1,0 +1,66 @@
+---
+permalink: deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html 
+sidebar: sidebar 
+keywords: clean, up, browser, cache, cleaning, the, vsphere, cached, downloaded, plug-in, packages, 
+summary: VSC、VASA Provider、SRA仮想アプライアンスの導入またはアップグレード後にプラグインが自動的に更新されない場合は、ブラウザおよびvCenter Serverにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップして、vCenter Serverのプラグインの問題を解決する必要があります。 
+---
+= vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想アプライアンスの導入またはアップグレード後にプラグインが自動的に更新されない場合は、ブラウザおよびvCenter Serverにキャッシュされているダウンロード済みのプラグインパッケージをクリーンアップして、vCenter Serverのプラグインの問題を解決する必要があります。
+
+.手順
+. 既存の vSphere Web Client または vSphere Client からログアウトします。
+. ブラウザキャッシュを削除します。
+. vSphere Client にキャッシュされたプラグインパッケージを削除します。
++
+[cols="1a,1a"]
+|===
+| 使用するポート | 実行する手順 
+
+
+ a| 
+Windows vCenter Server の場合
+ a| 
+次の場所にあるcom.netapp.vasa.vvol.webclient-x.x.x.xxxx、com.netapp.nvpf.webclient-x.x.x.xxxx、およびcom.netapp.vsch5-x.x.x.xxxxフォルダを削除します。
+
+** vSphere Web Clientのパス：C：\ProgramData\VMware\vCenterServer\cfg\vsphere-client\vc-packages\vsphere-client-serenity
+** vSphere Client（HTML5）のパス：C：\ProgramData\VMware\vCenterServer\cfg\vsphere-ui\vc-packages\vsphere-client-serenity
+
+
+
+
+ a| 
+vCSA
+ a| 
+.. SSH で VCSA アプライアンスに接続します。
+.. cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity を使用して、 vCenter Web Client UI 拡張ディレクトリにディレクトリを変更します
+.. 次のコマンドを使用して、キャッシュされたプラグインパッケージを削除します
++
+*** rm -rf com.netapp.vasa.vvol.webclient-x.x.x.xxxx`
+*** rm -rf com.netapp.nvpf.webclient-x.x.x.xxxx`
+*** rm -rf com.netapp.vsch5-x.x.x.xxxx`
+
+
+.. 「 cd /etc/vmware/vsphere-clientui/vc-packages/vsphere-client-serenity 」を使用して、ディレクトリを vCenter クライアント（ HTML5 ） UI 拡張ディレクトリに変更します
+.. 次のコマンドを使用して、キャッシュされたプラグインパッケージを削除します
++
+*** rm -rf com.netapp.vasa.vvol.webclient-x.x.x.xxxx`
+*** rm -rf com.netapp.nvpf.webclient-x.x.x.xxxx`
+*** rm -rf com.netapp.vsch5-x.x.x.xxxx`
+
+
+
+
+|===
+. vSphere にログインし、次のコマンドを使用して vSphere Web Client サービスと vSphere Client サービスを再起動します。
++
+** `service-control -- vsphere-stop vsphere-client vsphere-ui`
+** 「service-control」-- vSphereクライアントのvsphere-uiを起動します
+
+
+

@@ -1,0 +1,16 @@
+---
+permalink: manage/concept-workflow-for-configuring-the-unified-appliance.html 
+sidebar: sidebar 
+keywords: workflow, for, configuring, the, virtual, appliance, for, vsc, vasa, provider, and, sra, 
+summary: VSC、VASA Provider、SRA仮想マシンの設定では、ストレージシステムを設定し、ストレージ機能プロファイルを作成し、データストアをプロビジョニングし、必要に応じてディザスタリカバリのためのSRAを設定します。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスを設定するためのワークフロー
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想マシンの設定では、ストレージシステムを設定し、ストレージ機能プロファイルを作成し、データストアをプロビジョニングし、必要に応じてディザスタリカバリのためのSRAを設定します。
+
+image::../media/use-case-vsc-users.gif[VSCのユースケースユーザ]

@@ -1,0 +1,47 @@
+---
+permalink: deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: virtual, volume, datastores, registering, virtual, appliance, vsc, vasa, provider, sra, 
+summary: ONTAP 9.6以前を使用している場合、VMware仮想ボリューム（vVol）データストアと仮想マシンの詳細をvVolダッシュボードに表示するためには、VASA Providerに登録してvVol VMおよびデータストアのレポートのデータを取得する必要があります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスに登録する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.6以前を使用している場合、VMware仮想ボリューム（vVol）データストアと仮想マシンの詳細をvVolダッシュボードに表示するためには、VASA Providerに登録してvVol VMおよびデータストアのレポートのデータを取得する必要があります。
+
+から2.1以降をダウンロードしておく必要があります。
+
+[NOTE]
+====
+vVolダッシュボードには、ONTAP 9.3以降を使用してSAN vVolデータストアと仮想マシンが設定されている場合にのみパフォーマンス指標が表示されます。
+
+====
+.手順
+. Virtual Storage Console（VSC）* Home *ページで、* Settings *をクリックします。
+. [管理設定*]タブの[拡張機能の管理*]をクリックします。
+. [API OnCommand サービスの登録*]スライダを使用して有効にします。
+. のIPアドレス、サービスポート、およびクレデンシャルを入力します。
++
+VASA Provider拡張機能の管理*ダイアログボックスを使用して、次の変更を行うこともできます。
+
++
+** クレデンシャルに変更があったときに登録を更新する。
+** VVolダッシュボードが不要になったときに登録を解除する。
++
+VASA Providerの登録を解除するには、「OnCommand APIサービスの登録*」チェックボックスをオフにする必要があります。
+
+
+
+. [ 適用（ Apply ） ] をクリックします。
++
+vVolダッシュボードには、の登録が完了した時点で初めて、ONTAP 9.6以前のSAN vVolデータストアの指標が表示されます。
+
+
+
+* 関連情報 *
+
+https://mysupport.netapp.com/site/["ネットアップサポート"^]

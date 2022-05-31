@@ -1,0 +1,46 @@
+---
+permalink: deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: metroCluster, configurations, supported, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスでは、ONTAP のMetroCluster IP構成とFC構成を使用する環境がサポートされます。このサポートはほぼ自動的に行われます。ただし、 MetroCluster 環境で VSC および VASA Provider を使用している場合はいくつかの違いがあります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスでサポートされるMetroCluster 構成
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスでは、ONTAP のMetroCluster IP構成とFC構成を使用する環境がサポートされます。このサポートはほぼ自動的に行われます。ただし、 MetroCluster 環境で VSC および VASA Provider を使用している場合はいくつかの違いがあります。
+
+
+
+== MetroCluster 構成と VSC
+
+プライマリサイトとセカンダリサイトで VSC がストレージシステムコントローラを検出することを確認する必要があります。通常、 VSC は自動的にストレージコントローラを検出します。クラスタ管理 LIF を使用している場合は、 VSC が両方のサイトでクラスタを検出していることを確認することを推奨します。検出されていない場合は、手動でストレージコントローラを VSC に追加できます。VSC がストレージコントローラへの接続に使用するユーザ名とパスワードのペアを変更することもできます。
+
+スイッチオーバーが発生した場合、セカンダリサイトのがテイクオーバーします。これらの名前には「-mc」サフィックスが付加されています。データストアのプロビジョニングなどの処理の実行中にスイッチオーバー操作が発生すると、データストアが存在するの名前が「-mc」サフィックスのついたものに変わります。スイッチバックが発生してプライマリサイトのに制御が戻ると、このサフィックスは削除されます。
+
+[NOTE]
+====
+MetroCluster 構成を直接VSCに追加した場合は、スイッチオーバー後にSVM名の変更（「-mc」サフィックスの追加）が反映されません。他のスイッチオーバー操作は、いずれも引き続き通常どおりに実行されます。
+
+====
+スイッチオーバーまたはスイッチバック後、 VSC で自動的にクラスタが検出されて認識されるまでに数分かかる場合があります。データストアのプロビジョニングなどの VSC 処理を実行中にスイッチオーバーまたはスイッチバックが発生した場合、処理に遅れが生じることがあります。
+
+
+
+== MetroCluster 構成と VASA Provider
+
+VASA Provider では、 MetroCluster 構成を使用する環境が自動的にサポートされます。VASA Provider 環境では、スイッチオーバーは透過的に行われます。VASA Providerに直接を追加することはできません。
+
+[NOTE]
+====
+VASA Providerでは、スイッチオーバー後にセカンダリサイトのの名前に「-mc」というサフィックスが付加されません。
+
+====
+
+
+== MetroCluster 構成とSRA
+
+SRA では、 MetroCluster 構成がサポートされません。

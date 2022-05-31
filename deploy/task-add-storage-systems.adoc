@@ -1,0 +1,34 @@
+---
+permalink: deploy/task-add-storage-systems.html 
+sidebar: sidebar 
+keywords: adding, storage, systems, vsc, 
+summary: Virtual Storage Console （ VSC ）には手動でストレージシステムを追加できます。 
+---
+= ストレージシステムを VSC に追加
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console （ VSC ）には手動でストレージシステムを追加できます。
+
+（VSC）を起動するたび、または* rediscover all *オプションを選択するたびに、使用可能なストレージシステムが自動的に検出されます。
+
+.手順
+. VSCのホームページを使用して、VSCにストレージシステムを追加します。
++
+** [メニュー]、[ストレージシステム]、[追加]の順にクリックします。
+** [メニュー]、[はじめに]の順にクリックし、[ストレージシステムの追加]の下の[*追加]ボタンをクリックします。
+
+
+. Add Storage System * （ストレージ・システムの追加）ダイアログ・ボックスで ' そのストレージ・システムの管理 IP アドレスとクレデンシャルを入力します
++
+クラスタまたはのIPv6アドレスを使用してストレージシステムを追加することもできます。このダイアログボックスでは、 TLS のデフォルト値とポート番号を変更することもできます。
+
++
+VSC * Storage System *ページからストレージを追加する場合は、ストレージを配置するvCenter Serverインスタンスも指定する必要があります。Add Storage System *（ストレージシステムの追加）ダイアログボックスには、使用可能なvCenter Serverインスタンスのドロップダウンリストが表示されます。vCenter Server インスタンスにすでに関連付けられているデータセンターにストレージを追加する場合、このオプションは表示されません。
+
+. 必要な情報をすべて追加したら、「 * OK 」をクリックします。
+

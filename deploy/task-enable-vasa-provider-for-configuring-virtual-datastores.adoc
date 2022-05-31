@@ -1,0 +1,34 @@
+---
+permalink: deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html 
+sidebar: sidebar 
+keywords: enabling, vasa, provider, for, configuring, virtual, datastores, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスでは、VASA Provider機能がデフォルトで有効になっています。VMware 仮想ボリューム（ vVol ）データストアは、それぞれの vVol データストアに必要なストレージ機能プロファイルを使用して設定できます。 
+---
+= 仮想データストアを設定するための VASA Provider の有効化
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスでは、VASA Provider機能がデフォルトで有効になっています。VMware 仮想ボリューム（ vVol ）データストアは、それぞれの vVol データストアに必要なストレージ機能プロファイルを使用して設定できます。
+
+.作業を開始する前に
+* vCenter Server インスタンスをセットアップし、 ESXi を設定しておく必要があります。
+* VSC、VASA Provider、SRA仮想アプライアンスを導入しておく必要があります。
+
+
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンス9.7.1にアップグレードする前にVASA Provider機能が無効になっていた場合は、アップグレード後もVASA Provider機能は無効なままになります。本リリースでは、 VVOL データストアに対する vVol のレプリケーション機能を有効にすることができます。
+
+.手順
+. VMware vSphere の Web ユーザインターフェイスにログインします。
+. vSphere Clientで、メニューをクリックします。メニュー[Virtual Storage Console]。
+. [* 設定 * ] をクリックします。
+. [ 管理設定 *] タブの [ 機能の管理 *] をクリックします。
+. 管理機能*ダイアログボックスで、有効にするVASA Provider拡張機能を選択します。
+. VVOL データストアのレプリケーション機能を使用する場合は、「 * VVol レプリケーションを有効にする * 」切り替えボタンを使用します。
+. VSC、VASA Provider、SRA仮想アプライアンスのIPアドレスと管理者パスワードを入力し、* Apply *をクリックします。
+
+
+ONTAP 9.6以前のクラスタを使用している場合は、SAN vVol VMおよびSAN vVolデータストアのレポートで使用されるvVolデータストアと仮想マシンの詳細を取得するためにVASA Providerに登録する必要があります。ただし、ONTAP 9.7以降を使用している場合は、VASA Providerに登録する必要はありません。

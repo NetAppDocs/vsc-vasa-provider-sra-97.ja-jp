@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-virtual-storage-console-reports.html 
+sidebar: sidebar 
+keywords: understanding, virtual, storage, console, reports, 
+summary: Virtual Storage Console（VSC）のレポートメニューを使用して、特定のvCenter Serverの選択したVSCインスタンスで管理されているすべてのデータストアに関する事前定義済みのレポートを表示できます。レポートのソートやエクスポートなどの操作を実行できます。 
+---
+= Virtual Storage Consoleのレポートを確認
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）* Reports *メニューを使用して、特定のvCenter Serverの選択したVSCインスタンスで管理されているすべてのデータストアに関する事前定義済みのレポートを表示できます。レポートのソートやエクスポートなどの操作を実行できます。

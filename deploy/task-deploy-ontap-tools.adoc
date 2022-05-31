@@ -1,0 +1,100 @@
+---
+permalink: deploy/task-deploy-ontap-tools.html 
+sidebar: sidebar 
+keywords: deploying, the, virtual, appliance, for vsc, vasa, provider, and sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを環境に導入し、アプライアンスを使用できるように必要なパラメータを指定する必要があります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスを導入する
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを環境に導入し、アプライアンスを使用できるように必要なパラメータを指定する必要があります。
+
+.作業を開始する前に
+* サポートされているリリースの vCenter Server が実行されている必要があります。
++
+[NOTE]
+====
+VSC、VASA Provider、SRA仮想アプライアンスを登録できるのは、Windows環境のvCenter ServerまたはVMware vCenter Server Virtual Appliance（vCSA）環境です。
+
+====
++
+https://mysupport.netapp.com/matrix/imt.jsp?components=97563;&solution=56&isHWU&src=IMT["Interoperability Matrix Tool ： VSC 9.7"^]
+
+* vCenter Server 環境を設定およびセットアップしておく必要があります。
+* 仮想マシン用の ESXi ホストのセットアップが完了している必要があります。
+* 「.ova」ファイルをダウンロードしておく必要があります。
+* vCenter Server インスタンスの管理者のログインクレデンシャルが必要です。
+* vSphere Clientのすべてのブラウザセッションからログアウトして、ブラウザを閉じておく必要があります。また、VSC、VASA Provider、SRA仮想アプライアンスの導入時にブラウザキャッシュ問題 がブラウザキャッシュに表示されないようにするには、ブラウザキャッシュを削除しておく必要があります。
++
+xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします]
+
+* Internet Control Message Protocol （ ICMP ）を有効にしておく必要があります。
++
+ICMPが無効になっていると、VSC、VASA Provider、SRA仮想アプライアンスの初期設定が失敗し、導入後にVSCがVSCサービスとVASA Providerサービスを開始できなくなります。導入後に、 VSC サービスと VASA Provider サービスを手動で有効にする必要があります。
+
+
+
+VSC、VASA Provider、SRA仮想アプライアンスを新規に導入する場合は、VASA Providerがデフォルトで有効になります。ただし、以前のリリースの仮想アプライアンスからアップグレードする場合は、アップグレード前のVASA Providerの状態が維持されるため、VASA Providerを手動で有効にしなければならない場合があります。
+
+link:task-enable-vasa-provider-for-configuring-virtual-datastores.html["仮想データストアを設定するための VASA Provider の有効化"]
+
+.手順
+. vSphere Client にログインします。
+. ホーム[ホストおよびクラスタ]メニューを選択します。
+. 必要なデータセンターを右クリックし、 * OVA テンプレートの導入 * をクリックします。
+. 該当する方法を選択してVSC、VASA Provider、SRAの導入ファイルを指定し、* Next *をクリックします。
++
+[cols="1a,1a"]
+|===
+| 場所 | アクション 
+
+
+ a| 
+URL
+ a| 
+VSC、VASA Provider、SRA仮想アプライアンスの「.ova」ファイルのURLを指定します。
+
+
+
+ a| 
+フォルダ
+ a| 
+VSC、VASA Provider、SRA仮想アプライアンスの「.ova」ファイルを保存先から選択します。
+
+|===
+. 詳細を入力して、導入ウィザードをカスタマイズします。
++
+を参照してください link:reference-deploment-customization-requirements.html["導入のカスタマイズに関する考慮事項"] を参照してください。
+
+. 構成データを確認し、 [ 次へ * ] をクリックして導入を終了します。
++
+展開が完了するまで待つ間に、[*タスク*]タブから展開の進行状況を表示できます。
+
+. 仮想アプライアンス仮想マシンの電源をオンにして、仮想アプライアンスを実行している仮想マシンのコンソールを開きます。
+. 導入の完了後に、VSC、VASA Provider、SRAの各サービスが実行されていることを確認
+. VSC、VASA Provider、SRA仮想アプライアンスがいずれのvCenter Serverにも登録されていない場合は、「+ https://appliance_ip:8143/Register.html+`」を使用してVSCインスタンスを登録します。
+. vSphere Clientからログアウトして再度ログインすると、導入したVSC、VASA Provider、SRA仮想アプライアンスが表示されます。
++
+vSphere Client でプラグインが更新されるまでに数分かかる場合があります。
+
++
+[NOTE]
+====
+ログインしてもプラグインが表示されない場合は、vSphere Clientのキャッシュをクリーンアップする必要があります。 xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします]
+
+====
+
+
++++++
+
+[NOTE]
+====
+ONTAP 9.6以前を使用している場合、vVolダッシュボードを表示するには、をダウンロードしてインストールする必要があります。ただし、ONTAP 9.7の場合は、VASA Providerに登録する必要はありません。
+
+====
+xref:task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.adoc[VSC、VASA Provider、SRA仮想アプライアンスに登録する]

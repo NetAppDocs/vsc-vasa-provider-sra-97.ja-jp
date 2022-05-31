@@ -1,0 +1,59 @@
+---
+permalink: deploy/reference-deploment-customization-requirements.html 
+sidebar: sidebar 
+keywords: deployment, customization, considerations, 
+summary: VSC、VASA Provider、SRA仮想アプライアンスの導入をカスタマイズするときは、いくつかの制限事項について考慮する必要があります。 
+---
+= 導入のカスタマイズに関する考慮事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSC、VASA Provider、SRA仮想アプライアンスの導入をカスタマイズするときは、いくつかの制限事項について考慮する必要があります。
+
+
+
+== アプライアンスの管理者ユーザのパスワード
+
+管理者パスワードにはスペースは使用できません。
+
+
+
+== アプライアンスのメンテナンスコンソールのクレデンシャル
+
+メンテナンスコンソールにアクセスするには、「 maint 」ユーザ名を使用する必要があります。導入時に「 maint 」ユーザのパスワードを設定できます。パスワードは、VSC、VASA Provider、SRA仮想アプライアンスのメンテナンスコンソールの*アプリケーションの設定*メニューを使用して変更できます。
+
+
+
+== vCenter Server 管理者のクレデンシャル
+
+vCenter Serverの管理者クレデンシャルは、VSC、VASA Provider、SRA仮想アプライアンスを導入するときに設定できます。
+
+vCenter Serverのパスワードが変更された場合は、次のURLを使用して管理者のパスワードを更新できます。`_https_://<IP>:8143/Register.html'。IPアドレスは、VSC、VASA Provider、SRA仮想アプライアンスの導入時に指定したIPアドレスです。
+
+
+
+== vCenter Server の IP アドレス
+
+* VSC、VASA Provider、SRA仮想アプライアンスの登録先となるvCenter ServerインスタンスのIPアドレス（IPv4またはIPv6）を指定する必要があります。
++
+生成される VSC 証明書と VASA 証明書のタイプは、導入時に指定した IP アドレス（ IPv4 または IPv6 ）によって異なります。VSC、VASA Provider、SRA仮想アプライアンスの導入時に静的IPの詳細とDHCPを入力していない場合は、IPv4アドレスとIPv6アドレスの両方がネットワークから提供されます。
+
+* vCenter Serverへの登録に使用するVSC、VASA Provider、SRA仮想アプライアンスのIPアドレスは、導入ウィザードで入力したvCenter Server IPアドレスのタイプ（IPv4またはIPv6）によって異なります。
++
+vCenter Server の登録時に使用したものと同じタイプの IP アドレスを使用して、 VSC と VASA の両方の証明書が生成されます。
+
+
+
+[NOTE]
+====
+IPv6 は vCenter Server 6.7 以降でのみサポートされます。
+
+====
+
+
+== アプライアンスのネットワーク・プロパティ
+
+DHCPを使用していない場合は、有効なDNSホスト名（非修飾）と、VSC、VASA Provider、SRA仮想アプライアンスの静的IPアドレス、およびその他のネットワークパラメータを指定します。これらのパラメータはすべて、適切なインストールと運用のために必要です。

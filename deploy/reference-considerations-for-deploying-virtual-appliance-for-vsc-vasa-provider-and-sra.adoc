@@ -1,0 +1,113 @@
+---
+permalink: deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: considerations, requirements, deploying, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入する前に、導入計画を作成し、VSC、VASA Provider、およびSRAを環境にどのように設定するかを決めておくことを推奨します。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスを導入する際の考慮事項と要件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入する前に、導入計画を作成し、VSC、VASA Provider、およびSRAを環境にどのように設定するかを決めておくことを推奨します。
+
+次の表に、VSC、VASA Provider、SRA仮想アプライアンスを導入する前に検討が必要な事項について、その概要を示します。
+
+[cols="1a,1a"]
+|===
+| 考慮事項 | 説明 
+
+
+ a| 
+VSC、VASA Provider、SRA仮想アプライアンスの初回導入
+ a| 
+VSC、VASA Provider、SRA仮想アプライアンスの導入時に、VSCの機能が自動的にインストールされます。 link:concept-deploy-or-upgrade-ontap-tools.html["VSC、VASA Provider、SRAを導入またはアップグレードする"^]
+
+link:concept-installation-workflow-for-new-users.html["VSC、VASA Provider、SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー"^]
+
+
+
+ a| 
+VSC の既存の導入環境からアップグレードする
+ a| 
+VSCの既存の導入環境からVSC、VASA Provider、SRA仮想アプライアンスへのアップグレード手順 は、VSCのバージョン、およびVSC、VASA Provider、SRAの導入状況によって異なります。詳細については、導入ワークフローとアップグレードに関するセクションを参照してください。 link:concept-installation-workflow-for-existing-users-of-vsc.html["VSC、VASA Provider、SRAの既存ユーザ向けの導入ワークフロー"^]
+
+アップグレード前に実施しておくべき作業：
+
+* 使用しているストレージシステムとそのクレデンシャルに関する情報を記録しておく必要があります。
++
+アップグレード後に、すべてのストレージシステムが自動的に検出され、正しいクレデンシャルが付与されていることを確認する必要があります。
+
+* 標準の VSC ロールに変更を加えた場合、変更を保存するにはそのロールをコピーする必要があります。
++
+標準のロールは、 VSC サービスを再起動するたびに現在のデフォルトで上書きされます。
+
+
+
+
+
+ a| 
+VSC の SSL 証明書の再生成
+ a| 
+SSL証明書は、VSC、VASA Provider、SRA仮想アプライアンスの導入時に自動的に生成されます。サイト専用の証明書を作成するには、 SSL 証明書の再生成が必要になることがあります。 link:task-regenerate-an-ssl-certificate-for-vsc.html["のSSL証明書を再生成します"^]
+
+
+
+ a| 
+ESXi サーバの値を設定しています
+ a| 
+ESXi サーバの値のほとんどはデフォルトで設定されますが、値を検証しておくことを推奨します。これらの値は、内部テストに基づいています。環境によっては、パフォーマンスを向上させるために値を変更しなければならない場合があります。
+
+* link:task-configure-esx-server-multipathing-and-timeout-settings.html["ESXi サーバのマルチパスとタイムアウトを設定"^]
+* link:reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html["Virtual Storage Console for VMware vSphereを使用して設定されるESXiホストの値"^]
+
+
+
+
+ a| 
+ゲストオペレーティングシステムのタイムアウト値
+ a| 
+ゲストオペレーティングシステム（ゲスト OS ）のタイムアウトスクリプトは、フェイルオーバーが適切に動作するように、サポートされている Linux 、 Solaris 、 Windows の各ゲストオペレーティングシステムの SCSI I/O タイムアウト値を設定します。
+
+|===
+次の表に、VSC、VASA Provider、SRA仮想アプライアンスを設定する際に必要な事項について、その概要を示します。
+
+[cols="1a,1a"]
+|===
+| 考慮事項 | 説明 
+
+
+ a| 
+Role-Based Access Control （ RBAC ；ロールベースアクセス制御）の要件
+ a| 
+VSC は、 vCenter Server RBAC と ONTAP RBAC の両方をサポートしています。VSCをvCenter Serverに登録するために使用するアカウント（`_https_://<apply_ip>:8143/Register_html`を使用）は、vCenter Server管理者（vCenter Serverの管理者ロールまたは管理者ロールに割り当てられている）である必要があります。管理者として VSC を実行する場合は、すべてのタスクに必要なアクセス許可と権限がすべて付与されている必要があります。
+
+vSphere オブジェクトへのアクセスを制限する必要がある場合、 vCenter Server の要件に一致する標準の VSC ロールを作成してユーザに割り当てることができます。
+
+ONTAP System Managerで、VSC、VASA Provider、SRA仮想アプライアンスに付属のJSONファイルを使用して、推奨されるONTAP ロールを作成できます。
+
+適切な権限とアクセス許可を持たないユーザがタスクを実行しようとした場合、そのタスクのオプションはグレー表示されます。
+
+* link:concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html["VSC、VASA Provider、SRA仮想アプライアンスに組み込みの標準ロール"^]
+* link:concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html["VSC for VMware vSphere使用時に推奨されるONTAP ロール"^]
+
+
+
+
+ a| 
+ONTAP バージョン
+ a| 
+ストレージシステムでONTAP 9.1、9.3、9.5、9.6、または9.7が実行されている必要があります。
+
+
+
+ a| 
+ストレージ機能プロファイル
+ a| 
+ストレージ機能プロファイルを使用する場合やアラームを設定する場合は、 VASA Provider for ONTAP を有効にする必要があります。VASA Provider を有効にすると、 VMware Virtual Volumes （ VVol ）データストアを設定できるようになり、ストレージ機能プロファイルやアラームの作成と管理も可能になります。
+
+ボリュームやアグリゲートの容量が残り少なくなったときや、データストアが関連付けられているストレージ機能プロファイルに準拠しなくなったときに、アラームによって警告されます。
+
+|===

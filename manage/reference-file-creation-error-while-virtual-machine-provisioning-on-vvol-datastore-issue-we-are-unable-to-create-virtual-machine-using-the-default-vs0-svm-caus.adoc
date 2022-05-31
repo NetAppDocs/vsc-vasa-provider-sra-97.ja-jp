@@ -1,0 +1,37 @@
+---
+permalink: manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html 
+sidebar: sidebar 
+keywords: error, provisioning, virtual, machine, troubleshooting, error, 
+summary: VVolデータストアに仮想マシンをプロビジョニング中にファイル作成エラーが発生しました 
+---
+= VVolデータストアに仮想マシンをプロビジョニング中にファイル作成エラーが発生しました
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+デフォルトのStorage Virtual Machine（SVM）、またはIPv6とIPv4の両方のデータLIFが設定されたmixed形式のStorage Virtual Machine（SVM）を使用して、仮想マシンを作成できません。
+
+
+
+== 原因
+
+問題 は、デフォルトのvs0にはIPv6とIPv4の両方のデータLIFがあり、IPv4のみのデータストアではないために発生します。
+
+
+
+== 対処方法
+
+vs0を使用して仮想マシンをプロビジョニングするには、次の手順を実行します。
+
+. System Managerアプリケーションを使用して、すべてのIPv6 LIFを無効にします。
+. クラスタを再検出します。
+. プロビジョニングが失敗したVVolデータストアで仮想マシンをプロビジョニングしてください。
++
+仮想マシンのプロビジョニングが完了しました。
+
+

@@ -1,0 +1,62 @@
+---
+permalink: deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html 
+sidebar: sidebar 
+keywords: standard, roles, packaged, virtual, appliance, vsc, vasa, provider, sra, 
+summary: （VSC）には、vCenter Serverの権限とRBACを簡単に使用できるように、主要なVSCタスクを実行できる標準のVSCロールが用意されています。また、タスクの実行を制限し、 VSC 情報の表示のみを許可する読み取り専用ロールもあります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスに組み込みの標準ロール
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+（VSC）には、vCenter Serverの権限とRBACを簡単に使用できるように、主要なVSCタスクを実行できる標準のVSCロールが用意されています。また、タスクの実行を制限し、 VSC 情報の表示のみを許可する読み取り専用ロールもあります。
+
+標準の VSC ロールには、ユーザが VSC タスクを実行するために必要な VSC 固有の権限と vCenter Server 標準の権限の両方が含まれています。また、サポートされるどのバージョンの vCenter Server でも必要な権限が付与されるように設定されています。
+
+管理者は、必要に応じてこれらのロールをユーザに割り当てることができます。
+
+[NOTE]
+====
+VSC を最新バージョンにアップグレードした場合は、新しいバージョンの VSC で使用できるように自動的にアップグレードされます。
+
+====
+VSCの標準ロールは、vSphere Client * Home *ページで* Roles *をクリックして表示できます。
+
+VSC の組み込みのロールで実行できるタスクを次に示します。
+
+[cols="1a,1a"]
+|===
+| ロール | 説明 
+
+
+ a| 
+VSC 管理者
+ a| 
+すべての VSC タスクを実行するために必要な vCenter Server 標準の権限と VSC 固有の権限がすべて含まれています。
+
+
+
+ a| 
+VSC 読み取り専用
+ a| 
+VSC に対する読み取り専用アクセスが許可されます。
+
+アクセスが制御された VSC の処理は実行できません。
+
+
+
+ a| 
+VSC によるプロビジョニング
+ a| 
+ストレージのプロビジョニングに必要な vCenter Server 標準の権限と VSC 固有の権限がすべて含まれています。
+
+次のタスクを実行できます。
+
+* 新しいデータストアを作成する
+* データストアを削除
+* ストレージ機能プロファイルに関する情報を表示する
+
+
+|===

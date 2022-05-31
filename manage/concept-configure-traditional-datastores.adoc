@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-traditional-datastores.html 
+sidebar: sidebar 
+keywords: configuring, traditional, datastores, and, virtual, machines, 
+summary: Virtual Storage Console （ VSC ）を使用して、 vCenter Server でデータストアと仮想マシンを設定できます。VSC でプロビジョニングされたデータストアと仮想マシンは VSC のダッシュボードに表示され、これにより、データストアと仮想マシンの監視と管理を簡単に行うことができます。 
+---
+= 従来のデータストアと仮想マシンを設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console （ VSC ）を使用して、 vCenter Server でデータストアと仮想マシンを設定できます。VSC でプロビジョニングされたデータストアと仮想マシンは VSC のダッシュボードに表示され、これにより、データストアと仮想マシンの監視と管理を簡単に行うことができます。

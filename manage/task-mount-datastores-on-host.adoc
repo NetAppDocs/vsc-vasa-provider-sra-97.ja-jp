@@ -1,0 +1,27 @@
+---
+permalink: manage/task-mount-datastores-on-host.html 
+sidebar: sidebar 
+keywords: mounting, datastore, on, additional, hosts, 
+summary: データストアをマウントすると、他のホストからストレージにアクセスできるようになります。ホストを VMware 環境に追加したあとで、そのホストにデータストアをマウントできます。 
+---
+= データストアを追加のホストにマウントする
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+データストアをマウントすると、他のホストからストレージにアクセスできるようになります。ホストを VMware 環境に追加したあとで、そのホストにデータストアをマウントできます。
+
+ESXi ホストの接続先のすべてのネットワークのサブネットの詳細が 'kaminoprefs.xml に入力されていることを確認する必要があります
+
+VSC 9.6 導入およびセットアップガイドの「異なるサブネット間でのデータストアのマウントの有効化」のセクションを参照してください。
+
+.手順
+. vSphere Client * Home *ページで、* Hosts and Clusters *をクリックします。
+. ナビゲーションペインで、ホストを含むデータセンターを選択します。
+. 追加するホストがある場合は、手順 2 を繰り返します。
+. ホストを右クリックしてメニューを選択します。NetApp VSC [データストアのマウント]。
+. マウントするデータストアを選択し、「 * OK 」をクリックします。
+

@@ -1,0 +1,41 @@
+---
+permalink: deploy/concept-supported-storage-system-and-applications.html 
+sidebar: sidebar 
+keywords: supported, storage, system, licensing, applications, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスの導入を開始する前に、ストレージシステムの基本要件、アプリケーション要件、およびライセンス要件について理解しておく必要があります。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスでサポートされるストレージシステム、ライセンス、およびアプリケーション
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスの導入を開始する前に、ストレージシステムの基本要件、アプリケーション要件、およびライセンス要件について理解しておく必要があります。
+
+サポートされるONTAP 、vCenter Server、ESXiホスト、プラグインアプリケーション、およびSite Recovery Manager（SRM）のバージョンの最新情報については、（IMT ）を参照してください。
+
+* https://imt.netapp.com/matrix/imt.jsp?components=97563;&solution=56&isHWU&src=IMT["Interoperability Matrix Tool：VSC 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97564;&solution=376&isHWU&src=IMT["Interoperability Matrix Tool：VASA Provider 9.7.1"^]
+* https://imt.netapp.com/matrix/imt.jsp?components=97565;&solution=576&isHWU&src=IMT["Interoperability Matrix Tool：SRA 9.7.1"^]
+
+
+VMware Virtual Volumes （ vVol ）データストアに対して仮想マシンの Snapshot 処理とクローン処理を実行するためには、 FlexClone ライセンスを有効にする必要があります。
+
+Storage Replication Adapter （ SRA ）には次のライセンスが必要です。
+
+* SnapMirror ライセンス
++
+SRA のフェイルオーバー処理を実行するためには、 SnapMirror ライセンスを有効にする必要があります。
+
+* FlexClone ライセンス
++
+SRA のテストフェイルオーバー処理を実行するためには、 FlexClone ライセンスを有効にする必要があります。
+
+
+
+データストアの IOPS を表示するには、 Storage I/O Control を有効にするか、 Storage I/O Control の設定でストレージ I/O 統計の収集を無効にするチェックボックスをオフにする必要があります。Storage I/O Control は、 VMware の Enterprise Plus ライセンスがある場合にのみ有効にできます。
+
+* https://kb.vmware.com/s/article/1022091["VMwareの技術情報アーティクル1022091：「Troubleshooting Storage I/O Control"^]
+* https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-37CC0E44-7BC7-479C-81DC-FFFC21C1C4E3.html["VMware vSphereのドキュメント：「Storage I/O Control Requirements"^]
+

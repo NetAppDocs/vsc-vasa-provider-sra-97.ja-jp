@@ -1,0 +1,31 @@
+---
+permalink: manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html 
+sidebar: sidebar 
+keywords: vasa, provider, issue, while, editing, VM, Storage, policies, after, upgrade, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンス7.0からVSC、VASA Providerの最新バージョンにアップグレードしたあと、 SRAで、新しいストレージ機能プロファイルを設定する前に既存のVMストレージポリシーを編集しようとすると、「There are incorrect or missing values below」というエラーメッセージが表示される場合があります。 
+---
+= アップグレード後に仮想マシンストレージポリシーを編集するときに問題 を使用する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンス7.0からVSC、VASA Providerの最新バージョンにアップグレードしたあと、 SRAでは、新しいストレージ機能プロファイルを設定する前に既存のVMストレージポリシーを編集しようとすると、「There are incorrect or missing values below」というエラーメッセージが表示される場合があります。
+
+
+
+== 原因
+
+このエラーは、新しいストレージ機能プロファイルを1つも作成していない場合に発生することがあります。
+
+
+
+== 対処方法
+
+次の手順を実行する必要があります。
+
+. VMストレージポリシーの編集を中止します。
+. 新しいストレージ機能プロファイルを作成します。
+. 必要なVMストレージポリシーを変更します。
+

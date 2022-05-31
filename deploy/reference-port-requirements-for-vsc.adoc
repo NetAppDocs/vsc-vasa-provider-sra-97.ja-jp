@@ -1,0 +1,60 @@
+---
+permalink: deploy/reference-port-requirements-for-vsc.html 
+sidebar: sidebar 
+keywords: port, requirements, vsc 
+summary: （VSC）は、ストレージシステムとVMware vCenter Serverなど、コンポーネント間の通信に指定のポートをデフォルトで使用します。ファイアウォールを有効にしている場合は、例外を許可するようにファイアウォールを設定する必要があります。 
+---
+= VSC のポート要件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+（VSC）は、ストレージシステムとVMware vCenter Serverなど、コンポーネント間の通信に指定のポートをデフォルトで使用します。ファイアウォールを有効にしている場合は、例外を許可するようにファイアウォールを設定する必要があります。
+
+Windows 以外のファイアウォールについては、 VSC で使用する特定のポートへのアクセスを手動で許可する必要があります。これらのポートへのアクセスを許可しないと、次のようなエラーメッセージが表示されます。
+
+_ サーバと通信できません
+
+VSC で使用されるデフォルトの双方向 TCP ポートは次のとおりです。
+
+[cols="1a,1a"]
+|===
+| デフォルトのポート番号 | 説明 
+
+
+ a| 
+9083 年
+ a| 
+有効にすると、 VASA Provider と Storage Replication Adapter （ SRA ）の両方がこのポートを使用して vCenter Server と通信します。このポートは TCP/IP 設定を取得するためにも必要です。
+
+
+
+ a| 
+443
+ a| 
+クレデンシャルの設定方法によっては、 VMware vCenter Server とストレージシステムがこのポートでセキュアな通信をリスンします。
+
+
+
+ a| 
+8143
+ a| 
+VSC は、このポートでセキュアな通信をリスンします。
+
+
+
+ a| 
+7.
+ a| 
+エコー要求が ONTAP に送信されて到達可能性が検証されます。この要求はストレージシステムの追加時にのみ必要であり、あとで無効にすることができます。
+
+|===
+[NOTE]
+====
+VSC、VASA Provider、SRA仮想アプライアンスを導入する前に、Internet Control Message Protocol（ICMP）を有効にしておく必要があります。
+
+ICMPが無効になっていると、VSC、VASA Provider、SRA仮想アプライアンスの初期設定が失敗し、導入後にVSCがVSCサービスとVASA Providerサービスを開始できなくなります。導入後に、 VSC サービスと VASA Provider サービスを手動で有効にする必要があります。
+
+====

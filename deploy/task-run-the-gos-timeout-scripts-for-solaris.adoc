@@ -1,0 +1,30 @@
+---
+permalink: deploy/task-run-the-gos-timeout-scripts-for-solaris.html 
+sidebar: sidebar 
+keywords: setting, timeout, values, solaris, guest, operating, systems, 
+summary: Solaris 10 の SCSI I/O タイムアウト設定は、ゲストオペレーティングシステム（ OS ）のタイムアウトスクリプトで設定されます。タイムアウトは 60 秒または 190 秒のどちらかを指定できます。 
+---
+= Solaris ゲストオペレーティングシステムのタイムアウト値を設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Solaris 10 の SCSI I/O タイムアウト設定は、ゲストオペレーティングシステム（ OS ）のタイムアウトスクリプトで設定されます。タイムアウトは 60 秒または 190 秒のどちらかを指定できます。
+
+Solaris スクリプトを含む ISO イメージをマウントしておく必要があります。
+
+.手順
+. Solaris 仮想マシンのコンソールにアクセスし、 root 権限を持つアカウントでログインします。
+. 「 'olaris _gos_timeout-install.sh 」スクリプトを実行します。
++
+Solaris 10 の場合、次のようなメッセージが表示されます。
+
++
+[listing]
+----
+Setting I/O Timeout for /dev/s–a - SUCCESS!
+----
+. ISO イメージをアンマウントします。
+

@@ -1,0 +1,25 @@
+---
+permalink: deploy/task-regenerate-an-ssl-certificate-for-vsc.html 
+sidebar: sidebar 
+keywords: regenerating, ssl, certificate, virtual, storage, console, 
+summary: （VSC）をインストールするとSSL証明書が生成されます。この SSL 証明書に対して生成される Distinguished Name （ DN ；識別名）は、クライアントマシンで認識される Common Name （ CN ；共通名）とは異なる場合があります。キーストアと秘密鍵のパスワードを変更して証明書を再生成し、サイト固有の証明書を作成することができます。 
+---
+= Virtual Storage Console の SSL 証明書を再生成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+（VSC）をインストールするとSSL証明書が生成されます。この SSL 証明書に対して生成される Distinguished Name （ DN ；識別名）は、クライアントマシンで認識される Common Name （ CN ；共通名）とは異なる場合があります。キーストアと秘密鍵のパスワードを変更して証明書を再生成し、サイト固有の証明書を作成することができます。
+
+メンテナンスコンソールを使用してリモート診断を有効にして、サイト固有の証明書を生成することができます。
+
+https://kb.netapp.com/app/answers/answer_view/a_id/1075654["ネットアップナレッジベースの回答 1075654：「Virtual Storage Console 7.x：Implementing CA signed certificates"^]
+
+.手順
+. メンテナンスコンソールにログインします。
+. 「アプリケーション構成」メニューにアクセスするには、「1」を入力します。
+. [Application Configuration]メニューで「3」と入力して、VSCサービスを停止します。
+. SSL 証明書を再生成するには '7' と入力します
+

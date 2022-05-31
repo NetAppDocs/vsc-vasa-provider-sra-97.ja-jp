@@ -1,0 +1,18 @@
+---
+permalink: deploy/concept-configure-storage-replication-adapter-for-disaster-recovery.html 
+sidebar: sidebar 
+keywords: configuring, storage, replication, adapter, disaster, recovery, 
+summary: ディザスタリカバリ用にvCenter Serverを設定する場合は、Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入したあとにStorage Replication Adapter（SRA）を有効にする必要があります。仮想アプライアンスを導入すると、デフォルトでVSCがインストールされます。仮想アプライアンスの導入後に、vCenter Server用のSRAを有効にする必要があります。 
+---
+= ディザスタリカバリ用の Storage Replication Adapter を設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ディザスタリカバリ用にvCenter Serverを設定する場合は、Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを導入したあとにStorage Replication Adapter（SRA）を有効にする必要があります。仮想アプライアンスを導入すると、デフォルトでVSCがインストールされます。仮想アプライアンスの導入後に、vCenter Server用のSRAを有効にする必要があります。
+
+* 関連情報 *
+
+xref:task-enable-storage-replication-adapter.adoc[Storage Replication Adapter を有効にする]

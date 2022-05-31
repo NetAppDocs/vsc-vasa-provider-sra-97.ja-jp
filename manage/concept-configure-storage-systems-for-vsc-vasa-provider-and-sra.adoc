@@ -1,0 +1,14 @@
+---
+permalink: manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, storage, systems, for, vsc, vasa, provider, sra, 
+summary: ストレージシステムを仮想アプライアンスに追加し、必要に応じてVSCインターフェイスを使用してデフォルトクレデンシャルを設定します。 
+---
+= VSC、VASA Provider、SRAのストレージシステムを設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージシステムを仮想アプライアンスに追加し、必要に応じてVSCインターフェイスを使用してデフォルトクレデンシャルを設定します。

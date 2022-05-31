@@ -1,0 +1,47 @@
+---
+permalink: manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html 
+sidebar: sidebar 
+keywords: delete, datastore,troubleshooting errors 
+summary: ネットワーク設定の変更後にデータストアの削除でエラーが発生しました 
+---
+= ネットワーク設定の変更後にデータストアの削除でエラーが発生しました
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+VSC、VASA Provider、SRA仮想アプライアンスのIPアドレスを変更すると、VSCインターフェイスを使用して特定の処理を実行しようとするとエラーが表示されます。たとえば、データストアを削除しようとしたときやESXiホストのVASA Providerサーバにアクセスしようとしたときです。
+
+
+
+== 原因
+
+vCenter Serverは更新されたIPアドレスを使用せず、古いIPアドレスを使用してVASA Providerを呼び出します。
+
+
+
+== 対処方法
+
+VSC、VASA Provider、SRA仮想アプライアンスのIPアドレスを変更した場合は、次の作業を行います。
+
+. vCenter ServerからVSCの登録を解除します。
+. https://<vcenter_ip>/mob`にアクセスします
+. メニューをクリックします。[Extension Manager]>[Unregister Extension]>[Unregister All com.netapp.extensions]（すべてのの登録を解除）。
+. puttyを使用して、vCenter Serverにrootとしてログインします。
+. 次のコマンドを使用して、vsphere-client-serenityディレクトリに移動します。cd /etc/vmware/vsphere-client/vc-packages/vsphere-client-serenity
+. 「vsphere-client stop」を使用して、vSphere Client:サービスを停止します。
+. UI拡張機能が含まれるディレクトリを削除します:`rm -rf com.netapp*`
+. 「vsphere-client start」を使用して、vSphere Client:サービスを開始します。
++
+vSphere Clientが再起動して正常に初期化されるまで数分かかることがあります。
+
+. 次のコマンドを使用して、vsphere-ui serenityディレクトリに移動します。/etc/vmware/vsphere-client-packages/vsphere-client-serenity /`
+. 「vsphere-ui stop」を使用して、vSphere UI:サービスを停止します。
+. UI拡張機能が含まれるディレクトリを削除します:`rm -rf com.netapp*`
+. 「service-control --start vsphere-ui」を使用してvSphere UIを起動します。
+

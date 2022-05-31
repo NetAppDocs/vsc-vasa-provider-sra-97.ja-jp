@@ -1,0 +1,20 @@
+---
+permalink: deploy/reference-uninstall-does-not-remove-standard-vsc-roles.html 
+sidebar: sidebar 
+keywords: uninstall, does, not, remove, standard, vsc, roles, 
+summary: Virtual Storage Console for VMware vSphere（VSC）をアンインストールしても、標準のVSCロールは維持されます。これは想定される動作であり、VSCのパフォーマンスや新しいバージョンへのアップグレードには影響しません。これらのロールは、必要に応じて手動で削除できます。 
+---
+= アンインストールしても、標準のVSCロールは削除されません
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console for VMware vSphere（VSC）をアンインストールしても、標準のVSCロールは維持されます。これは想定される動作であり、VSCのパフォーマンスや新しいバージョンへのアップグレードには影響しません。これらのロールは、必要に応じて手動で削除できます。
+
+アンインストール処理によってVSCロールは削除されませんが、VSC固有の権限のローカライズ名が削除され、代わりに「XXX missing privilege」というプレフィックスが付けられます。たとえば、VSCのインストール後にvSphere * Edit Role *ダイアログボックスを開くと、VSC固有の権限が「XXX missing privilege」と表示されます。`<privilege name>`.label not found XXX`
+
+これは、 vCenter Server に権限を削除するオプションがないためです。
+
+VSC を再インストールするか新しいバージョンにアップグレードすると、標準の VSC ロールと VSC 固有の権限がすべてリストアされます。

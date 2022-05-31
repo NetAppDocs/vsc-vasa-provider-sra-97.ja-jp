@@ -1,0 +1,40 @@
+---
+permalink: deploy/reference-sra-adapter-installation-fails-with-script-error.html 
+sidebar: sidebar 
+keywords: storage, replication, adapter, installation, fails, with, script, error, 
+summary: SRAのインストールがスクリプトエラーで失敗する 
+---
+= SRAのインストールがスクリプトエラーで失敗する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+Windows 2008 R2へのStorage Replication Adapter（SRA）のインストールが、無効なクレデンシャルのエラーで失敗します。
+
+
+
+== 原因
+
+このエラーは、VSC、VASA Provider、SRA、Windows 2008 R2仮想アプライアンスで有効になっているTransport Layer Security（TLS）のバージョンが異なることが原因で発生することがあります。
+
+
+
+== 対処方法
+
+Windows 2008 R2にSRAをインストールする場合は、メンテナンスコンソールで次の手順に従って、VSC、VASA Provider、SRA仮想アプライアンス用にTLSv1.0を有効にする必要があります。
+
+. 「maint」ユーザのクレデンシャルを使用してメンテナンスコンソールにログインします。
+. メインメニューから* 1 *を選択し、*アプリケーション設定*メニューを表示します。
+. [アプリケーションの構成*]メニューで*13*と入力し、[アプリケーションの構成*]メニューから*Enable TLS Protocol*を選択します。
+. TLSプロトコルリストで*TLSv1 *を選択します。
++
+VSCサービスおよびVASA Providerサービスが再起動し、TLSv1.0が有効になります。
+
+
+
+Windows 2008 R2ではTLSv1.2も有効にできます。

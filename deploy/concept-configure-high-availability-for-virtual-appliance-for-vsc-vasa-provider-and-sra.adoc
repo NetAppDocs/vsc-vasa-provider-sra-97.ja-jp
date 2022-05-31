@@ -1,0 +1,32 @@
+---
+permalink: deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html 
+sidebar: sidebar 
+keywords: configuring, high, availability, virtual, appliance, vsc, vasa, provider, sra, 
+summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスでは、（HA）構成がサポートされます。これにより、障害時にVSC、VASA Provider、SRAの機能を中断なく提供できます。 
+---
+= VSC、VASA Provider、SRA仮想アプライアンスの高可用性を設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスでは、（HA）構成がサポートされます。これにより、障害時にVSC、VASA Provider、SRAの機能を中断なく提供できます。
+
+VSC、VASA Provider、SRA仮想アプライアンスでは、VMware vSphere（HA）機能とvSphereフォールトトレランス（FT）機能を利用して以下の機能を実現します。（HA）解決策 を使用すると、次のような理由でシステム停止からの迅速なリカバリが可能です。
+
+* ホスト障害です
+* ネットワーク障害
+* 仮想マシンの障害（ゲスト OS の障害）
+* アプリケーション（VSC、VASA Provider、SRA）がクラッシュする
+
+
+仮想アプライアンスで追加の設定を行う必要はありません。要件に応じて、 vCenter Server ホストと ESXi ホストで VMware vSphere HA または vSphere FT を設定する必要があります。HA と FT のどちらにも、クラスタホストと共有ストレージが必要です。FT には追加の要件と制限事項があります。
+
+VMware vSphere HA解決策 およびvSphere FT解決策 に加え、仮想アプライアンスでもVSC、VASA Provider、SRAのサービスを常時実行できるようになります。仮想アプライアンスのwatchdogプロセスが3つのサービスをすべて定期的に監視し、何らかの障害を検出するとサービスを自動的に再起動します。これにより、アプリケーションの障害を防止できます。
+
+[NOTE]
+====
+vCenter HAは、VSC、VASA Provider、SRA仮想アプライアンスではサポートされません。
+
+====

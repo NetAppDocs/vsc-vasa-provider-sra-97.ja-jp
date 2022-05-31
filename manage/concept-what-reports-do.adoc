@@ -1,0 +1,24 @@
+---
+permalink: manage/concept-what-reports-do.html 
+sidebar: sidebar 
+keywords: what, reports, do, 
+summary: レポートには、データストアと仮想マシンに関する詳細情報が表示されます。これにより、vCenter Server内のデータストアおよび仮想マシンに関する潜在的な問題を確認して特定できます。 
+---
+= レポートの機能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+レポートには、データストアと仮想マシンに関する詳細情報が表示されます。これにより、vCenter Server内のデータストアおよび仮想マシンに関する潜在的な問題を確認して特定できます。
+
+レポートの表示、ソート、エクスポートが可能です。
+
+Virtual Storage Console （ VSC ）には、次の事前定義済みのレポートが用意されています。
+
+* データストアレポート
+* 仮想マシンレポート
+* VVolデータストアレポート
+* VVol仮想マシンレポート
+

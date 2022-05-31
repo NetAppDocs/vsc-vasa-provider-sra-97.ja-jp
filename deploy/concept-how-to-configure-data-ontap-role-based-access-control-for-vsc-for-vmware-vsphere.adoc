@@ -1,0 +1,91 @@
+---
+permalink: deploy/concept-how-to-configure-data-ontap-role-based-access-control-for-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: configure, ontap, role-based, access, control, vsc, vmware, vsphere, 
+summary: Virtual Storage Console for VMware vSphere（VSC）でロールベースアクセス制御を使用する場合は、ストレージシステムでONTAP RBACを設定する必要があります。ONTAP RBAC 機能を使用すると、アクセス権限を制限したカスタムユーザアカウントを 1 つ以上作成できます。 
+---
+= VSC for VMware vSphere用のONTAP RBACの設定方法
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console for VMware vSphere（VSC）でロールベースアクセス制御を使用する場合は、ストレージシステムでONTAP RBACを設定する必要があります。ONTAP RBAC 機能を使用すると、アクセス権限を制限したカスタムユーザアカウントを 1 つ以上作成できます。
+
+VSCとSRAは、クラスタレベルまたはレベルでストレージシステムにアクセスできます。クラスタレベルでストレージシステムを追加する場合、必要なすべての機能を使用するには、管理者ユーザのクレデンシャルを指定する必要があります。詳細を直接追加してストレージ・システムを追加する場合は' vsadminユーザーには特定のタスクを実行するために必要なすべての役割と機能がないことに注意してください
+
+VASA Provider は、クラスタレベルでのみストレージシステムにアクセスできます。特定のストレージコントローラで VASA Provider が必要な場合は、 VSC または SRA を使用している場合でも、クラスタレベルでストレージシステムを VSC に追加する必要があります。
+
+新しいユーザを作成し、クラスタまたはをVSC、VASA Provider、SRAに接続するには、次の作業を行う必要があります。
+
+* クラスタ管理者または管理者ロールを作成する
++
+[NOTE]
+====
+これらのロールは、次のいずれかを使用して作成できます。
+
+** ONTAP System Manager 9.7 以降が必要です
+
+
+link:task-configure-user-role-and-privileges.html["ユーザロールと権限を設定"^]
+
+** RBAC User Creator for ONTAP ツール（ ONTAP 9.6 以前を使用している場合）
+
+
+link:https://community.netapp.com/t5/Virtualization-Articles-and-Resources/RBAC-User-Creator-tool-for-VSC-VASA-Provider-and-Storage-Replication-Adapter-7-0/ta-p/133203/t5/Virtualization-Articles-and-Resources/How-to-use-the-RBAC-User-Creator-for-Data-ONTAP/ta-p/86601["VSC 、 VASA Provider 、 Storage Replication Adapter 7.0 for VMware vSphere 用の RBAC User Creator ツール"^]
+
+====
+* ONTAP を使用して、ロールが割り当てられ、適切なアプリケーションが設定されたユーザを作成します
++
+作成したストレージシステムクレデンシャルは、 VSC 用にストレージシステムを構成する際に必要になります。VSC 用のストレージシステムを構成するには、 VSC でクレデンシャルを入力する必要があります。これらのクレデンシャルを使用してストレージシステムにログインすると、クレデンシャルの作成時に ONTAP で設定した VSC 機能に対する権限が付与されます。
+
+* VSC にストレージシステムを追加し、作成したユーザのクレデンシャルを指定します
+
+
+
+
+== VSC ロール
+
+VSC では、 ONTAP の権限を以下に示す VSC ロールに分類します。
+
+* 検出
++
+接続されているすべてのストレージコントローラを検出できます
+
+* ストレージを作成します
++
+ボリュームおよび論理ユニット番号（ LUN ）を作成できます
+
+* ストレージを変更します
++
+ストレージシステムのサイズ変更と重複排除を実行できます
+
+* ストレージを破棄します
++
+ボリュームおよび LUN を破棄できます
+
+
+
+
+
+== VASA Provider ロール
+
+クラスタレベルで作成できるのは Policy Based Management のみです。ストレージ機能プロファイルを使用してポリシーベースでストレージを管理できます。
+
+
+
+== SRA ロール
+
+SRAでは、ONTAP 権限をクラスタレベルまたはレベルでSANまたはNASロールに分類します。これにより、ユーザは SRM 処理を実行できるようになります。
+
+[NOTE]
+====
+ONTAP コマンドを使用してロールと権限を手動で設定する場合は、ナレッジベースの記事を参照してください。
+
+====
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/VSC%2C_VASA%2C_and_SRA_7.0_ONTAP_RBAC_Configuration_Version_1["VSC 、 VASA 、 SRA 7.0 の ONTAP RBAC 設定"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/Roll_up_of_all_commands_for_VSC_and_SRA_for_SVM_level["SVM レベルで VSC と SRA に対するすべてのコマンドを集計します"^]
+
+
+VSC にクラスタを追加する場合は、 ONTAP RBAC ロールの権限の初期検証が実行されます。直接接続のストレージIPを追加した場合、初期検証は実行されません。タスクワークフローの段階で権限が確認されて適用されます。

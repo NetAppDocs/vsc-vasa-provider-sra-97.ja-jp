@@ -1,0 +1,36 @@
+---
+permalink: deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html 
+sidebar: sidebar 
+keywords: product-level, privilege, required, vsc, vmware, vsphere, 
+summary: Virtual Storage Console for VMware vSphereのGUIにアクセスするには、製品レベルのVSC固有のView権限が、適切なvSphereオブジェクトレベルで割り当てられている必要があります。この権限なしでログインすると、 NetApp アイコンをクリックしたときにエラーメッセージが表示され、 VSC にアクセスできません。 
+---
+= VSC for VMware vSphereで必要な製品レベルの権限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Virtual Storage Console for VMware vSphereのGUIにアクセスするには、製品レベルのVSC固有のView権限が、適切なvSphereオブジェクトレベルで割り当てられている必要があります。この権限なしでログインすると、 NetApp アイコンをクリックしたときにエラーメッセージが表示され、 VSC にアクセスできません。
+
+次の表に、 VSC の製品レベルの View 権限について説明します。
+
+[cols="1a,1a,1a"]
+|===
+| 権限 | 説明 | 割り当てレベル 
+
+
+ a| 
+表示
+ a| 
+VSC の GUI にアクセスできます。VSC でタスクを実行することはできません。VSC のタスクを実行するには、タスクで使用する適切な VSC 固有の権限と vCenter Server の標準権限が必要です。
+ a| 
+割り当てレベルによって、表示できる UI の部分が決まります。
+
+ルートオブジェクト（フォルダ）に View 権限が割り当てられている場合、 NetApp アイコンをクリックして VSC にアクセスできます。
+
+他の vSphere オブジェクトレベルに View 権限を割り当てることもできますが、その場合は表示および使用できる VSC メニューが制限されます。
+
+View 権限を含むアクセス許可は、ルートオブジェクトに割り当てることを推奨します。
+
+|===

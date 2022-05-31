@@ -1,0 +1,33 @@
+---
+permalink: manage/task-remove-storage-from-a-vvols-datastore.html 
+sidebar: sidebar 
+keywords: removing, storage, from, a, vvols, datastore, 
+summary: VMware 仮想ボリューム（ vVol ）データストアに FlexVol ボリュームが複数ある場合、データストアは削除せずに、一部の FlexVol を VVOL データストアから削除することができます。 
+---
+= vVol データストアからストレージを削除する
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware 仮想ボリューム（ vVol ）データストアに FlexVol ボリュームが複数ある場合、データストアは削除せずに、一部の FlexVol を VVOL データストアから削除することができます。
+
+vVolデータストアは、データストアにFlexVol ボリュームが少なくとも1つ残っている間は維持されます。
+
+.手順
+. vSphere Client * Home *ページで、* Hosts and Clusters *をクリックします。
+. 変更するVVOLデータストアを右クリックし、メニューを選択します。NetApp VSC [ VVolデータストアからストレージを削除]。
++
+VVolデータストアからのストレージの削除*ダイアログボックスが表示されます。
+
+. vVol データストアから削除する FlexVol を選択し、 * 削除 * をクリックします。
+. 確認ダイアログボックスで * OK * をクリックする。
++
+[NOTE]
+====
+すべての FlexVol ボリュームを選択した場合は、処理が失敗することを示すエラーメッセージが表示されます。
+
+====
+

@@ -1,0 +1,29 @@
+---
+permalink: manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html 
+sidebar: sidebar 
+keywords: VVol, datastore, provisioning, fails, with, large, number, of, volumes, 
+summary: ボリューム数が多いとVVolデータストアのプロビジョニングが失敗する 
+---
+= ボリューム数が多いとVVolデータストアのプロビジョニングが失敗する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 問題
+
+6個を超えるボリュームを使用してVVolデータストアをプロビジョニングしようとすると、VVolデータストアのプロビジョニングが失敗する。
+
+
+
+== 原因
+
+VSCとVASA Providerの間のソケットタイムアウトが原因でVVolデータストアのプロビジョニングが失敗する。
+
+
+
+== 対処方法
+
+ボリューム数が6つ未満のVVolデータストアを作成するか、またはプロビジョニング後にvVolデータストアのサイズを拡張する* Expand VVol Datastore *オプションを使用します。
