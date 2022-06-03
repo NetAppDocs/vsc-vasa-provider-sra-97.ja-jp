@@ -12,9 +12,9 @@ sidebar:
   - title: VSC、VASA Provider、SRAのドキュメント
     url: "/index.html"
   - title: リリースノート
-    url: release-notes.html
+    url: "/release-notes.html"
   - title: クイックスタート
-    url: qsg.html
+    url: "/qsg.html"
   - section: deploy
   - section: manage
   - title: 法的通知
