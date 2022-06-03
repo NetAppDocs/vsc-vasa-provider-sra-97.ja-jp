@@ -133,7 +133,7 @@ entries:
   - title: SAN 環境向けの Storage Replication Adapter の設定
     url: "/deploy/task-configure-storage-replication-adapter-for-san-environment.html"
   - title: NAS 環境向けの Storage Replication Adapter の設定
-    url: "/deploy/reference-configure-storage-replication-adapter-for-nas-environment.html"
+    url: "/deploy/task-configure-storage-replication-adapter-for-nas-environment.html"
   - title: 大規模な環境向けのStorage Replication Adapterの設定
     url: "/deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html"
 - title: VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング
