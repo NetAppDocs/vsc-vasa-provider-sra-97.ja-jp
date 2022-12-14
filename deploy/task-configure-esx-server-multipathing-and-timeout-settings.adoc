@@ -14,6 +14,7 @@ summary: Virtual Storage Console for VMware vSphereは、ESXiホストのマル�
 [role="lead"]
 Virtual Storage Console for VMware vSphereは、ESXiホストのマルチパス設定とHBAタイムアウト設定をチェックし、ストレージシステムに最も適した設定を行います。
 
+.このタスクについて
 構成やシステムの負荷によっては、この処理に長時間かかることがあります。タスクの進行状況が*最近のタスク*パネルに表示されます。タスクが完了すると、ホストのステータスアラートアイコンが Normal アイコンまたは Pending Reboot アイコンに変わります。
 
 .手順

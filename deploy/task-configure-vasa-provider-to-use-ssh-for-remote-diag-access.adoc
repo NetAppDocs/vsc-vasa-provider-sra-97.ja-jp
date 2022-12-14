@@ -13,8 +13,10 @@ summary: diagユーザのSSHアクセスを有効にするようにVirtual Stora
 [role="lead"]
 diagユーザのSSHアクセスを有効にするようにVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを設定することができます。
 
+.作業を開始する前に
 vCenter Server インスタンスの VASA Provider 拡張機能を有効にする必要があります。
 
+.このタスクについて
 SSHを使用してdiagユーザにアクセスする際は次の制限があります。
 
 * SSHをアクティブ化した場合、ログインは1回だけ許可されます。

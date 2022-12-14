@@ -13,6 +13,7 @@ summary: Site Recovery Manager （ SRM ）向け Storage Replication Adapter （
 [role="lead"]
 Site Recovery Manager （ SRM ）向け Storage Replication Adapter （ SRA ）を実行するには、事前にストレージシステムのセットアップが必要です。
 
+.作業を開始する前に
 保護対象サイトとリカバリサイトに次のプログラムがインストールされている必要があります。
 
 * SRM の場合

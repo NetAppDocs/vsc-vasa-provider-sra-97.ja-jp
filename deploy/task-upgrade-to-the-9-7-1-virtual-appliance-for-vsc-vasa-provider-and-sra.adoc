@@ -23,6 +23,7 @@ xref:task-clean-the-vsphere-cached-downloaded-plug-in-packages.adoc[vSphereに�
 
 
 
+.このタスクについて
 VASA Provider のステータスは、アップグレード後も既存の導入環境と同じになります。アップグレード後に要件に基づいて VASA Provider を手動で有効または無効にする必要があります。ただし、従来のデータストアのプロビジョニングやストレージアラームのストレージ機能プロファイルが有効になるため、 VASA Provider は VMware 仮想ボリューム（ vVol ）を使用していない場合でも有効にすることを推奨します。
 
 [NOTE]

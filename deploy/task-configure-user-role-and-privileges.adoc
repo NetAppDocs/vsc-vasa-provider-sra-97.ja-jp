@@ -38,4 +38,5 @@ VSC、VASA Provider、SRA仮想アプライアンスに付属のJSONファイル
 . ユーザに必要な権限（ Discovery 、 Create Storage 、 Modify Storage 、 Destroy Storage ）を選択し、 * Add * をクリックします。
 
 
+.結果
 新しいロールとユーザが追加され、設定したロールの詳細な権限が表示されます。

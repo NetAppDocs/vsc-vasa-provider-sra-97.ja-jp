@@ -14,8 +14,10 @@ summary: Virtual Storage Console（VSC）、VASA Provider、Storage Replication 
 [role="lead"]
 Virtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスのダッシュボードを使用して、ESXiホストの設定を編集できます。
 
+.作業を開始する前に
 vCenter Server インスタンス用の ESXi ホストシステムを設定しておく必要があります。
 
+.このタスクについて
 ESXi ホストが設定されている問題がある場合は、ダッシュボードの ESXi ホストシステムのポートレットに問題が表示されます。問題をクリックすると、問題を搭載した ESXi ホストのホスト名または IP アドレスを確認できます。
 
 .手順

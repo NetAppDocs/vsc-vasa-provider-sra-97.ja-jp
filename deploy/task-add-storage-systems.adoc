@@ -14,6 +14,7 @@ summary: Virtual Storage Console （ VSC ）には手動でストレージシス
 [role="lead"]
 Virtual Storage Console （ VSC ）には手動でストレージシステムを追加できます。
 
+.このタスクについて
 （VSC）を起動するたび、または* rediscover all *オプションを選択するたびに、使用可能なストレージシステムが自動的に検出されます。
 
 .手順

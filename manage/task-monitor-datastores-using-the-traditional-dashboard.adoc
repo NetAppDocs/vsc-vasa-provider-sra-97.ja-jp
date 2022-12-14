@@ -13,10 +13,12 @@ summary: 従来のデータストアと仮想マシンは、Virtual Storage Cons
 [role="lead"]
 従来のデータストアと仮想マシンは、Virtual Storage Console、VASA Provider、Storage Replication Adapter仮想アプライアンスの従来のダッシュボードを使用して監視できます。ダッシュボードのデータを使用して、データストアの使用状況を分析し、仮想マシンでスペースに関する制約が発生しないように対処できます。
 
+.作業を開始する前に
 Configure Storage I/O Control （ストレージ I/O 制御の設定）ダイアログボックスで、 Enable Storage I/O Control and statistics collection （ストレージ I/O 制御と統計の収集を有効にする） * または * Disable Storage I/O Control but enable statistics collection * のいずれかのオプションを選択する必要があります。Storage I/O Control は、 VMware の Enterprise Plus ライセンスがある場合にのみ有効にできます。
 
 https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.resmgmt.doc/GUID-BB5D9BAB-9E0E-4204-A76A-54634CD8AD51.html["VMware vSphere のドキュメント：「 Storage I/O Control を有効にする"^]
 
+.このタスクについて
 VSCダッシュボードには、vCenter Serverから取得したIOPS、使用スペース、レイテンシ、およびコミット済み容量の指標が表示されます。ONTAP は、ボリュームのスペース削減データをVSCダッシュボードに提供します。これらのパフォーマンスパラメータを使用すると、仮想環境におけるパフォーマンスのボトルネックを特定し、問題を解決するための対処を行うことができます。
 
 VSC、VASA Provider、SRA仮想アプライアンスの従来のダッシュボードを使用すると、NFSデータストアまたはVMFSデータストアを表示できます。データストアをクリックすると、 vCenter Server インスタンスのデータストアの詳細画面に移動して、 vCenter Server 内のデータストアに関する問題を確認および修正できます。

@@ -13,6 +13,7 @@ summary: （VSC）をインストールするとSSL証明書が生成されま�
 [role="lead"]
 （VSC）をインストールするとSSL証明書が生成されます。この SSL 証明書に対して生成される Distinguished Name （ DN ；識別名）は、クライアントマシンで認識される Common Name （ CN ；共通名）とは異なる場合があります。キーストアと秘密鍵のパスワードを変更して証明書を再生成し、サイト固有の証明書を作成することができます。
 
+.このタスクについて
 メンテナンスコンソールを使用してリモート診断を有効にして、サイト固有の証明書を生成することができます。
 
 https://kb.netapp.com/app/answers/answer_view/a_id/1075654["ネットアップナレッジベースの回答 1075654：「Virtual Storage Console 7.x：Implementing CA signed certificates"^]

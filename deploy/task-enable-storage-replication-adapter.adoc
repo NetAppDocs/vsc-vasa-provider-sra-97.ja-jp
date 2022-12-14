@@ -23,6 +23,7 @@ https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_conf
 
 
 
+.このタスクについて
 VASA Provider と SRA の機能を柔軟に有効化できるため、必要なワークフローだけを実行できます。
 
 .手順

@@ -39,6 +39,7 @@ ICMPが無効になっていると、VSC、VASA Provider、SRA仮想アプライ
 
 
 
+.このタスクについて
 VSC、VASA Provider、SRA仮想アプライアンスを新規に導入する場合は、VASA Providerがデフォルトで有効になります。ただし、以前のリリースの仮想アプライアンスからアップグレードする場合は、アップグレード前のVASA Providerの状態が維持されるため、VASA Providerを手動で有効にしなければならない場合があります。
 
 link:task-enable-vasa-provider-for-configuring-virtual-datastores.html["仮想データストアを設定するための VASA Provider の有効化"]
@@ -90,6 +91,7 @@ vSphere Client でプラグインが更新されるまでに数分かかる場�
 ====
 
 
+.完了後
 +++++
 
 [NOTE]

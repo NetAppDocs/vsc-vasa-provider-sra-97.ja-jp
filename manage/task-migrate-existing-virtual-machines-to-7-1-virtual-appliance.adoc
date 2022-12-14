@@ -13,6 +13,7 @@ summary: 最新バージョンのVirtual Storage Console（VSC）、VASA Provide
 [role="lead"]
 最新バージョンのVirtual Storage Console（VSC）、VASA Provider、Storage Replication Adapter（SRA）仮想アプライアンスを使用している場合は、 次に、「最大スループットMBPS」または「最大スループットIOPS」を使用してプロビジョニングされた仮想マシンを、最新バージョンのVSC、VASA Provider、SRA仮想アプライアンスの「最大IOPS」QoS指標を使用してプロビジョニングされた新しいVVOLデータストアに移行する必要があります。
 
+.このタスクについて
 VSC、VASA Provider、SRA仮想アプライアンスの最新バージョンでは、仮想マシンまたは仮想マシンディスク（VMDK）ごとにQoS指標を設定できます。これまで QoS 指標は ONTAP FlexVol ボリュームレベルで適用され、その FlexVol でプロビジョニングされたすべての仮想マシンまたは VMDK で共有されていました。
 
 VSC、VASA Provider、SRA仮想アプライアンス7.2以降では、一方の仮想マシンのQoS指標が他の仮想マシンと共有されません。

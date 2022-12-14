@@ -270,13 +270,6 @@
   <block id="b7f418bed0ff64314736c2b82cd31de1" category="summary">VSC、VASA Provider、SRA仮想マシンの設定では、ストレージシステムを設定し、ストレージ機能プロファイルを作成し、データストアをプロビジョニングし、必要に応じてディザスタリカバリのためのSRAを設定します。</block>
   <block id="da6a60b04c416d0ddb2b7a0964fb618f" category="doc">VSC、VASA Provider、SRA仮想アプライアンスを設定するためのワークフロー</block>
   <block id="c0a4c824306cfda9618646e00bc84fcc" category="image-alt">VSCのユースケースユーザ</block>
-  <block id="456a31391b752801562536d0f9695aad" category="paragraph">Copyright ゥ 2020 NetApp 、 Inc. All rights reserved.米国で印刷されています</block>
-  <block id="2275e007ee598cef266c877f9c52ee25" category="paragraph">このドキュメントは著作権によって保護されています。画像媒体、電子媒体、および写真複写、記録媒体などの機械媒体など、いかなる形式および方法による複製も禁止します。 電子検索システムにテープを貼り付けたり、保存したりすることは、著作権所有者の書面による事前承諾がある場合を除きます。</block>
-  <block id="ce4ad2236c56cc11a838f29c8c261bf7" category="paragraph">ネットアップの著作物から派生したソフトウェアは、次に示す使用許諾条項および免責条項の対象となります。</block>
-  <block id="b110bc9db113b3149cb9e2ed905d4c6c" category="paragraph">このソフトウェアは、ネットアップによって「現状のまま」提供されています。ネットアップは明示的な保証、または商品性および特定目的に対する適合性の暗示的保証を含み、かつこれに限定されないいかなる暗示的な保証も行いません。ネットアップは、いかなる場合でも、間接的、偶発的、特別、懲罰的、または または結果的損害（代替品または代替サービスの調達、使用の損失、データ、利益、またはこれらに限定されないものを含みますが、これらに限定されません。） ただし、契約、厳格責任、または本ソフトウェアの使用に起因する不法行為（過失やその他を含む）のいずれであっても、かかる損害の可能性について知らされていた場合でも、責任の理論に基づいて発生します。</block>
-  <block id="4fc9b260d15698bbd988f76ca839c5b6" category="paragraph">ネットアップは、ここに記載されているすべての製品に対する変更を随時、予告なく行う権利を保有します。ネットアップによる明示的な書面による合意がある場合を除き、ここに記載されている製品の使用により生じる責任および義務に対して、ネットアップは責任を負いません。この製品の使用または購入は、ネットアップの特許権、商標権、またはその他の知的所有権に基づくライセンスの供与とはみなされません。</block>
-  <block id="87bfcb691f34a9e3fdda83480f0acf78" category="paragraph">このマニュアルに記載されている製品は、 1 つ以上の米国特許、その他の国の特許、および出願中の特許によ特許、その他の国の特許、および出願中の特許。</block>
-  <block id="464821ce353b86f770de0d09b5f5aabe" category="paragraph">本書に含まれるデータは市販品（ FAR 2.101 の定義に基づく）に関係し、データの所有権は NetApp 、 Inc. にあります米国政府は、本データの提供の根拠となった米国政府との関係においてのみ本データを使用するための、非独占的、譲渡不可、サブライセンス不可、全世界を対象とした取り消し不能の制限付きライセンスを保有しています当該契約の裏付けとする場合にのみ本データを使用できます。本資料に記載されている場合を除き、本データは、使用、開示、複製、変更、実施されないものとします。 または、 NetApp 、 Inc. の書面による事前の承認なしに表示することもできます。国防総省に付与される米国政府のライセンス権限は、 DFARS 252.227-7015 （ b ）項で定められた権限に制限されます。</block>
   <block id="d52f9f42182f285613bc320b561ee1bc" category="summary">Virtual Storage Console for VMware vSphereを使用して、vCenter Serverでストレージシステムのデフォルトクレデンシャルを設定できます。</block>
   <block id="3cabeb9f2dfaeed94f3553f24bb6697f" category="doc">ストレージシステムのデフォルトクレデンシャルを設定</block>
   <block id="79709e46ab199855d00cbacbb6cc6473" category="paragraph">デフォルトクレデンシャルの作成に使用する vCenter Server を選択しておく必要があります。</block>
@@ -587,9 +580,6 @@
   <block id="b55c53d33f614ac9e6dbd3a7cbf0f01a" category="doc">Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します</block>
   <block id="17163e93f2b0d1056dcda630949bc031" category="paragraph">Site Recovery Manager（SRM）とVMwareのSite Recovery Manager（SRM）を使用して、vCenter Serverでディザスタリカバリの設定を作成および管理できます。</block>
   <block id="bf4181724f8c5fc5f2115f5429d68d61" category="paragraph">このリリースのVASA Providerには、Storage Replaction Adapter（SRA）の機能が組み込まれています。データセンターで VVOL データストアを設定している場合は、 VVOL データストアのリカバリ用に、ディザスタリカバリ用に SRA を別途インストールする必要はありません。Site Recovery Manager（SRM）で、保護対象サイトとリカバリサイトをペアリングする必要があります。サイトをペアリングしたら、 SRM の次の設定作業としてアレイペアを設定します。アレイペアにより、 SRM がストレージシステムと通信してデバイスとデバイスのレプリケーションを検出できるようになります。アレイペアを設定する前に、まず SRM でサイトペアを作成する必要があります。</block>
-  <block id="b1ff5704b48e42d700d43961dd415064" category="summary">商標です</block>
-  <block id="4ab288371dd14cece38e8f9340ade316" category="inline-link">ネットアップの商標です</block>
-  <block id="437762eaaab99247d8d5c83cef602eae" category="paragraph"><block ref="437762eaaab99247d8d5c83cef602eae" category="inline-link-rx"></block></block>
   <block id="194dc7d35caa1e246b54270c343448ee" category="summary">SRA を設定したら、保護対象サイトとリカバリサイトが正常にペアリングされていることを確認してください。レプリケートされたストレージシステムが保護対象サイトとリカバリサイトの両方から検出可能である必要があります。</block>
   <block id="79d8a92408e3c5cb0a892432af2c8045" category="doc">レプリケートされたストレージシステムを検証する</block>
   <block id="2b1273fdbdece1c6daffff8f43659d36" category="list-text">ストレージシステムを設定しておく必要があります。</block>
@@ -1309,7 +1299,6 @@
   <block id="e704730b9615f5aac277195b83434fd7" category="list-text">「 3 」を入力して、「 * システム構成 * 」を選択します。</block>
   <block id="145d7ffcbcc4e33328fd9d5fd4fe51c4" category="list-text">「 6 」と入力して、「 SSH アクセスを有効にする」を選択します。</block>
   <block id="f055cf863289d0d7eb6da567696d8191" category="list-text">確認ダイアログボックスに「 y 」と入力します。</block>
-  <block id="f434e67fe7c948db94749474e31b44c4" category="summary">著作権および商標</block>
   <block id="8ee3c551def9605191601bd42f707060" category="summary">VSC、VASA Provider、SRA仮想アプライアンスをダウンロードしてVMware vSphere環境に導入し、その後、VSC、VASA Provider、SRAを使用して実行するタスクに基づいて必要なアプリケーションを設定する必要があります。</block>
   <block id="2271baa7829b1c018068423da0b8a758" category="doc">VSC、VASA Provider、SRAを導入またはアップグレードする</block>
   <block id="a74e9310b5543e4babe74be14ba35d13" category="paragraph"><block ref="a74e9310b5543e4babe74be14ba35d13" category="inline-xref-macro-rx"></block></block>
@@ -1405,9 +1394,6 @@
   <block id="b74bb3e7dfc6e02d8ff50587ced2b158" category="list-text">VSC サービスが開始されると、 VSC の自動バックグラウンド検出プロセスが開始されます。</block>
   <block id="ca6e9b3c667504b22809b042ee4b01f4" category="list-text">ストレージシステムページまたはホスト/データセンターですべて再検出*ボタンをクリックすると、*アクション*メニュー（メニュー：アクション[ NetApp VSC &gt;ホストおよびストレージデータの更新]）からこのボタンを選択できます。概要セクションの [ はじめに ] タブで * 発見 * をクリックすることもできます。</block>
   <block id="c62bb22aec88a0c9ce10597b8a469f0b" category="paragraph">VSC の機能を使用してタスクを実行するときは、いずれも特定の権限が必要です。ユーザが実行できる操作は、 ONTAP ロールに関連付けられたクレデンシャルに基づいて制限できます。ストレージシステムのユーザ名とパスワードのペアを同じにすれば、複数のユーザで同じストレージシステムのクレデンシャルを共有し、同じ処理を実行することができます。</block>
-  <block id="8d65b5ac8abb867ba3202bc84caf1d3a" category="paragraph">NetApp、NetAppのロゴ、NetAppの商標*ページに記載されているマークは、NetApp、Inc.の商標です。その他の会社名と製品名は、それを所有する各社の商標である場合があります。</block>
-  <block id="714341d9339756588d1dc724991c2b9a" category="inline-link">ここをクリックしてください</block>
-  <block id="59b5615ba3ed863a014133a54f68f4ab" category="paragraph"><block ref="59b5615ba3ed863a014133a54f68f4ab" category="inline-link-rx"></block></block>
   <block id="4d986d61933a9708b0a89553850354b6" category="summary">VSC、VASA Provider、SRA仮想アプライアンスの導入またはアップグレード後にプラグインが自動的に更新されない場合は、ブラウザおよびvCenter Serverにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップして、vCenter Serverのプラグインの問題を解決する必要があります。</block>
   <block id="feb4037176a43ecc564646b0e449704a" category="doc">vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします</block>
   <block id="e00e497c6868adff4d7ea4df0a846ad4" category="paragraph">VSC、VASA Provider、SRA仮想アプライアンスの導入またはアップグレード後にプラグインが自動的に更新されない場合は、ブラウザおよびvCenter Serverにキャッシュされているダウンロード済みのプラグインパッケージをクリーンアップして、vCenter Serverのプラグインの問題を解決する必要があります。</block>
@@ -1868,7 +1854,8 @@
   <block id="252487cd0b2a2e5781422a4764d47e57" category="sidebar">VVOLデータストアからストレージを削除します</block>
   <block id="ddf0ffd29c8b5fdb28671568df171be4" category="sidebar">ボリューム数が多いとVVolデータストアのプロビジョニングが失敗する</block>
   <block id="dec3e9da01f86a71bed912a019fad778" category="sidebar">vCenter Server GUIでVASA Providerのステータスが「オフライン」と表示される</block>
-  <block id="b74ab2582dce89d478a834957aa9a0e4" category="sidebar"><strong>仮想データストアを設定するための VASA Provider の有効化</strong></block>
   <block id="07a4e02530218bb020bf2b5915f43cde" category="sidebar">ゲストオペレーティングシステムスクリプトを設定する</block>
   <block id="d036f2c382984088af9c7b41532db232" category="sidebar">複数のvCenter Server環境にVSCを登録するための要件</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">完了後</block>
+  <block id="fd69c5cf902969e6fb71d043085ddee6" category="paragraph-title">結果</block>
 </blocks>

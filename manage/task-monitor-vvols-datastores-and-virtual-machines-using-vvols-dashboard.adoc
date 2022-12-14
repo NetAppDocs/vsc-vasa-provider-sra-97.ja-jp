@@ -26,6 +26,7 @@ https://mysupport.netapp.com/site/["ネットアップサポート"^]
 
 link:reference-verify-vvol-dashboard-data-requirements.html["VVolダッシュボードのデータ要件"]
 
+.このタスクについて
 ONTAP から取得されたIOPSデータは四捨五入されて、vVolダッシュボードに表示されます。ONTAP から取得される実際のIOPS値とvVolダッシュボードに表示されるIOPS値は異なる可能性があります。
 
 [NOTE]
