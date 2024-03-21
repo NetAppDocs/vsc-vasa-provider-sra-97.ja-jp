@@ -1,0 +1,30 @@
+---
+indexpage:
+  title: VSC、VASA Provider、SRAのドキュメント
+  summary: Virtual Storage Console for VMware vSphereのドキュメント、VSCのドキュメント、VSCのドキュメント
+  keywords: vsc, vasa provider, sra, netapp, configuration, workflow, unified, appliance,
+    deploy, upgrade, vmware, vsphere
+  lead: Virtual Storage Console for VSC、VASA Provider、SRAを使用すると、vCenter Server環境で仮想データストアを設定、管理、および保護できます。
+  tiles:
+  - title: はじめに
+    links:
+    - title: リリースノート
+      url: "/release-notes.html"
+    - title: クイックスタート
+      url: "/qsg.html"
+    - title: 導入とアップグレード
+      url: "/deploy/concept-virtual-storage-console-overview.html"
+    - title: 管理
+      url: "/manage/concept-workflow-for-configuring-the-unified-appliance.html"
+  - title: リソースの追加
+    links:
+    - title: 以前のバージョンのVSC、VASA Provider、SRAに関するドキュメント
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30048
+    - title: ONTAP Tools for VMware vSphereのドキュメント
+      url: https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html
+    - title: ネットアップのナレッジベース- VSC、VASA Provider、SRA
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: NetApp Import Utility - ビデオ
+      url: https://www.youtube.com/watch?v=CEQmIEzNVfA
+    - title: ネットアップコミュニティ- VSC、VASA Provider、SRA
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions
