@@ -1,0 +1,3139 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head class="at-element-marker">
+  <title>Virtual Storage Console for VMware vSphereストレージシステム環境を設定します</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Virtual Storage Console for VMware vSphereストレージシステム環境を設定します" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+	<meta property="og:description" content="Virtual Storage Console for VMware vSphereを使用すると、ストレージシステムの検出とストレージクレデンシャルの設定を単一のメカニズムで実行できます。クレデンシャルに基づいて、 Virtual Storage Console （ VSC ）ユーザがストレージシステムを使用して..." />
+  <meta property="og:image" content="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Virtual Storage Console for VMware vSphereを使用すると、ストレージシステムの検出とストレージクレデンシャルの設定を単一のメカニズムで実行できます。クレデンシャルに基づいて、 Virtual Storage Console （ VSC ）ユーザがストレージシステムを使用して...">
+  <meta name="keywords" content=" configuring, virtual, storage, console, vmware, vsphere, storage, system, environment,"><!-- Icons -->
+  <link rel="icon" href="/ja-jp/vsc-vasa-provider-sra-97/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/vsc-vasa-provider-sra-97/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/ja-jp/vsc-vasa-provider-sra-97/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ja-jp/vsc-vasa-provider-sra-97/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/vsc-vasa-provider-sra-97/js/na-search.js'></script><script src='/ja-jp/vsc-vasa-provider-sra-97/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/ja-jp/vsc-vasa-provider-sra-97/js/custom-dropdown.js'></script>
+  <script src='/ja-jp/vsc-vasa-provider-sra-97/js/FileSaver.min.js'></script>
+  <script src='/ja-jp/vsc-vasa-provider-sra-97/js/jszip-utils.min.js'></script>
+  <script src='/ja-jp/vsc-vasa-provider-sra-97/js/jszip.min.js'></script><script src='/ja-jp/vsc-vasa-provider-sra-97/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/ja-jp/vsc-vasa-provider-sra-97/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/ja/">
+                <image id="ie-header-logo" src="/ja-jp/vsc-vasa-provider-sra-97/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/ja/support-and-training/documentation/">ドキュメント</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">日本語</span>
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/fr-fr/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">すべてのNetApp</span>
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/ja/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">サポート</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb-ja.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">ナレッジ ベース</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">トレーニング</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/ja-jp/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">すべてのドキュメント</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/ja-jp/vsc-vasa-provider-sra-97/">-->
+      VSC, VASA Provider, and SRA 9.7
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/ja-jp/vsc-vasa-provider-sra-97/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/ja-jp/vsc-vasa-provider-sra-97/search.html" 
+        data-type="widget"
+        data-placeholder="ドキュメントを検索"
+        data-no-results-found="{query}に一致する結果は見つかりませんでした"
+        data-did-you-mean="{suggestion}で検索しています。"
+        data-no-results-found-did-you-mean="{query}に一致する結果は見つかりませんでした。{suggestion}で検索しますか？"
+        data-results-found="{hitCount}件の結果が見つかりました"
+        data-error-message="エラーが発生しました。もう一度お試しください。"
+        data-error-reset="検索をリセット"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRAのドキュメント"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/vsc-vasa-provider-sra-97/index.html">
+        VSC、VASA Provider、SRAのドキュメント
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リリースノート"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/release-notes.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/vsc-vasa-provider-sra-97/release-notes.html">
+        リリースノート
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="クイックスタート"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/qsg.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/vsc-vasa-provider-sra-97/qsg.html">
+        クイックスタート
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="導入とアップグレード"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 導入とアップグレード</div>-->
+         導入とアップグレード
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスの概要"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-virtual-storage-console-overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-virtual-storage-console-overview.html">
+        VSC、VASA Provider、SRA仮想アプライアンスの概要
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-installation-workflow-for-new-users.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-installation-workflow-for-new-users.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRAの既存ユーザ向けの導入ワークフロー"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-installation-workflow-for-existing-users-of-vsc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-installation-workflow-for-existing-users-of-vsc.html">
+        VSC、VASA Provider、SRAの既存ユーザ向けの導入ワークフロー
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスを導入するための要件"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-requirements-for-deploying-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスを導入するための要件</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスを導入するための要件
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC のポート要件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-port-requirements-for-vsc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-port-requirements-for-vsc.html">
+        VSC のポート要件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスのスペースとサイズの要件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-space-and-size-requirements-for-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-space-and-size-requirements-for-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider、SRA仮想アプライアンスのスペースとサイズの要件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスでサポートされるストレージシステム、ライセンス、およびアプリケーション"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-supported-storage-system-and-applications.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-supported-storage-system-and-applications.html">
+        VSC、VASA Provider、SRA仮想アプライアンスでサポートされるストレージシステム、ライセンス、およびアプリケーション
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスを導入する際の考慮事項と要件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-considerations-for-deploying-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider、SRA仮想アプライアンスを導入する際の考慮事項と要件
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRAを導入またはアップグレードする"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-deploy-or-upgrade-ontap-tools.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-deploy-or-upgrade-ontap-tools.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRAを導入またはアップグレードする</div>-->
+         VSC、VASA Provider、SRAを導入またはアップグレードする
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスのダウンロード方法"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-how-to-download-the-virtual-appliance-for-vsc-vp-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-how-to-download-the-virtual-appliance-for-vsc-vp-and-sra.html">
+        VSC、VASA Provider、SRA仮想アプライアンスのダウンロード方法
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスを導入する"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-deploy-ontap-tools.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-deploy-ontap-tools.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスを導入する</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスを導入する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="導入のカスタマイズに関する考慮事項"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-deploment-customization-requirements.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-deploment-customization-requirements.html">
+        導入のカスタマイズに関する考慮事項
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="仮想データストアを設定するための VASA Provider の有効化"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-enable-vasa-provider-for-configuring-virtual-datastores.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 仮想データストアを設定するための VASA Provider の有効化</div>-->
+         仮想データストアを設定するための VASA Provider の有効化
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスに登録する"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-register-oncommand-api-services-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider、SRA仮想アプライアンスに登録する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NFS VAAI プラグインをインストールします"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-install-the-nfs-vaai-plug-in.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-install-the-nfs-vaai-plug-in.html">
+        NFS VAAI プラグインをインストールします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage Replication Adapter を有効にする"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-enable-storage-replication-adapter.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-enable-storage-replication-adapter.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Storage Replication Adapter を有効にする</div>-->
+         Storage Replication Adapter を有効にする
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRM アプライアンスで SRA を設定する"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-sra-on-srm-appliance.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-sra-on-srm-appliance.html">
+        SRM アプライアンスで SRA を設定する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage Replication Adapter（SRA）クレデンシャルを更新する"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-update-sra-credentials.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-update-sra-credentials.html">
+        Storage Replication Adapter（SRA）クレデンシャルを更新する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Windows SRM から SRM アプライアンスへの移行"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-migration-of-disaster-recovery-setup-from-windows-to-appliance.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-migration-of-disaster-recovery-setup-from-windows-to-appliance.html">
+        Windows SRM から SRM アプライアンスへの移行
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンス9.7.1にアップグレードする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-upgrade-to-the-9-7-1-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider、SRA仮想アプライアンス9.7.1にアップグレードする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage Replication Adapter をアップグレードする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-upgrade-storage-replication-adapter.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-upgrade-storage-replication-adapter.html">
+        Storage Replication Adapter をアップグレードする
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Virtual Storage Console for VMware vSphere環境を設定します"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-configure-vsc-for-vmware-vsphere-environment.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-vsc-for-vmware-vsphere-environment.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Virtual Storage Console for VMware vSphere環境を設定します</div>-->
+         Virtual Storage Console for VMware vSphere環境を設定します
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ESXi サーバのマルチパスとタイムアウトを設定"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-esx-server-multipathing-and-timeout-settings.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-esx-server-multipathing-and-timeout-settings.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ESXi サーバのマルチパスとタイムアウトを設定</div>-->
+         ESXi サーバのマルチパスとタイムアウトを設定
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Virtual Storage Console for VMware vSphereを使用して設定されるESXiホストの値"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-esx-host-values-set-by-vsc-for-vmware-vsphere.html">
+        Virtual Storage Console for VMware vSphereを使用して設定されるESXiホストの値
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ゲストオペレーティングシステムスクリプトを設定する"
+      data-li-level="4" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-configure-guest-operating-system-scripts.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-configure-guest-operating-system-scripts.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ゲストオペレーティングシステムスクリプトを設定する</div>-->
+         ゲストオペレーティングシステムスクリプトを設定する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Windows ゲストオペレーティングシステムのタイムアウト値を設定します"
+      data-li-level="5#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-run-the-gos-timeout-scripts-for-windows.html" 
+    ><a class="ie-sidebar-menuitem-5 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-run-the-gos-timeout-scripts-for-windows.html">
+        Windows ゲストオペレーティングシステムのタイムアウト値を設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Solaris ゲストオペレーティングシステムのタイムアウト値を設定します"
+      data-li-level="5#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-run-the-gos-timeout-scripts-for-solaris.html" 
+    ><a class="ie-sidebar-menuitem-5 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-run-the-gos-timeout-scripts-for-solaris.html">
+        Solaris ゲストオペレーティングシステムのタイムアウト値を設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Linux ゲストオペレーティングシステムのタイムアウト値を設定します"
+      data-li-level="5#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html" 
+    ><a class="ie-sidebar-menuitem-5 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-run-the-gos-timeout-scripts-for-rhel4-or-sles9.html">
+        Linux ゲストオペレーティングシステムのタイムアウト値を設定します
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="のSSL証明書を再生成します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-regenerate-an-ssl-certificate-for-vsc.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-regenerate-an-ssl-certificate-for-vsc.html">
+        のSSL証明書を再生成します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="複数のvCenter Server環境にVSCを登録するための要件"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-requirements-for-registering-vsc-in-multiple-vcenter-servers-environment.html">
+        複数のvCenter Server環境にVSCを登録するための要件
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC プリファレンスファイルを設定する"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-configure-the-vsc-preferences-files.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-configure-the-vsc-preferences-files.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC プリファレンスファイルを設定する</div>-->
+         VSC プリファレンスファイルを設定する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="IPv4またはIPv6を設定します"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-set-ipv4-or-ipv6.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-set-ipv4-or-ipv6.html">
+        IPv4またはIPv6を設定します
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="異なるサブネット間でのデータストアのマウントを有効にする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-enable-datastore-mounting-across-different-subnets.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-enable-datastore-mounting-across-different-subnets.html">
+        異なるサブネット間でのデータストアのマウントを有効にする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスのメンテナンスコンソールのオプションにアクセスする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-access-virtual-appliance-maiintenance-console-options.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-access-virtual-appliance-maiintenance-console-options.html">
+        VSC、VASA Provider、SRA仮想アプライアンスのメンテナンスコンソールのオプションにアクセスする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理者パスワードを変更します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-change-the-administrative-password.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-change-the-administrative-password.html">
+        管理者パスワードを変更します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスの高可用性を設定する"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-high-availability-for-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスの高可用性を設定する</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスの高可用性を設定する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vSphere HA の場合"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-vmware-high-availability-for-vcenter-server.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-vmware-high-availability-for-vcenter-server.html">
+        VMware vSphere HA の場合
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vSphere フォールトトレランス"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-vmware-fault-tolerance-for-vcenter-server.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-vmware-fault-tolerance-for-vcenter-server.html">
+        VMware vSphere フォールトトレランス
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスでサポートされるMetroCluster 構成"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-metrocluster-configurations-supported-by-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC、VASA Provider、SRA仮想アプライアンスでサポートされるMetroCluster 構成
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Virtual Storage Console for VMware vSphereストレージシステム環境を設定します"
+      data-li-level="2" 
+      class=" sidebar-folder   ie-sidebar-selected    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-configure-your-storage-system-environment.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Virtual Storage Console for VMware vSphereストレージシステム環境を設定します</div>-->
+         Virtual Storage Console for VMware vSphereストレージシステム環境を設定します
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージシステムのデフォルトクレデンシャルを設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-set-default-credentials-for-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-set-default-credentials-for-storage-systems.html">
+        ストレージシステムのデフォルトクレデンシャルを設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージシステムを VSC に追加"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-add-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-add-storage-systems.html">
+        ストレージシステムを VSC に追加
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージシステムとホストを検出"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-discover-storage-systems-and-hosts.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-discover-storage-systems-and-hosts.html">
+        ストレージシステムとホストを検出
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージシステムの表示を更新します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-refresh-the-storage-system-display.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-refresh-the-storage-system-display.html">
+        ストレージシステムの表示を更新します
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC for VMware vSphereでのvCenter Server RBAC機能の使用"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-vcenter-server-role-based-access-control-features-in-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-vcenter-server-role-based-access-control-features-in-vsc-for-vmware-vsphere.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC for VMware vSphereでのvCenter Server RBAC機能の使用</div>-->
+         VSC for VMware vSphereでのvCenter Server RBAC機能の使用
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vCenter Server アクセス許可の要素"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-components-that-make-up-vcenter-server-permissions.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-components-that-make-up-vcenter-server-permissions.html">
+        vCenter Server アクセス許可の要素
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vCenter Server のアクセス許可の割り当てと変更に関する要点"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-key-points-about-assigning-and-modifying-permissions.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-key-points-about-assigning-and-modifying-permissions.html">
+        vCenter Server のアクセス許可の割り当てと変更に関する要点
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスに組み込みの標準ロール"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-standard-roles-packaged-with-virtual-appliance-for-vsc-vp-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスに組み込みの標準ロール</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスに組み込みの標準ロール
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC の標準ロールの使用に関するガイドライン"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-guidelines-for-using-vsc-standard-roles.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-guidelines-for-using-vsc-standard-roles.html">
+        VSC の標準ロールの使用に関するガイドライン
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC タスクに必要な権限"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-privileges-required-for-vsc-tasks.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-privileges-required-for-vsc-tasks.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC タスクに必要な権限</div>-->
+         VSC タスクに必要な権限
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC for VMware vSphereで必要な製品レベルの権限"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-product-level-privilege-required-by-vsc-for-vmware-vsphere.html">
+        VSC for VMware vSphereで必要な製品レベルの権限
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスに対するONTAP のロールベースアクセス制御"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-ontap-role-based-access-control-feature-for-virtual-appliance.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-ontap-role-based-access-control-feature-for-virtual-appliance.html">
+        VSC、VASA Provider、SRA仮想アプライアンスに対するONTAP のロールベースアクセス制御
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC for VMware vSphere使用時に推奨されるONTAP ロール"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-recommended-ontap-roles-when-using-vsc-for-vmware-vsphere.html">
+        VSC for VMware vSphere使用時に推奨されるONTAP ロール
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC for VMware vSphere用のONTAP RBACの設定方法"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-how-to-configure-data-ontap-role-based-access-control-for-vsc-for-vmware-vsphere.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-how-to-configure-data-ontap-role-based-access-control-for-vsc-for-vmware-vsphere.html">
+        VSC for VMware vSphere用のONTAP RBACの設定方法
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ユーザロールと権限を設定"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-user-role-and-privileges.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-user-role-and-privileges.html">
+        ユーザロールと権限を設定
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ディザスタリカバリ用の Storage Replication Adapter を設定する"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-configure-storage-replication-adapter-for-disaster-recovery.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-storage-replication-adapter-for-disaster-recovery.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ディザスタリカバリ用の Storage Replication Adapter を設定する</div>-->
+         ディザスタリカバリ用の Storage Replication Adapter を設定する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SAN 環境向けの Storage Replication Adapter の設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-storage-replication-adapter-for-san-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-storage-replication-adapter-for-san-environment.html">
+        SAN 環境向けの Storage Replication Adapter の設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NAS 環境向けの Storage Replication Adapter の設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-storage-replication-adapter-for-nas-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-storage-replication-adapter-for-nas-environment.html">
+        NAS 環境向けの Storage Replication Adapter の設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="大規模な環境向けのStorage Replication Adapterの設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-configure-storage-replication-adapter-for-highly-scaled-environment.html">
+        大規模な環境向けのStorage Replication Adapterの設定
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-clean-the-vsphere-cached-downloaded-plug-in-packages.html">
+        vSphereにキャッシュされているダウンロード済みプラグインパッケージをクリーンアップします
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="アンインストールしても、標準のVSCロールは削除されません"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-uninstall-does-not-remove-standard-vsc-roles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-uninstall-does-not-remove-standard-vsc-roles.html">
+        アンインストールしても、標準のVSCロールは削除されません
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC および VASA Provider のログファイル"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/concept-virtual-storage-console-and-vasa-provider-log-files.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-virtual-storage-console-and-vasa-provider-log-files.html">
+        VSC および VASA Provider のログファイル
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="大規模な環境では、VSCサービスとVASA Providerサービスが再起動します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-vsc-and-vasa-provider-services-restart-in-scaled-environments.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-vsc-and-vasa-provider-services-restart-in-scaled-environments.html">
+        大規模な環境では、VSCサービスとVASA Providerサービスが再起動します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SSH を使用するように VASA Provider を設定する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-vasa-provider-to-work-with-ssh.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-vasa-provider-to-work-with-ssh.html">
+        SSH を使用するように VASA Provider を設定する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リモートdiagアクセスにSSHを使用するようにVSC、VASA Provider、SRA仮想アプライアンスを設定する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/task-configure-vasa-provider-to-use-ssh-for-remote-diag-access.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/task-configure-vasa-provider-to-use-ssh-for-remote-diag-access.html">
+        リモートdiagアクセスにSSHを使用するようにVSC、VASA Provider、SRA仮想アプライアンスを設定する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRAのインストールがスクリプトエラーで失敗する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-sra-adapter-installation-fails-with-script-error.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-sra-adapter-installation-fails-with-script-error.html">
+        SRAのインストールがスクリプトエラーで失敗する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="大規模な環境でSRAのパフォーマンスを最適化できない"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-sra-fails-to-perform-optimally-in-a-highly-scaled-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-sra-fails-to-perform-optimally-in-a-highly-scaled-environment.html">
+        大規模な環境でSRAのパフォーマンスを最適化できない
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRAプラグインをインストールできません"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-unable-to-install-sra-plug-in-due-to-winhttp-proxy-settings.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-unable-to-install-sra-plug-in-due-to-winhttp-proxy-settings.html">
+        SRAプラグインをインストールできません
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp Storage Replication Adapter for ONTAP は、Site Recovery Managerアプライアンスに表示されません"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-srm-does-not-work-after-sra-installation.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-srm-does-not-work-after-sra-installation.html">
+        NetApp Storage Replication Adapter for ONTAP は、Site Recovery Managerアプライアンスに表示されません
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC 、 VASA Provider 、 SRA 仮想アプライアンスの新規導入時にエラーが発生する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/deploy/reference-error-during-fresh-deployment-of-virtual-appliance-for-vsc-vasa-provider-and-sra.html">
+        VSC 、 VASA Provider 、 SRA 仮想アプライアンスの新規導入時にエラーが発生する
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 管理</div>-->
+         管理
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスを設定するためのワークフロー"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-workflow-for-configuring-the-unified-appliance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-workflow-for-configuring-the-unified-appliance.html">
+        VSC、VASA Provider、SRA仮想アプライアンスを設定するためのワークフロー
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRAのストレージシステムを設定する"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-configure-storage-systems-for-vsc-vasa-provider-and-sra.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRAのストレージシステムを設定する</div>-->
+         VSC、VASA Provider、SRAのストレージシステムを設定する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージシステムを VSC に追加"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-add-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-add-storage-systems.html">
+        ストレージシステムを VSC に追加
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージシステムのデフォルトクレデンシャルを設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-set-default-credentials-for-storage-systems.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-set-default-credentials-for-storage-systems.html">
+        ストレージシステムのデフォルトクレデンシャルを設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="アラームしきい値を設定する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-alarm-thresholds.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-alarm-thresholds.html">
+        アラームしきい値を設定する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ機能プロファイルを作成する"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-configure-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-configure-storage-capability-profiles.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> ストレージ機能プロファイルを作成する</div>-->
+         ストレージ機能プロファイルを作成する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ機能について説明します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-what-storage-capabilities-are.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-what-storage-capabilities-are.html">
+        ストレージ機能について説明します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ機能プロファイルの作成と編集に関する考慮事項"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-considerations-for-creating-and-editing-storage-capability-profiles.html">
+        ストレージ機能プロファイルの作成と編集に関する考慮事項
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ機能プロファイルを設定する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-create-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-create-storage-capability-profiles.html">
+        ストレージ機能プロファイルを設定する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="従来のデータストアと仮想マシンを設定"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-configure-traditional-datastores.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-configure-traditional-datastores.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 従来のデータストアと仮想マシンを設定</div>-->
+         従来のデータストアと仮想マシンを設定
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データストアをプロビジョニング"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-provision-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-provision-datastores.html">
+        データストアをプロビジョニング
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データストアとストレージ機能プロファイルのマッピング"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-map-storage-to-storage-capability-profiles.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-map-storage-to-storage-capability-profiles.html">
+        データストアとストレージ機能プロファイルのマッピング
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージ機能プロファイルを自動的に生成する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-automatically-generate-scps.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-automatically-generate-scps.html">
+        ストレージ機能プロファイルを自動的に生成する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="マッピングしたストレージ機能プロファイルにデータストアが準拠しているかどうかを確認する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-check-for-datastore-compliance-with-the-mapped-storage-capability-profile.html">
+        マッピングしたストレージ機能プロファイルにデータストアが準拠しているかどうかを確認する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="従来のダッシュボードを使用してデータストアと仮想マシンを監視する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-monitor-datastores-using-the-traditional-dashboard.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-monitor-datastores-using-the-traditional-dashboard.html">
+        従来のダッシュボードを使用してデータストアと仮想マシンを監視する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRAのESXiホスト設定を編集する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-edit-esxi-host-settings.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-edit-esxi-host-settings.html">
+        VSC、VASA Provider、SRAのESXiホスト設定を編集する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vVolデータストアを設定する"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-configure-vvols-datastores.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-configure-vvols-datastores.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> vVolデータストアを設定する</div>-->
+         vVolデータストアを設定する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVOLデータストアのレプリケーションを設定します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-configure-replication-for-vvols-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-configure-replication-for-vvols-datastore.html">
+        VVOLデータストアのレプリケーションを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vVol データストアをプロビジョニングする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-provision-vvol-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-provision-vvol-datastores.html">
+        vVol データストアをプロビジョニングする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-monitor-vvols-datastores-and-virtual-machines-using-vvols-dashboard.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する</div>-->
+         VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVolダッシュボードのデータ要件"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-verify-vvol-dashboard-data-requirements.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-verify-vvol-dashboard-data-requirements.html">
+        VVolダッシュボードのデータ要件
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-manage-disaster-recovery-setup-using-srm.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-manage-disaster-recovery-setup-using-srm.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します</div>-->
+         Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="仮想マシンストレージポリシーを設定"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-vm-storage-policies.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-vm-storage-policies.html">
+        仮想マシンストレージポリシーを設定
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護グループを設定します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-protection-groups.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-protection-groups.html">
+        保護グループを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護対象サイトとリカバリサイトをペアリング"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-pair-protected-and-recovery-sites.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-pair-protected-and-recovery-sites.html">
+        保護対象サイトとリカバリサイトをペアリング
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護対象サイトとリカバリサイトのリソースを設定"
+      data-li-level="3" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-configure-protected-and-recovery-site-resources.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-configure-protected-and-recovery-site-resources.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 保護対象サイトとリカバリサイトのリソースを設定</div>-->
+         保護対象サイトとリカバリサイトのリソースを設定
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ネットワークマッピングを設定します"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-network-mappings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-network-mappings.html">
+        ネットワークマッピングを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="フォルダマッピングを設定します"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-folder-mappings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-folder-mappings.html">
+        フォルダマッピングを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースマッピングを設定する"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-resource-mappings.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-resource-mappings.html">
+        リソースマッピングを設定する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージポリシーをマッピングする"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-map-storage-policies.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-map-storage-policies.html">
+        ストレージポリシーをマッピングする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="プレースホルダデータストアを設定します"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-placeholder-datastores.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-placeholder-datastores.html">
+        プレースホルダデータストアを設定します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="アレイマネージャを使用してSRAを設定する"
+      data-li-level="4#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-configure-array-manager.html" 
+    ><a class="ie-sidebar-menuitem-4 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-configure-array-manager.html">
+        アレイマネージャを使用してSRAを設定する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="レプリケートされたストレージシステムを検証する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-verify-the-replicated-storage-environment.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-verify-the-replicated-storage-environment.html">
+        レプリケートされたストレージシステムを検証する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="保護されていない仮想マシンを保護"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-protect-non-protected-virtual-machines.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-protect-non-protected-virtual-machines.html">
+        保護されていない仮想マシンを保護
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="従来のデータストアとvVolデータストアを管理します"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-manage-datastore.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-manage-datastore.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> 従来のデータストアとvVolデータストアを管理します</div>-->
+         従来のデータストアとvVolデータストアを管理します
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データストアを追加のホストにマウントする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-mount-datastores-on-host.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-mount-datastores-on-host.html">
+        データストアを追加のホストにマウントする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データストアのサイズを変更"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-resize-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-resize-datastores.html">
+        データストアのサイズを変更
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vVol データストアを編集する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-edit-a-vvol-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-edit-a-vvol-datastore.html">
+        vVol データストアを編集する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVOLデータストアへのADストレージの追加"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-add-storage-to-a-vvol-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-add-storage-to-a-vvol-datastore.html">
+        VVOLデータストアへのADストレージの追加
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVOLデータストアからストレージを削除します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-remove-storage-from-a-vvols-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-remove-storage-from-a-vvols-datastore.html">
+        VVOLデータストアからストレージを削除します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVOL データストアをマウントする"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-mount-a-vvol-datastore.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-mount-a-vvol-datastore.html">
+        VVOL データストアをマウントする
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="仮想マシンの移行またはクローニングに関する考慮事項"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-considerations-for-migrating-virtual-machines.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-considerations-for-migrating-virtual-machines.html">
+        仮想マシンの移行またはクローニングに関する考慮事項
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="従来の仮想マシンを VVOL データストアに移行する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-migrate-standard-virtual-machines-to-vvol-datastores.html">
+        従来の仮想マシンを VVOL データストアに移行する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="以前のストレージ機能プロファイルを使用して仮想マシンを移行する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-migrate-existing-virtual-machines-to-7-1-virtual-appliance.html">
+        以前のストレージ機能プロファイルを使用して仮想マシンを移行する
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Virtual Storage Consoleのレポートを確認"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-virtual-storage-console-reports.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-virtual-storage-console-reports.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Virtual Storage Consoleのレポートを確認</div>-->
+         Virtual Storage Consoleのレポートを確認
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="レポートの機能"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-what-reports-do.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-what-reports-do.html">
+        レポートの機能
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データストアレポート"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-datastore-reports.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-datastore-reports.html">
+        データストアレポート
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vVol レポート"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-what-vasa-provider-reports-do.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-what-vasa-provider-reports-do.html">
+        vVol レポート
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/concept-troubleshoot-issues-with-the-virtual-appliance-for-vsc-vasa-provider-and-sra-test.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/ja-jp/vsc-vasa-provider-sra-97/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング</div>-->
+         VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ログファイルを収集します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/task-collect-the-log-files.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/task-collect-the-log-files.html">
+        ログファイルを収集します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ボリューム数が多いとVVolデータストアのプロビジョニングが失敗する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-vvol-datastore-provision-fails-with-large-number-of-volumes.html">
+        ボリューム数が多いとVVolデータストアのプロビジョニングが失敗する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="アップグレード後に仮想マシンストレージポリシーを編集するときに問題 を使用する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-edit-vm-storage-policies-after-upgrade-throws-error-message.html">
+        アップグレード後に仮想マシンストレージポリシーを編集するときに問題 を使用する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vCenter Server GUIでVASA Providerのステータスが「オフライン」と表示される"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-vasa-provider-storage-provider-status-show-offline-in-vcenter-gui.html">
+        vCenter Server GUIでVASA Providerのステータスが「オフライン」と表示される
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="仮想アプライアンスのVSCの概要ページにアクセス中にエラーが発生しました"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-error-while-accessing-the-vsc-summary-page-of-virtual-appliance.html">
+        仮想アプライアンスのVSCの概要ページにアクセス中にエラーが発生しました
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ネットワーク設定の変更後にデータストアの削除でエラーが発生しました"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-error-deleting-a-datastore-after-network-settings-are-changed.html">
+        ネットワーク設定の変更後にデータストアの削除でエラーが発生しました
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="仮想マシンのプロビジョニングが不明なエラーで失敗する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-vm-provision-fails-with-undefined-error.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-vm-provision-fails-with-undefined-error.html">
+        仮想マシンのプロビジョニングが不明なエラーで失敗する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ONTAP 9.4ストレージシステムでVVolのシックプロビジョニングが失敗する"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-thick-provision-fails-for-vvol-datastores-on-ontap-9-4.html">
+        ONTAP 9.4ストレージシステムでVVolのシックプロビジョニングが失敗する
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ボリュームステータスがオフラインになるとデータストアにアクセスできなくなります"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-datastore-inaccessible-when-volume-status-is-changed-to-offline.html">
+        ボリュームステータスがオフラインになるとデータストアにアクセスできなくなります
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="IPv4を使用してストレージシステムを追加すると、ストレージシステムグリッドにIPv6と表示されて認証エラーが発生します"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-authentication-failure-status-is-displayed-with-ipv6-as-the-cluster-ip-even-if-cluster-is-added-with-ipv4.html">
+        IPv4を使用してストレージシステムを追加すると、ストレージシステムグリッドにIPv6と表示されて認証エラーが発生します
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VVolデータストアに仮想マシンをプロビジョニング中にファイル作成エラーが発生しました"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-file-creation-error-while-virtual-machine-provisioning-on-vvol-datastore-issue-we-are-unable-to-create-virtual-machine-using-the-default-vs0-svm-caus.html">
+        VVolデータストアに仮想マシンをプロビジョニング中にファイル作成エラーが発生しました
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SRMでSRAのステータスが「Failover in Progress」と誤って報告されます"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/ja-jp/vsc-vasa-provider-sra-97/manage/reference-failover-in-progress-status-is-reported-inappropriately-for-sra.html">
+        SRMでSRAのステータスが「Failover in Progress」と誤って報告されます
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法的通知"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/deploy/concept-configure-your-storage-system-environment.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/ja-jp/vsc-vasa-provider-sra-97/legal-notices.html">
+        法的通知
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/ja-jp/vsc-vasa-provider-sra-97"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/ja-jp/vsc-vasa-provider-sra-97"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/ja-jp/vsc-vasa-provider-sra-97/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> 日本語は機械翻訳による参考訳です。内容に矛盾や不一致があった場合には、英語の内容が優先されます。 </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">Virtual Storage Console for VMware vSphereストレージシステム環境を設定します</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2022-05-31 19:36:55 +0000">05/31/2022</time>
+        
+    
+    
+        <span>共同作成者
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/ja-jp/vsc-vasa-provider-sra-97/images/discuss-sm.svg" alt="" class="github-icon" />変更を提案</span>
+        <img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/vsc-vasa-provider-sra-97.ja-jp/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/ja-jp/vsc-vasa-provider-sra-97/deploy/concept-configure-your-storage-system-environment.html&page-title=Virtual Storage Console for VMware vSphereストレージシステム環境を設定します" class="page-nav-contribute-link" role="button">ドキュメントの変更をリクエスト</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/vsc-vasa-provider-sra-97/blob/main/deploy/concept-configure-your-storage-system-environment.adoc" class="page-nav-contribute-link" role="button">このページを編集</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >フィードバックを送るには</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/ja-jp/vsc-vasa-provider-sra-97/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/fullsite-sidebar/VSC_VASA_Provider_SRAのドキュメント.pdf" >
+                    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>このドキュメント ページのPDF</a>
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/導入とアップグレード.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            導入とアップグレード
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスの新規ユーザ向けの導入ワークフロー
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスを導入するための要件.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスを導入するための要件
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRAを導入またはアップグレードする.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRAを導入またはアップグレードする
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスを導入する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスを導入する
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/仮想データストアを設定するための_VASA_Provider_の有効化.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            仮想データストアを設定するための VASA Provider の有効化
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/Storage_Replication_Adapter_を有効にする.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Storage Replication Adapter を有効にする
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/Virtual_Storage_Console_for_VMware_vSphere環境を設定します.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Virtual Storage Console for VMware vSphere環境を設定します
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/ESXi_サーバのマルチパスとタイムアウトを設定.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ESXi サーバのマルチパスとタイムアウトを設定
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/ゲストオペレーティングシステムスクリプトを設定する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ゲストオペレーティングシステムスクリプトを設定する
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_プリファレンスファイルを設定する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC プリファレンスファイルを設定する
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスの高可用性を設定する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスの高可用性を設定する
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/Virtual_Storage_Console_for_VMware_vSphereストレージシステム環境を設定します.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Virtual Storage Console for VMware vSphereストレージシステム環境を設定します
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_for_VMware_vSphereでのvCenter_Server_RBAC機能の使用.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC for VMware vSphereでのvCenter Server RBAC機能の使用
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスに組み込みの標準ロール.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスに組み込みの標準ロール
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_タスクに必要な権限.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC タスクに必要な権限
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/ディザスタリカバリ用の_Storage_Replication_Adapter_を設定する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ディザスタリカバリ用の Storage Replication Adapter を設定する
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスの問題のトラブルシューティング.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/管理.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            管理
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRAのストレージシステムを設定する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRAのストレージシステムを設定する
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/ストレージ機能プロファイルを作成する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            ストレージ機能プロファイルを作成する
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/従来のデータストアと仮想マシンを設定.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            従来のデータストアと仮想マシンを設定
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/vVolデータストアを設定する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            vVolデータストアを設定する
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VVolダッシュボードを使用してVVolのデータストアと仮想マシンを監視する
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/Site_Recovery_Managerを使用して_ディザスタリカバリの設定を管理します.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Site Recovery Managerを使用して、ディザスタリカバリの設定を管理します
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/保護対象サイトとリカバリサイトのリソースを設定.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            保護対象サイトとリカバリサイトのリソースを設定
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/従来のデータストアとvVolデータストアを管理します.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            従来のデータストアとvVolデータストアを管理します
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/Virtual_Storage_Consoleのレポートを確認.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Virtual Storage Consoleのレポートを確認
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/ja-jp/vsc-vasa-provider-sra-97/pdfs/sidebar/VSC_VASA_Provider_SRA仮想アプライアンスの問題のトラブルシューティング.pdf" 
+            
+          >
+            <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-icon.png" alt="" width="16" height="16"/>
+            VSC、VASA Provider、SRA仮想アプライアンスの問題のトラブルシューティング
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/ja-jp/vsc-vasa-provider-sra-97/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>PDF版ドキュメントのセット<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div class="paragraph lead">
+<p>Virtual Storage Console for VMware vSphereを使用すると、ストレージシステムの検出とストレージクレデンシャルの設定を単一のメカニズムで実行できます。クレデンシャルに基づいて、 Virtual Storage Console （ VSC ）ユーザがストレージシステムを使用してタスクを実行するために必要な ONTAP アクセス許可が付与されます。</p>
+</div>
+<div class="paragraph">
+<p>VSC でストレージリソースを表示して管理するには、まずストレージシステムを検出しなければなりません。検出プロセスでは、ストレージシステムの ONTAP クレデンシャルが必要になります。これはユーザ名とパスワードのペアに関連付けられた権限（ロール）で、ストレージシステムごとに割り当てられます。これらのユーザ名とパスワードのペアは、 ONTAP RBAC を使用するため、 ONTAP で設定する必要があります。これらのクレデンシャルを VSC で変更することはできません。を使用して、ONTAP RBACロールを定義できます。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vsc-vasa-provider-sra-97/images/note.svg" alt="メモ">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>管理者としてログインすると、そのストレージシステムに対するすべての権限が自動的に付与されます。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>VSC にストレージシステムを追加するときは、ストレージシステムの IP アドレス、およびそのシステムに関連付けられているユーザ名とパスワードのペアを入力する必要があります。VSC がストレージシステムの検出プロセスで使用するデフォルトクレデンシャルを設定することも、ストレージシステムが検出されたときにクレデンシャルを手動で入力することもできます。VSC に追加されるストレージシステムの詳細は、導入環境で有効にする拡張機能に自動的にプッシュされます。VASA Provider と Storage Replication Adapter （ SRA ）にストレージを手動で追加する必要はありません。VSCとSRAは、クラスタレベルおよびレベルでクレデンシャルの追加をサポートします。VASA Provider は、ストレージシステムを追加するためのクラスタレベルのクレデンシャルのみをサポートします。</p>
+</div>
+<div class="paragraph">
+<p>環境に複数の vCenter Server インスタンスが含まれている場合、ストレージシステムページから VSC にストレージシステムを追加するときに、ストレージシステムを追加する vCenter Server ボックスが表示されます。このボックスで、ストレージシステムを追加する vCenter Server インスタンスを指定できます。データセンター名を右クリックしてストレージシステムを追加する場合は、そのデータセンターにサーバがすでに関連付けられているため、 vCenter Server インスタンスを指定するオプションは表示されません。</p>
+</div>
+<div class="paragraph">
+<p>検出は、次のいずれかの方法で実行されます。いずれの場合も、新たに検出されるすべてのストレージシステムのクレデンシャルを指定する必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>VSC サービスが開始されると、 VSC の自動バックグラウンド検出プロセスが開始されます。</p>
+</li>
+<li>
+<p>ストレージシステムページまたはホスト/データセンターですべて再検出*ボタンをクリックすると、*アクション*メニュー（メニュー：アクション[ NetApp VSC &gt;ホストおよびストレージデータの更新]）からこのボタンを選択できます。概要セクションの [ はじめに ] タブで * 発見 * をクリックすることもできます。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>VSC の機能を使用してタスクを実行するときは、いずれも特定の権限が必要です。ユーザが実行できる操作は、 ONTAP ロールに関連付けられたクレデンシャルに基づいて制限できます。ストレージシステムのユーザ名とパスワードのペアを同じにすれば、複数のユーザで同じストレージシステムのクレデンシャルを共有し、同じ処理を実行することができます。</p>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/ja-jp/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/ja-jp/vsc-vasa-provider-sra-97/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">このページ</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">ご利用規約</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">プライバシー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">クッキー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">クッキーの設定</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">このページに関するフィードバックをお寄せください</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ja-jp/vsc-vasa-provider-sra-97/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ja-jp/vsc-vasa-provider-sra-97/js/prism.js'></script>
+      <script type="text/javascript" src='/ja-jp/vsc-vasa-provider-sra-97/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ja-jp/vsc-vasa-provider-sra-97/js/ie-tabbed-blocks.js'></script>
+    <script src='/ja-jp/vsc-vasa-provider-sra-97/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
