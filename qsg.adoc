@@ -248,8 +248,7 @@ NOTE: VASA Provider は、デフォルトでは有効になっています。VVO
 
 == 追加情報の参照先
 
-* https://www.netapp.com/support-and-training/documentation/ontap-tools-for-vmware-vsphere-documentation/?&access=a["Virtual Storage Console、VASA Provider、Storage Replication Adapter for VMware vSphereのリソースページ"^]
-* https://docs.netapp.com/vapp-97/index.jsp["Virtual Storage Console、VASA Provider、Storage Replication Adapter for VMware vSphereのドキュメント"^]
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere-10/index.html["ONTAP Tools for VMware vSphereのドキュメント"^]
 * https://docs.vmware.com/en/Site-Recovery-Manager/8.2/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html["VMware Site Recovery Manager 8.2"^]
 * https://docs.netapp.com/us-en/ontap/["ONTAP 9 のドキュメント"^]
 
